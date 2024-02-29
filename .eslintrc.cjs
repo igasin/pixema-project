@@ -18,6 +18,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    "no-param-reassign": ["error", { "props": false }],
     "import/prefer-default-export": "off",
     'react-refresh/only-export-components': [
       'warn',
