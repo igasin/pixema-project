@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-// import { ROUTE } from '../../router/routes';
+import { MovieList } from '../../components/MovieList/MovieList';
 import { fetchMovies } from '../../store/features';
-
 import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
+import { StyledBox } from './styles';
 
 export const HomePage = () => {
   const dispatch = useAppDispatch();
@@ -13,16 +13,16 @@ export const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <StyledBox>
       {isLoading && <div>isload....</div>}
 
       {error && <span>{error}</span>}
 
-      {movies && movies?.length > 0 && (
+      {movies?.length > 0 && (
         <ul>
           {movies.map((movie) => <li key={movie.imdbID}>{movie.title}</li>)}
         </ul>
       )}
-    </div>
+    </StyledBox>
   );
 };

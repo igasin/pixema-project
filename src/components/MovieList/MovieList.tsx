@@ -1,17 +1,15 @@
-import React from "react";
-import { Movie } from "../../types";
-import { MovieItem } from "../MovieItem/MovieItem";
+import React from 'react';
+import { Movie } from '../../types';
+import { MovieItem } from '../MovieItem/MovieItem';
+
+import { StyledMovieList } from './styles';
 
 interface MovieListProps {
   movies: Movie[];
 }
 
-export const MovieList = ({ movies }: MovieListProps) => {
-  return (
-    <div>
-      {movies.map((movie) => {
-        return <MovieItem movie={movie} key={movie.imdbID} />;
-      })}
-    </div>
-  );
-};
+export const MovieList = ({ movies }: MovieListProps) => (
+  <StyledMovieList>
+    {movies.map((movie) => <MovieItem movie={movie} key={movie.imdbID} />)}
+  </StyledMovieList>
+);

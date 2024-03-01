@@ -1,13 +1,11 @@
-import { Movie, MovieApi } from "../types/types";
+import { Movie, MovieResponse } from '../types/types';
 
-export const transformMoviesApi = (movies: MovieApi[]): Movie[] => {
-  return movies.map(({ Poster, Title, Type, Year, imdbID }) => {
-    return {
-      poster: Poster,
-      title: Title,
-      type: Type,
-      year: Year,
-      imdbID: imdbID,
-    };
-  });
-};
+export const transformMoviesApi = (response: MovieResponse): Movie[] => response.Search.map(({
+  Title, Year, imdbID, Type, Poster,
+}) => ({
+  title: Title,
+  year: Year,
+  imdbID,
+  type: Type,
+  poster: Poster,
+}));
