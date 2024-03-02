@@ -1,6 +1,6 @@
 import React from 'react';
-import { Movie } from '../../types';
-import { MovieItem } from '../MovieItem/MovieItem';
+import { Movie } from 'types';
+import { MovieItem } from 'components';
 
 import { StyledMovieList } from './styles';
 

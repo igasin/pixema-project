@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { MovieList } from '../../components/MovieList/MovieList';
-import { fetchMovies } from '../../store/features';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
+import { MovieList } from 'components';
+import { fetchMovies, useAppDispatch, useAppSelector } from 'store';
 import { StyledBox } from './styles';
 
 export const HomePage = () => {
@@ -18,11 +17,7 @@ export const HomePage = () => {
 
       {error && <span>{error}</span>}
 
-      {movies?.length > 0 && (
-        <ul>
-          {movies.map((movie) => <li key={movie.imdbID}>{movie.title}</li>)}
-        </ul>
-      )}
+      {movies?.length > 0 && <MovieList movies={movies} />}
     </StyledBox>
   );
 };

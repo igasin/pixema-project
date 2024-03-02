@@ -1,6 +1,6 @@
 import React from 'react';
-import { CloseIcon } from '../../assets';
-import { Portal, PortalTarget } from '../Portal/Portal';
+import { CloseIcon } from 'assets';
+import { Portal, PortalTarget } from 'components/Portal/Portal';
 import {
   StyledCloseButton, StyledForm, StyledTitle, Title,
 } from './styles';

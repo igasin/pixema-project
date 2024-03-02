@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRightIcon, UserIcon } from '../../assets';
+import { ArrowRightIcon, UserIcon } from 'assets';
 import {
   StyledButton,
   StyledText,

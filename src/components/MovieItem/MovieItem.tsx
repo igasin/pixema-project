@@ -1,7 +1,7 @@
 import React from 'react';
 import { generatePath, Link } from 'react-router-dom';
-import { ROUTE } from '../../router/routes';
-import { Movie } from '../../types/types';
+import { ROUTE } from 'router';
+import { Movie } from 'types';
 import {
   MovieBox, MovieCard, MoviePoster, TitleMovie,
 } from './styles';

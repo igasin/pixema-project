@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { ButtonInput } from '../../assets';
-import { Modal } from '../Modal/Modal';
+import { ButtonInput } from 'assets';
+import { Modal } from 'components';
 import { StyledButton, StyledInput, StyledInputForm } from './styles';
 
 export const InputSearch = () => {

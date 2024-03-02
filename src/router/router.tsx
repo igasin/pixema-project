@@ -1,17 +1,19 @@
+import { RequareAuth } from 'components';
+import {
+  FavoritesPage,
+  HomePage,
+  MovieDetailsPage,
+  SearchPage,
+  SettingsPage,
+  SignInPage,
+  TrendsPage,
+} from 'pages';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
 } from 'react-router-dom';
-import { RequareAuth } from '../components/RequareAuth/RequareAuth';
-import { FavoritesPage } from '../pages/FavoritesPage/FavoritesPage';
-import { HomePage } from '../pages/HomePage/HomePage';
-import { MovieDetailsPage } from '../pages/MovieDetailsPage/MovieDetailsPage';
-import { SearchPage } from '../pages/SearchPage/SearchPage';
-import { SettingsPage } from '../pages/SettingPage/SettingsPage';
-import { SignInPage } from '../pages/SignInPage/SignInPage';
-import { TrendsPage } from '../pages/TrendsPage/TrendsPage';
-import { MainTemplate } from '../templates/MainTemplate';
+import { MainTemplate } from 'templates/MainTemplate';
 import { ROUTE } from './routes';
 
 export const router = createBrowserRouter(

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
-import { Movie } from '../../../types';
+import { transformMoviesApi } from 'mappers';
+import { Movie } from 'types';
 
 interface MoviesState {
   movies: Movie[];
@@ -18,17 +19,13 @@ export const fetchMovies = createAsyncThunk<
 Movie[],
 { page: number },
 { rejectValue: string }
->('movies/fetchMovies', async (_, { rejectWithValue }) => {
+>('movies/fetchMovies', async ({ page }, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      'https://www.omdbapi.com/?apikey=d50b311e&s=stars&type=movie&y=2023&page=1',
+      'https://www.omdbapi.com/?i=tt3896198&apikey=d50b311e&s=mars&type=movie&y=2020&page=1',
     );
-    const transformedMovies = data.Search.map((movie) => ({
-      title: movie.Title,
-      imdbID: movie.imdbID,
-      type: movie.Type,
-      poster: movie.Poster,
-    }));
+
+    const transformedMovies = transformMoviesApi(data);
     return transformedMovies;
   } catch (error) {
     const { message } = error as AxiosError;

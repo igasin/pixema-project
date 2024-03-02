@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
-import { ROUTE } from '../../router/routes';
+import { ROUTE } from 'router';
 
-import { CustomLink } from '../CustomLink/CustomLink';
+import { CustomLink } from 'components';
 import {
   BookMarkIcon, FireIcon, HomeIcon, SettingIcon,
-} from '../../assets';
+} from 'assets';
 import {
   StyledIcon,
   StyledLink,

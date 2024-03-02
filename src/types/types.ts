@@ -1,4 +1,4 @@
-export interface MovieApi {
+interface MovieApi {
   Poster: string;
   Title: string;
   Type: string;
@@ -6,10 +6,25 @@ export interface MovieApi {
   imdbID: string;
 }
 
-export interface Movie {
+interface Movie {
   poster: string;
   title: string;
   type: string;
   year: string;
   imdbID: string;
 }
+interface MovieResponse {
+  Search: MovieApi[];
+  totalResults: number;
+  Response: boolean;
+}
+
+interface ResponseData {
+  search: MovieApi[];
+  totalResults: number;
+  response: boolean;
+}
+
+export type {
+  MovieApi, Movie, MovieResponse, ResponseData,
+};

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { GlobalStyles } from './ui/GlobalStyles';
-import { router } from './router/router';
+import { GlobalStyles } from 'ui';
+import { router } from 'router';
 import { store } from './store';
 
 const root = ReactDOM.createRoot(

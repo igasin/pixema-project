@@ -1,4 +1,4 @@
-import { Movie, MovieResponse } from '../types/types';
+import { Movie, MovieResponse } from 'types';
 
 export const transformMoviesApi = (response: MovieResponse): Movie[] => response.Search.map(({
   Title, Year, imdbID, Type, Poster,

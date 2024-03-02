@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
 *{
@@ -9,6 +9,9 @@ const GlobalStyles = createGlobalStyle`
 input {
   border:none;
   }
+
+
+ li {list-style:none} 
 
 body {
   

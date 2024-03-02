@@ -4,6 +4,6 @@ export enum ROUTE {
   Search = 'search',
   Sign_in = 'sign-in',
   Settings = 'settings',
-  Movie_details = 'details/:name',
+  Movie_details = 'details/:imdbID',
   Trends = 'trends',
 }

@@ -1,4 +1,8 @@
 import { store } from './store';
 import { useAppDispatch, useAppSelector } from './hooks/hooks';
 
-export { store, useAppSelector, useAppDispatch };
+import { fetchMovies } from './features/MovieSlice/MovieSlice';
+
+export {
+  store, useAppSelector, useAppDispatch, fetchMovies,
+};

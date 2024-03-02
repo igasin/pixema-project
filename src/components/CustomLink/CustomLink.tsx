@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { useMatch } from 'react-router-dom';
-import { ROUTE } from '../../router/routes';
+import { ROUTE } from 'router';
 import { StyledCustomLink } from './styles';
 
 interface CustomLinkProps {
