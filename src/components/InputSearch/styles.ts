@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledInputForm = styled.form`
-  max-width: 900px;
   position: relative;
 `;
 

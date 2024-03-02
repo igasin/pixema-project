@@ -9,6 +9,8 @@ import { RequareAuth } from './RequareAuth/RequareAuth';
 import { CustomLink } from './CustomLink/CustomLink';
 import { Portal } from './Portal/Portal';
 import { Modal } from './Modal/Modal';
+import { FilterInput } from './FilterInput/FilterInput';
+import { CustomSelect } from './CustomSelect/CustomSelect';
 
 export {
   MovieList,
@@ -22,4 +24,6 @@ export {
   CustomLink,
   Portal,
   Modal,
+  FilterInput,
+  CustomSelect,
 };

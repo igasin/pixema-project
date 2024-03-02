@@ -22,7 +22,7 @@ Movie[],
 >('movies/fetchMovies', async ({ page }, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      'https://www.omdbapi.com/?i=tt3896198&apikey=d50b311e&s=mars&type=movie&y=2020&page=1',
+      'https://www.omdbapi.com/?apikey=d50b311e&s=space&type=movie&y=2020&page=1',
     );
 
     const transformedMovies = transformMoviesApi(data);

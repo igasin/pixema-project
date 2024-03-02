@@ -19,6 +19,7 @@ export const Nav = () => (
     <StyledNavBox>
       <CustomLink to={ROUTE.Home}>
         <HomeIcon />
+        {' '}
         <StyledTitle>Home</StyledTitle>
       </CustomLink>
       <CustomLink to={ROUTE.Trends}>
@@ -29,7 +30,6 @@ export const Nav = () => (
         <FireIcon />
         <StyledTitle>Favorites</StyledTitle>
       </CustomLink>
-
       <CustomLink to={ROUTE.Settings}>
         <SettingIcon />
         <StyledTitle>Settings</StyledTitle>
