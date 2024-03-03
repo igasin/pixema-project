@@ -3,6 +3,7 @@ import moviesReducer from './features/MovieSlice/MovieSlice';
 import filterReducer from './features/FilterSlice/FilterSlice';
 import trendsReducer from './features/TrendsSlice/TrendsSlice';
 import detailsReducer from './features/MovieDetailsSlice/MovieDetailsSlice';
+import userReducer from './features/UserSlice/UserSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     filter: filterReducer,
     trends: trendsReducer,
     details: detailsReducer,
+    user: userReducer,
   },
 });
 

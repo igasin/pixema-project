@@ -4,13 +4,13 @@ import { transformMoviesApi } from 'mappers';
 import { Movie } from 'types';
 
 interface TrendsState {
-  movies: Movie[];
+  trends: Movie[];
   isLoading: boolean;
   error: string | null;
 }
 
 const initialState: TrendsState = {
-  movies: [],
+  trends: [],
   isLoading: false,
   error: null,
 };
@@ -22,7 +22,7 @@ Movie[],
 >('trends/fetchMoviesTrends', async ({ page }, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      'https://www.omdbapi.com/?s=wars&apikey=d50b311e&page=1',
+      'https://www.omdbapi.com/?s=x-men&apikey=d50b311e&page=1',
     );
 
     const transformedMovies = transformMoviesApi(data);
@@ -45,7 +45,7 @@ const trendsSlice = createSlice({
     builder.addCase(fetchMoviesTrends.fulfilled, (state, { payload }) => {
       state.isLoading = false;
       console.log(payload);
-      state.movies = payload;
+      state.trends = payload;
     });
 
     builder.addCase(fetchMoviesTrends.rejected, (state, { payload }) => {

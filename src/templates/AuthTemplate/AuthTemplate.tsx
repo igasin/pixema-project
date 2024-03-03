@@ -13,8 +13,7 @@ export const AuthTemplate = () => (
     </LogoWrap>
     <StyledOutlet>
       <Outlet />
-      <StyledCopyright>2024 pixema</StyledCopyright>
-      {' '}
     </StyledOutlet>
+    <StyledCopyright>2024 Pixema</StyledCopyright>
   </StyledAuth>
 );

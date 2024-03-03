@@ -1,3 +1,4 @@
 import React from 'react';
+import { FormSignUp } from 'components';
 
-export const SignUpPage = () => <div>SugnUpPage</div>;
+export const SignUpPage = () => <FormSignUp />;
