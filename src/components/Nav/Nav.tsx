@@ -1,18 +1,11 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
 import { ROUTE } from 'router';
 
 import { CustomLink } from 'components';
 import {
   BookMarkIcon, FireIcon, HomeIcon, SettingIcon,
 } from 'assets';
-import {
-  StyledIcon,
-  StyledLink,
-  StyledMenu,
-  StyledNavBox,
-  StyledTitle,
-} from './styles';
+import { StyledMenu, StyledNavBox, StyledTitle } from './styles';
 
 export const Nav = () => (
   <StyledMenu>

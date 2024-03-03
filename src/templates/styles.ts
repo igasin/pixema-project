@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Media } from 'ui';
 
 export const StyledTemplate = styled.div`
   padding: 32px 24px 50px;
@@ -6,6 +7,10 @@ export const StyledTemplate = styled.div`
   grid-template-columns: 270px 1fr;
   grid-gap: 50px;
   height: 100vh;
+
+  ${Media.XS} {
+    flex-direction: column;
+  }
 `;
 
 export const StyledBox = styled.div`

@@ -9,17 +9,11 @@ interface SelectProps {
 }
 
 export interface Option {
-  readonly value: OptionType | null;
+  readonly value: OptionType;
   readonly label: string;
 }
 
 type OptionType = 'movie' | 'series' | 'episode';
-
-const options: Option[] = [
-  { value: 'series', label: 'series' },
-  { value: 'movie', label: 'movie' },
-  { value: 'episode', label: 'episode' },
-];
 
 export const CustomSelect = ({ onChange, options, value }: SelectProps) => {
   const handleChange = (option: SingleValue<Option>): void => {

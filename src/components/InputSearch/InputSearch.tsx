@@ -1,8 +1,6 @@
 import { ButtonInput } from 'assets';
-import { Modal } from 'components';
-import { UserProfile } from 'components/UserProfile/UserProfile';
-import React, { useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { StyledButton, StyledInput, StyledInputForm } from './styles';
 
 interface InputProps {
@@ -10,7 +8,7 @@ interface InputProps {
 }
 
 export const InputSearch = ({ toggleModal }: InputProps) => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register } = useForm();
 
   const openModal = () => {
     toggleModal(true);

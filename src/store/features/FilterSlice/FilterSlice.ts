@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 import { transformMoviesApi } from 'mappers';
 import { Movie } from 'types';
-import { Option, OptionType } from 'types/types';
+import { Option } from 'types/types';
 
 interface SortedMovies {
   y: string;
@@ -31,7 +31,7 @@ SortedMovies,
 >('filterMovies/fetchByParameter', async (parameters, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      `https://www.omdbapi.com/?apikey=85b6fcde&s=${parameters}&y=${parameters}&type=${parameters}`,
+      `https://www.omdbapi.com/?apikey=d50b311e&s=${parameters}&y=${parameters}&type=${parameters}`,
     );
 
     const transformedMovies = transformMoviesApi(data);

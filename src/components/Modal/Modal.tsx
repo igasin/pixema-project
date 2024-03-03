@@ -1,7 +1,7 @@
-import React from 'react';
 import { CloseIcon } from 'assets';
 import { CustomSelect, FilterInput } from 'components';
 import { Portal, PortalTarget } from 'components/Portal/Portal';
+import React from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from 'router';
@@ -14,8 +14,6 @@ import {
   StyledButtonShow,
   StyledCloseButton,
   StyledForm,
-  StyledMovieInput,
-  StyledMovieInputYear,
   StyledMovieName,
   StyledMovieTitle,
   StyledMovieTitleYear,

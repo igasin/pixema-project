@@ -1,16 +1,11 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
-
-import {
-  FreeMode, Navigation, Pagination, Scrollbar,
-} from 'swiper/modules';
-
-import { Movie } from 'types';
+import 'swiper/css/bundle';
+import { FreeMode, Navigation, Pagination } from 'swiper/modules';
 import { Slide } from 'components';
 import { useAppSelector } from 'store';
 import { getMovies } from 'store/selectors';
@@ -27,8 +22,8 @@ export const Slider = () => {
         centeredSlides
         navigation
         pagination={{ clickable: true }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => 'slide change'}
+        onSwiper={(swiper) => swiper}
       >
         <SlideContainer>
           {movies.map((movie) => (

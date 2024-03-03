@@ -1,7 +1,11 @@
-import React from 'react';
 import { Button } from 'components';
-import { useForm } from 'react-hook-form';
+import React from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { ROUTE } from 'router';
+import { useAppDispatch, useAppSelector } from 'store';
+import { fetchSignUpUser } from 'store/features/UserSlice/UserSlice';
+import { getUserInfo } from 'store/selectors';
 import {
   ButtonWrap,
   FormWrap,
@@ -18,11 +22,28 @@ import {
   TitleForm,
 } from './styles';
 
+interface UserInfo {
+  email: string;
+  password: string;
+  name: string;
+  confirmPassword: string;
+}
+
 export const FormSignUp = () => {
-  const { register } = useForm();
+  const { register, handleSubmit, reset } = useForm<UserInfo>();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const { errorMessage } = useAppSelector(getUserInfo);
+  const onSubmit: SubmitHandler<UserInfo> = async (user) => {
+    await dispatch(fetchSignUpUser(user)).unwrap();
+    await navigate(ROUTE.Home);
+    await reset();
+  };
+
   return (
     <FormWrap>
-      <StyledForm>
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <TitleForm>Sign Up</TitleForm>
 
         <InputBox>
@@ -50,12 +71,13 @@ export const FormSignUp = () => {
             {...register('confirmPassword')}
           />
         </InputBox>
-
+        {errorMessage && <span>{errorMessage}</span>}
         <ButtonWrap>
           <Button type="submit">Sign up</Button>
         </ButtonWrap>
         <SignUpLink>
           <SignUpTitle>Already have an account?</SignUpTitle>
+
           <StyledLink to={ROUTE.SIGN_IN}>Sign In</StyledLink>
         </SignUpLink>
       </StyledForm>

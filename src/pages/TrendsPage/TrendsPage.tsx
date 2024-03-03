@@ -7,6 +7,7 @@ import { StyledTrends } from './styles';
 
 export const TrendsPage = () => {
   const dispatch = useAppDispatch();
+
   const { trends, isLoading, error } = useAppSelector(getMoviesTrends);
 
   useEffect(() => {

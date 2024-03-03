@@ -1,17 +1,16 @@
 import { MovieList } from 'components';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { fetchMovies, useAppDispatch, useAppSelector } from 'store';
+import { getMovies } from 'store/selectors';
 import { StyledBox } from './styles';
 
 export const HomePage = () => {
   const dispatch = useAppDispatch();
-  const { isLoading, movies, error } = useAppSelector((state) => state.movies);
+  const { isLoading, movies, error } = useAppSelector(getMovies);
 
   useEffect(() => {
     dispatch(fetchMovies({ page: 1 }));
   }, [dispatch]);
-
-  console.log(movies);
 
   return (
     <StyledBox>

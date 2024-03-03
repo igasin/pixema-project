@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Media } from 'ui';
 
 export const StyledInputForm = styled.form`
   position: relative;
@@ -9,6 +10,9 @@ export const StyledInput = styled.input`
   width: 900px;
   padding: 20px 15px;
   border-radius: 10px;
+  ${Media.M} {
+    width: 360px;
+  }
 `;
 
 export const StyledButton = styled.button`

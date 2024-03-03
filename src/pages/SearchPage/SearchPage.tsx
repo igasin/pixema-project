@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
 import { MovieList } from 'components';
+import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { fetchMoviesByParameter } from 'store/features';
 import { getMoviesByFilters } from 'store/selectors';
@@ -14,7 +14,7 @@ export const SearchPage = () => {
 
   useEffect(() => {
     if (parameters.s || parameters.y || parameters.type) dispatch(fetchMoviesByParameter(parameters));
-  }, [parameters]);
+  }, [dispatch, parameters]);
 
   return (
     <div>

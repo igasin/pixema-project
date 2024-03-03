@@ -1,18 +1,20 @@
 import styled from 'styled-components';
+import { Media } from 'ui';
 
 export const StyledMovieList = styled.ul`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  place-items: center;
   gap: 30px;
 
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(3, 1fr);
+  ${Media.L} {
+    grid-template-columns: repeat(3, minmax(200px, 300px));
+    grid-gap: 10px;
+    justify-self: start;
   }
 
-  @media (max-width: 900px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 600px) {
-    grid-template-columns: repeat(1, 1fr);
+  ${Media.XS} {
+    grid-template-columns: 1fr;
+    justify-self: start;
   }
 `;

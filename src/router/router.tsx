@@ -1,4 +1,3 @@
-import { RequareAuth } from 'components';
 import {
   FavoritesPage,
   HomePage,

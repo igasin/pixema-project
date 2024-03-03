@@ -1,7 +1,5 @@
 import { Slider } from 'components';
 import React from 'react';
-import { useAppSelector } from 'store';
-import { getDetailsMovie, getMovies } from 'store/selectors';
 import { MovieDetailsInfo } from 'types';
 
 import {
@@ -31,8 +29,6 @@ interface DetailsProps {
 }
 
 export const MovieDetails = ({ details }: DetailsProps) => {
-  const { isLoading, error } = useAppSelector(getDetailsMovie);
-
   const {
     poster,
     title,

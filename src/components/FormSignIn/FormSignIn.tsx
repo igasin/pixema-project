@@ -18,7 +18,7 @@ import {
 } from './styles';
 
 export const FormSignIn = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register } = useForm();
   return (
     <FormWrap>
       <StyledForm>
