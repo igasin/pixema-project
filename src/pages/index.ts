@@ -6,6 +6,8 @@ import { SearchPage } from './SearchPage/SearchPage';
 import { SettingsPage } from './SettingPage/SettingsPage';
 import { SignInPage } from './SignInPage/SignInPage';
 import { TrendsPage } from './TrendsPage/TrendsPage';
+import { SignUpPage } from './SignUpPage/SignUpPage';
+import { ResetPasswordPage } from './ResetPasswordPage/ResetPasswordPage';
 
 export {
   FavoritesPage,
@@ -16,4 +18,6 @@ export {
   SettingsPage,
   SignInPage,
   TrendsPage,
+  SignUpPage,
+  ResetPasswordPage,
 };

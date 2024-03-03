@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
 import { MovieList } from 'components';
+import React, { useEffect, useState } from 'react';
 import { fetchMovies, useAppDispatch, useAppSelector } from 'store';
 import { StyledBox } from './styles';
 
@@ -10,6 +10,8 @@ export const HomePage = () => {
   useEffect(() => {
     dispatch(fetchMovies({ page: 1 }));
   }, [dispatch]);
+
+  console.log(movies);
 
   return (
     <StyledBox>

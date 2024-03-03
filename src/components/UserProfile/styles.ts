@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Colors, Typography } from 'ui';
 
 export const StyledUser = styled.div`
   max-width: 260px;
@@ -14,9 +16,12 @@ export const StyledButton = styled.button`
   background-color: transparent;
 `;
 
-export const UserTextContainer = styled.div``;
+export const UserTextContainer = styled(Link)``;
 
-export const StyledText = styled.p``;
+export const StyledText = styled.p`
+  ${Typography.H3}
+  color: ${Colors.WHITE}
+`;
 
 export const StyledUserIcon = styled.button`
   width: 56px;

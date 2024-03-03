@@ -1,5 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
 import { StyledFilterInput } from './styles';
 
-// eslint-disable-next-line max-len
-export const FilterInput = (props: InputHTMLAttributes<HTMLInputElement>) => <StyledFilterInput {...props} />;
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+export const FilterInput = ({ type, placeholder, ...rest }: InputProps) => <StyledFilterInput type={type} placeholder={placeholder} {...rest} />;

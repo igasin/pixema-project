@@ -2,7 +2,12 @@ import React from 'react';
 import { CloseIcon } from 'assets';
 import { CustomSelect, FilterInput } from 'components';
 import { Portal, PortalTarget } from 'components/Portal/Portal';
-import { Controller, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { ROUTE } from 'router';
+import { useAppDispatch } from 'store';
+import { setMovieTitle, setMovieType, setMovieYear } from 'store/features';
+
 import {
   StyledButtonBox,
   StyledButtonClear,
@@ -33,6 +38,12 @@ export interface Option {
 
 type OptionType = 'movie' | 'series' | 'episode';
 
+interface FormValues {
+  s: string;
+  y: string;
+  type: Option;
+}
+
 const options: Option[] = [
   { value: 'series', label: 'series' },
   { value: 'movie', label: 'movie' },
@@ -43,11 +54,22 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
   const closeModal = () => {
     toggleModal(false);
   };
-  const { control, handleSubmit, reset } = useForm();
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const onSubmit: SubmitHandler<FormValues> = (filter) => {
+    navigate(ROUTE.Search);
+    dispatch(setMovieTitle(filter.s));
+    dispatch(setMovieYear(filter.y));
+    dispatch(setMovieType(filter.type));
+  };
+
+  const { control, handleSubmit, reset } = useForm<FormValues>();
   return (
     <Portal target={PortalTarget.MODAL}>
       {isOpen && (
-        <StyledForm>
+        <StyledForm onSubmit={handleSubmit(onSubmit)}>
           <StyledTitle>
             <Title>Filters</Title>
             <StyledCloseButton>
@@ -57,18 +79,14 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
           <StyledMovieName>
             <StyledMovieTitle>Full or short movie name</StyledMovieTitle>
             <Controller
+              defaultValue=""
               control={control}
               name="s"
               rules={{
                 required: 'title is required',
               }}
-              render={({ field: { onChange, value } }) => (
-                <FilterInput
-                  onChange={onChange}
-                  value={value}
-                  placeholder="Enter title"
-                  type="text"
-                />
+              render={({ field: { ref, ...rest } }) => (
+                <FilterInput {...rest} placeholder="Enter title" type="text" />
               )}
             />
           </StyledMovieName>
@@ -76,18 +94,14 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
           <StyledMovieYear>
             <StyledMovieTitleYear>Years</StyledMovieTitleYear>
             <Controller
+              defaultValue=""
               control={control}
               name="y"
               rules={{
                 required: 'year is required',
               }}
-              render={({ field: { onChange, value } }) => (
-                <FilterInput
-                  onChange={onChange}
-                  value={value}
-                  placeholder="Year"
-                  type="text"
-                />
+              render={({ field: { ref, ...rest } }) => (
+                <FilterInput {...rest} placeholder="Year" type="text" />
               )}
             />
           </StyledMovieYear>
@@ -108,7 +122,7 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
           </StyledSelect>
           <StyledButtonBox>
             <StyledButtonClear>Clear Filter</StyledButtonClear>
-            <StyledButtonShow>Show results</StyledButtonShow>
+            <StyledButtonShow type="submit">Show results</StyledButtonShow>
           </StyledButtonBox>
         </StyledForm>
       )}

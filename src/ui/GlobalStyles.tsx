@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+import { Colors } from './colors';
+
 const GlobalStyles = createGlobalStyle`
 *{
  padding: 0;
@@ -14,7 +16,7 @@ input {
  li {list-style:none} 
 
 body {
-  
+  background-color:${Colors.GRAPHITE}
 }
 
 button {

@@ -1,5 +1,7 @@
-import React from 'react';
 import { ArrowRightIcon, UserIcon } from 'assets';
+import React from 'react';
+import { generatePath } from 'react-router-dom';
+import { ROUTE } from 'router';
 import {
   StyledButton,
   StyledText,
@@ -14,7 +16,7 @@ export const UserProfile = () => (
       <UserIcon />
     </StyledUserIcon>
 
-    <UserTextContainer>
+    <UserTextContainer to={ROUTE.SIGN_IN}>
       <StyledText>Sign In</StyledText>
     </UserTextContainer>
 

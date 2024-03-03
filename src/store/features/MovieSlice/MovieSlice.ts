@@ -22,7 +22,7 @@ Movie[],
 >('movies/fetchMovies', async ({ page }, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      'https://www.omdbapi.com/?apikey=d50b311e&s=space&type=movie&y=2020&page=1',
+      'http://www.omdbapi.com/?s=mad&apikey=d50b311e',
     );
 
     const transformedMovies = transformMoviesApi(data);
@@ -44,6 +44,7 @@ const moviesSlice = createSlice({
     });
     builder.addCase(fetchMovies.fulfilled, (state, { payload }) => {
       state.isLoading = false;
+      console.log(payload);
       state.movies = payload;
     });
 
@@ -58,5 +59,5 @@ const moviesSlice = createSlice({
 
 export default moviesSlice.reducer;
 
-// http://www.omdbapi.com/?apikey=[yourkey]&
-// apikey=d50b311e
+// // http://www.omdbapi.com/?apikey=[yourkey]&
+// // apikey=d50b311e

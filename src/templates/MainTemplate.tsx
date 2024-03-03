@@ -1,10 +1,12 @@
 import React from 'react';
 import { MainLogo } from 'assets';
 import {
-  Header, InputSearch, Nav, UserProfile,
+  Header, InputSearch, Modal, Nav, UserProfile,
 } from 'components';
+import { useToggle } from 'hooks';
 import { Outlet } from 'react-router-dom';
 import {
+  OutletBox,
   StyledBox,
   StyledHeaderGroup,
   StyledLogo,
@@ -12,22 +14,30 @@ import {
   StyledTemplate,
 } from './styles';
 
-export const MainTemplate = () => (
-  <StyledTemplate>
-    <StyledNavBox>
-      <StyledLogo>
-        <MainLogo />
-      </StyledLogo>
-      <Nav />
-    </StyledNavBox>
+export const MainTemplate = () => {
+  const [isOpen, toggleModal] = useToggle();
 
-    <StyledBox>
-      <StyledHeaderGroup>
-        <InputSearch />
-        <UserProfile />
-      </StyledHeaderGroup>
+  return (
+    <StyledTemplate>
+      <StyledNavBox>
+        <StyledLogo>
+          <MainLogo width={160} />
+        </StyledLogo>
+        <Nav />
+      </StyledNavBox>
 
-      <Outlet />
-    </StyledBox>
-  </StyledTemplate>
-);
+      <StyledBox>
+        <StyledHeaderGroup>
+          <InputSearch toggleModal={toggleModal} />
+          <UserProfile />
+        </StyledHeaderGroup>
+
+        <OutletBox>
+          <Outlet />
+        </OutletBox>
+
+        <Modal isOpen={isOpen} toggleModal={toggleModal} />
+      </StyledBox>
+    </StyledTemplate>
+  );
+};

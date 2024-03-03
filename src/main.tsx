@@ -1,8 +1,8 @@
 import React from 'react';
+import { GlobalStyles } from 'ui';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { GlobalStyles } from 'ui';
 import { router } from 'router';
 import { store } from './store';
 

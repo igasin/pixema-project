@@ -10,6 +10,7 @@ import UserIcon from './icons/user-profile.svg?react';
 import ArrowRightIcon from './icons/arrow-right.svg?react';
 import ArrowDownIcon from './icons/arrow-down.svg?react';
 import CloseIcon from './icons/close-cross.svg?react';
+import BackgroundImage from './image/background-image.png';
 
 export {
   HomeIcon,
@@ -22,4 +23,5 @@ export {
   ArrowRightIcon,
   ArrowDownIcon,
   CloseIcon,
+  BackgroundImage,
 };

@@ -54,7 +54,6 @@ const S3 = css`
   font-size: 16px;
   font-weight: 600px;
   line-height: 24px;
-  color: ${Colors.GRAPHITE};
 `;
 
 const B1 = css`

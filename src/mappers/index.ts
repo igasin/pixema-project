@@ -1,3 +1,4 @@
 import { transformMoviesApi } from './transformMovieApi';
+import { transformDetailsMovies } from './transformDetailsMovie';
 
-export { transformMoviesApi };
+export { transformMoviesApi, transformDetailsMovies };
