@@ -63,6 +63,7 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
     dispatch(setMovieTitle(filter.s));
     dispatch(setMovieYear(filter.y));
     dispatch(setMovieType(filter.type));
+    reset();
   };
 
   const { control, handleSubmit, reset } = useForm<FormValues>();

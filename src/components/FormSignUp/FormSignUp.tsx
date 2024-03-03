@@ -1,12 +1,14 @@
-import { Button } from 'components';
 import React from 'react';
+import { Button } from 'components';
 import { useForm } from 'react-hook-form';
 import { ROUTE } from 'router';
 import {
   ButtonWrap,
   FormWrap,
   InputBox,
+  InputConfirmPassword,
   InputEmail,
+  InputName,
   InputPassword,
   InputTitle,
   SignUpLink,
@@ -14,15 +16,19 @@ import {
   StyledForm,
   StyledLink,
   TitleForm,
-  TitleResetPassword,
 } from './styles';
 
-export const FormSignIn = () => {
-  const { register, handleSubmit, reset } = useForm();
+export const FormSignUp = () => {
+  const { register } = useForm();
   return (
     <FormWrap>
       <StyledForm>
-        <TitleForm>Sign In</TitleForm>
+        <TitleForm>Sign Up</TitleForm>
+
+        <InputBox>
+          <InputTitle>Name</InputTitle>
+          <InputName placeholder="Name" {...register('name')} />
+        </InputBox>
 
         <InputBox>
           <InputTitle>Email</InputTitle>
@@ -35,16 +41,22 @@ export const FormSignIn = () => {
             placeholder="Your password"
             {...register('password')}
           />
-          <TitleResetPassword to={ROUTE.RESET_PASSWORD}>
-            Forgot password?
-          </TitleResetPassword>
         </InputBox>
+
+        <InputBox>
+          <InputTitle>Confirm Password</InputTitle>
+          <InputConfirmPassword
+            placeholder="Confirm Password"
+            {...register('confirmPassword')}
+          />
+        </InputBox>
+
         <ButtonWrap>
-          <Button type="submit">Sign in</Button>
+          <Button type="submit">Sign up</Button>
         </ButtonWrap>
         <SignUpLink>
-          <SignUpTitle>Don’t have an account? </SignUpTitle>
-          <StyledLink to={ROUTE.SIGN_UP}>Sign Up</StyledLink>
+          <SignUpTitle>Already have an account?</SignUpTitle>
+          <StyledLink to={ROUTE.SIGN_IN}>Sign In</StyledLink>
         </SignUpLink>
       </StyledForm>
     </FormWrap>

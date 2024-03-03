@@ -16,6 +16,8 @@ import { Slider } from './Slider/Slider';
 import { Slide } from './Slide/Slide';
 import { FormSignIn } from './FormSignIn/FormSignIn';
 import { Button } from './Button/Button';
+import { FormSignUp } from './FormSignUp/FormSignUp';
+import { FormReset } from './FormReset/FormReset';
 
 export {
   MovieList,
@@ -36,4 +38,6 @@ export {
   Slide,
   FormSignIn,
   Button,
+  FormSignUp,
+  FormReset,
 };

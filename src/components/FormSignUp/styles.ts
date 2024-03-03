@@ -56,11 +56,25 @@ export const InputPassword = styled.input`
     color: ${Colors.SECONDARY};
   }
 `;
-
-export const TitleResetPassword = styled(Link)`
-  ${Typography.S2}
-  color:${Colors.SECONDARY};
-  text-decoration: none;
+export const InputName = styled.input`
+  width: 490px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  background-color: ${Colors.GRAPHITE};
+  &-placholder {
+    ${Typography.S2};
+    color: ${Colors.SECONDARY};
+  }
+`;
+export const InputConfirmPassword = styled.input`
+  width: 490px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  background-color: ${Colors.GRAPHITE};
+  &-placholder {
+    ${Typography.S2};
+    color: ${Colors.SECONDARY};
+  }
 `;
 
 export const ButtonWrap = styled.div`
