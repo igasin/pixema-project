@@ -1,4 +1,4 @@
-import { fetchMovies } from './MovieSlice/MovieSlice';
+import { fetchMovies, nextMoviePage, fetchNextPageMovies } from './MovieSlice/MovieSlice';
 import {
   fetchMoviesByParameter, setMovieTitle, setMovieType, setMovieYear,
 } from './FilterSlice/FilterSlice';
@@ -14,4 +14,6 @@ export {
   setMovieTitle,
   setMovieType,
   setMovieYear,
+  nextMoviePage,
+  fetchNextPageMovies,
 };

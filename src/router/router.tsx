@@ -10,11 +10,7 @@ import {
   TrendsPage,
 } from 'pages';
 
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-} from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, Route } from 'react-router-dom';
 import { AuthTemplate } from 'templates/AuthTemplate/AuthTemplate';
 import { MainTemplate } from 'templates/MainTemplate';
 import { ROUTE } from './routes';
@@ -28,15 +24,12 @@ export const router = createBrowserRouter(
 
         <Route path={ROUTE.Settings} element={<SettingsPage />} />
         <Route path={ROUTE.Trends} element={<TrendsPage />} />
-        <Route
-          path={ROUTE.Movie_details}
-          element={<MovieDetailsPage />}
-        />
+        <Route path={ROUTE.Movie_details} element={<MovieDetailsPage />} />
       </Route>
-      <Route path={ROUTE.AUTH} element={<AuthTemplate />}>
-        <Route path={ROUTE.SIGN_IN} element={<SignInPage />} />
-        <Route path={ROUTE.SIGN_UP} element={<SignUpPage />} />
-        <Route path={ROUTE.RESET_PASSWORD} element={<ResetPasswordPage />} />
+      <Route path={ROUTE.Auth} element={<AuthTemplate />}>
+        <Route path={ROUTE.Sign_in} element={<SignInPage />} />
+        <Route path={ROUTE.Sign_up} element={<SignUpPage />} />
+        <Route path={ROUTE.Reset_password} element={<ResetPasswordPage />} />
       </Route>
       <Route path={ROUTE.Favorites} element={<FavoritesPage />} />
     </>,

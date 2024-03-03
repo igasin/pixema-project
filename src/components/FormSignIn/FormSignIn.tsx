@@ -31,20 +31,15 @@ export const FormSignIn = () => {
 
         <InputBox>
           <InputTitle>Password</InputTitle>
-          <InputPassword
-            placeholder="Your password"
-            {...register('password')}
-          />
-          <TitleResetPassword to={ROUTE.RESET_PASSWORD}>
-            Forgot password?
-          </TitleResetPassword>
+          <InputPassword placeholder="Your password" {...register('password')} />
+          <TitleResetPassword to={ROUTE.Reset_password}>Forgot password?</TitleResetPassword>
         </InputBox>
         <ButtonWrap>
           <Button type="submit">Sign in</Button>
         </ButtonWrap>
         <SignUpLink>
           <SignUpTitle>Don’t have an account? </SignUpTitle>
-          <StyledLink to={ROUTE.SIGN_UP}>Sign Up</StyledLink>
+          <StyledLink to={ROUTE.Sign_up}>Sign Up</StyledLink>
         </SignUpLink>
       </StyledForm>
     </FormWrap>

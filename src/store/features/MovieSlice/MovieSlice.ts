@@ -7,23 +7,31 @@ interface MoviesState {
   movies: Movie[];
   isLoading: boolean;
   error: string | null;
+  page: number;
 }
 
-const initialState: MoviesState = {
-  movies: [],
-  isLoading: false,
-  error: null,
-};
+export const fetchMovies = createAsyncThunk<Movie[], { page: number }, { rejectValue: string }>(
+  'movies/fetchMovies',
+  async ({ page }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get('http://www.omdbapi.com/?s=life&apikey=85b6fcde&');
 
-export const fetchMovies = createAsyncThunk<
+      const transformedMovies = transformMoviesApi(data);
+      return transformedMovies;
+    } catch (error) {
+      const { message } = error as AxiosError;
+      return rejectWithValue(message);
+    }
+  },
+);
+
+export const fetchNextPageMovies = createAsyncThunk<
 Movie[],
 { page: number },
 { rejectValue: string }
->('movies/fetchMovies', async ({ page }, { rejectWithValue }) => {
+>('movies/fetchNextPageMovies', async ({ page }, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(
-      'http://www.omdbapi.com/?s=mad&apikey=d50b311e',
-    );
+    const { data } = await axios.get(`http://www.omdbapi.com/?s=life&apikey=d50b311e&page=${page}`);
 
     const transformedMovies = transformMoviesApi(data);
     return transformedMovies;
@@ -33,10 +41,21 @@ Movie[],
   }
 });
 
+const initialState: MoviesState = {
+  movies: [],
+  isLoading: false,
+  error: null,
+  page: 1,
+};
+
 const moviesSlice = createSlice({
   name: 'movies',
   initialState,
-  reducers: {},
+  reducers: {
+    nextMoviePage(state, { payload }) {
+      payload ? (state.page += 1) : (state.page = 1);
+    },
+  },
   extraReducers(builder) {
     builder.addCase(fetchMovies.pending, (state) => {
       state.isLoading = true;
@@ -44,7 +63,6 @@ const moviesSlice = createSlice({
     });
     builder.addCase(fetchMovies.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      console.log(payload);
       state.movies = payload;
     });
 
@@ -54,8 +72,24 @@ const moviesSlice = createSlice({
         state.error = payload;
       }
     });
+    builder.addCase(fetchNextPageMovies.pending, (state) => {
+      state.isLoading = true;
+      state.error = null;
+    });
+    builder.addCase(fetchNextPageMovies.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      state.movies = [...state.movies, ...payload];
+      state.error = null;
+    });
+    builder.addCase(fetchNextPageMovies.rejected, (state, { payload }) => {
+      if (payload) {
+        state.isLoading = false;
+        state.error = payload;
+      }
+    });
   },
 });
+export const { nextMoviePage } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
 

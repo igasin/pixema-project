@@ -23,9 +23,9 @@ export const selectStyles: StylesConfig<Option> = {
     display: 'grid',
     placeItems: 'center',
     backgroundColor: state.isSelected
-      ? 'rgba(123, 97, 255, 1)'
+      ? 'rgba( 123 , 97, 255, 1 )'
       : state.isFocused
-        ? 'rgba(205, 209, 228, 1)'
+        ? 'rgba ( 205 , 209, 228, 1 )'
         : 'transparent',
   }),
 };

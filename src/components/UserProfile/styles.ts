@@ -3,11 +3,9 @@ import styled from 'styled-components';
 import { Colors, Typography } from 'ui';
 
 export const StyledUser = styled.div`
-  max-width: 260px;
-  display: grid;
-  grid-template-columns: 60px 1fr 40px;
-  align-items: center;
-  grid-gap: 30px;
+  max-width: 250px;
+  display: flex;
+  grid-gap: 10px;
 `;
 
 export const UserContainer = styled.div``;
@@ -16,7 +14,11 @@ export const StyledButton = styled.button`
   background-color: transparent;
 `;
 
-export const UserTextContainer = styled(Link)``;
+export const UserTextContainer = styled(Link)`
+  padding: 15px 0;
+  width: 100px;
+  margin-left: 10px;
+`;
 
 export const StyledText = styled.p`
   ${Typography.H3}

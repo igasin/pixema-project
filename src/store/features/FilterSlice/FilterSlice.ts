@@ -31,7 +31,7 @@ SortedMovies,
 >('filterMovies/fetchByParameter', async (parameters, { rejectWithValue }) => {
   try {
     const { data } = await axios.get(
-      `https://www.omdbapi.com/?apikey=d50b311e&s=${parameters}&y=${parameters}&type=${parameters}`,
+      `https://www.omdbapi.com/?apikey=d50b311e&s=${parameters.s}&y=${parameters.y}`,
     );
 
     const transformedMovies = transformMoviesApi(data);

@@ -1,39 +1,31 @@
-import { MainLogo } from 'assets';
-import {
-  InputSearch, Modal, Nav, UserProfile,
-} from 'components';
-import { useToggle } from 'hooks';
-import React from 'react';
+import { InputSearch, Modal, Nav } from 'components';
+import { useToggle, useWindowSize } from 'hooks';
+import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { useAppSelector } from 'store';
+import { getTheme } from 'store/selectors';
 import {
-  OutletBox,
-  StyledBox,
-  StyledHeaderGroup,
-  StyledLogo,
-  StyledNavBox,
-  StyledTemplate,
+  OutletBox, StyledBox, StyledHeaderGroup, StyledTemplate,
 } from './styles';
 
 export const MainTemplate = () => {
+  const { theme } = useAppSelector(getTheme);
   const [isOpen, toggleModal] = useToggle();
+  const { width = 0 } = useWindowSize();
+
+  useEffect(() => {
+    document.documentElement.setAttribute('theme', theme);
+  }, [theme]);
 
   return (
     <StyledTemplate>
-      <StyledNavBox>
-        <StyledLogo>
-          <MainLogo width={160} />
-        </StyledLogo>
-
-        <Nav />
-      </StyledNavBox>
-
       <StyledBox>
         <StyledHeaderGroup>
           <InputSearch toggleModal={toggleModal} />
-          <UserProfile />
         </StyledHeaderGroup>
 
         <OutletBox>
+          {width > 900 && <Nav />}
           <Outlet />
         </OutletBox>
 

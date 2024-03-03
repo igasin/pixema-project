@@ -1,7 +1,6 @@
 import { MovieList } from './MovieList/MovieList';
 import { MovieItem } from './MovieItem/MovieItem';
 import { UserProfile } from './UserProfile/UserProfile';
-import { Header } from './Header/Header';
 import { InputSearch } from './InputSearch/InputSearch';
 import { Menu } from './Menu/Menu';
 import { Nav } from './Nav/Nav';
@@ -23,7 +22,6 @@ export {
   MovieList,
   MovieItem,
   UserProfile,
-  Header,
   InputSearch,
   Menu,
   Nav,

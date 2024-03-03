@@ -58,18 +58,12 @@ export const FormSignUp = () => {
 
         <InputBox>
           <InputTitle>Password</InputTitle>
-          <InputPassword
-            placeholder="Your password"
-            {...register('password')}
-          />
+          <InputPassword placeholder="Your password" {...register('password')} />
         </InputBox>
 
         <InputBox>
           <InputTitle>Confirm Password</InputTitle>
-          <InputConfirmPassword
-            placeholder="Confirm Password"
-            {...register('confirmPassword')}
-          />
+          <InputConfirmPassword placeholder="Confirm Password" {...register('confirmPassword')} />
         </InputBox>
         {errorMessage && <span>{errorMessage}</span>}
         <ButtonWrap>
@@ -78,7 +72,7 @@ export const FormSignUp = () => {
         <SignUpLink>
           <SignUpTitle>Already have an account?</SignUpTitle>
 
-          <StyledLink to={ROUTE.SIGN_IN}>Sign In</StyledLink>
+          <StyledLink to={ROUTE.Sign_in}>Sign In</StyledLink>
         </SignUpLink>
       </StyledForm>
     </FormWrap>

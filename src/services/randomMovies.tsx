@@ -1,16 +1,14 @@
-import axios from 'axios';
-
 const randomMovies = [
-  'Mars',
-  'Space',
+  'Batman',
+  'Love',
   'Wars',
   'Marvel',
   'Oscar',
   'Man',
-  'Love',
-  'Car',
-  'Life',
+  'Mother',
   'City',
+  'Adventure',
+  'Life',
 ];
 
 const getRandomMovie = (randomMovies: string[]) => {

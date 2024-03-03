@@ -2,11 +2,7 @@ import { ArrowRightIcon, UserIcon } from 'assets';
 import React from 'react';
 import { ROUTE } from 'router';
 import {
-  StyledButton,
-  StyledText,
-  StyledUser,
-  StyledUserIcon,
-  UserTextContainer,
+  StyledText, StyledUser, StyledUserIcon, UserTextContainer,
 } from './styles';
 
 export const UserProfile = () => (
@@ -15,12 +11,10 @@ export const UserProfile = () => (
       <UserIcon />
     </StyledUserIcon>
 
-    <UserTextContainer to={ROUTE.SIGN_IN}>
+    <UserTextContainer to={ROUTE.Sign_in}>
       <StyledText>Sign In</StyledText>
     </UserTextContainer>
 
-    <StyledButton>
-      <ArrowRightIcon />
-    </StyledButton>
+    <ArrowRightIcon />
   </StyledUser>
 );

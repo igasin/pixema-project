@@ -119,6 +119,7 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
               )}
             />
           </StyledSelect>
+
           <StyledButtonBox>
             <StyledButtonClear>Clear Filter</StyledButtonClear>
             <StyledButtonShow type="submit">Show results</StyledButtonShow>

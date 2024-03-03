@@ -5,8 +5,8 @@ export enum ROUTE {
   Settings = 'settings',
   Movie_details = 'details/:imdbID',
   Trends = 'trends',
-  AUTH = '/',
-  SIGN_IN = '/sign-in',
-  SIGN_UP = '/sign-up',
-  RESET_PASSWORD = '/reset-password',
+  Auth = '/',
+  Sign_in = '/sign-in',
+  Sign_up = '/sign-up',
+  Reset_password = '/reset-password',
 }

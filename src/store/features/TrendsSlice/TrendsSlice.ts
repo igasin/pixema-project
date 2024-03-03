@@ -21,9 +21,7 @@ Movie[],
 { rejectValue: string }
 >('trends/fetchMoviesTrends', async ({ page }, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(
-      'https://www.omdbapi.com/?s=x-men&apikey=d50b311e&page=1',
-    );
+    const { data } = await axios.get('https://www.omdbapi.com/?s=woman&apikey=d50b311e&page=1');
 
     const transformedMovies = transformMoviesApi(data);
     return transformedMovies;
@@ -44,7 +42,6 @@ const trendsSlice = createSlice({
     });
     builder.addCase(fetchMoviesTrends.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      console.log(payload);
       state.trends = payload;
     });
 
