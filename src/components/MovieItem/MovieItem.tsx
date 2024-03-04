@@ -11,12 +11,16 @@ interface MovieItemProps {
 }
 
 export const MovieItem = ({ movie }: MovieItemProps) => (
-  <MovieBox>
-    <MovieCard>
-      <MoviePoster src={movie.poster} />
-      <Link to={generatePath(ROUTE.Movie_details, { imdbID: movie.imdbID })}>
-        <TitleMovie>{movie.title}</TitleMovie>
-      </Link>
-    </MovieCard>
-  </MovieBox>
+  <Link to={generatePath(ROUTE.Movie_details, { imdbID: movie.imdbID })}>
+    <MovieBox>
+      <MovieCard>
+        <MoviePoster src={movie.poster} />
+        <TitleMovie>
+          {movie.title}
+          {' '}
+          {movie.year}
+        </TitleMovie>
+      </MovieCard>
+    </MovieBox>
+  </Link>
 );

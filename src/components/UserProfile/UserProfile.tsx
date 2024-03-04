@@ -1,20 +1,32 @@
 import { ArrowRightIcon, UserIcon } from 'assets';
+import { CustomLink } from 'components';
 import React from 'react';
 import { ROUTE } from 'router';
+import { useAppSelector } from 'store';
+import { getUserInfo } from 'store/selectors';
 import {
-  StyledText, StyledUser, StyledUserIcon, UserTextContainer,
+  StyledText, StyledUser, StyledUserIcon, UserNav, UserTextContainer,
 } from './styles';
 
-export const UserProfile = () => (
-  <StyledUser>
-    <StyledUserIcon>
-      <UserIcon />
-    </StyledUserIcon>
+export const UserProfile = () => {
+  const { isAuth } = useAppSelector(getUserInfo);
+  return (
+    <StyledUser>
+      <StyledUserIcon>
+        <UserIcon />
+      </StyledUserIcon>
 
-    <UserTextContainer to={ROUTE.Sign_in}>
-      <StyledText>Sign In</StyledText>
-    </UserTextContainer>
-
-    <ArrowRightIcon />
-  </StyledUser>
-);
+      <UserNav>
+        {isAuth ? (
+          <CustomLink to={ROUTE.Settings}>
+            <StyledText>Edit Profile</StyledText>
+          </CustomLink>
+        ) : (
+          <CustomLink to={ROUTE.Sign_in}>
+            <StyledText>Sign in</StyledText>
+          </CustomLink>
+        )}
+      </UserNav>
+    </StyledUser>
+  );
+};

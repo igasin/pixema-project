@@ -17,6 +17,8 @@ import { FormSignIn } from './FormSignIn/FormSignIn';
 import { Button } from './Button/Button';
 import { FormSignUp } from './FormSignUp/FormSignUp';
 import { FormReset } from './FormReset/FormReset';
+import { Loader } from './Loader/Loader';
+import { LoaderMoreFilms } from './LoaderMoreFilms/LoaderMoreFilms';
 
 export {
   MovieList,
@@ -38,4 +40,6 @@ export {
   Button,
   FormSignUp,
   FormReset,
+  Loader,
+  LoaderMoreFilms,
 };

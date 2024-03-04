@@ -20,14 +20,20 @@ export const UserTextContainer = styled(Link)`
   margin-left: 10px;
 `;
 
-export const StyledText = styled.p`
-  ${Typography.H3}
-  color: ${Colors.WHITE}
-`;
-
 export const StyledUserIcon = styled.button`
   width: 56px;
   height: 56px;
   border-radius: 10px;
   background-color: #7b61ff;
+`;
+
+export const UserNav = styled.div`
+  padding: 15px 0;
+  width: 100px;
+  margin-left: 10px;
+`;
+
+export const StyledText = styled.p`
+  ${Typography.H2}
+  color:${Colors.PRIMARY}
 `;

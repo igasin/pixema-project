@@ -57,6 +57,17 @@ const filterSlice = createSlice({
     setMovieType: (state, { payload }: PayloadAction<Option>) => {
       state.parameters.type = payload;
     },
+
+    wipeOutMovies(state) {
+      state.movies = [];
+    },
+    deleteMoviesParameters(state) {
+      state.parameters = {
+        s: '',
+        type: '',
+        y: '',
+      };
+    },
   },
 
   extraReducers(builder) {
@@ -75,6 +86,8 @@ const filterSlice = createSlice({
   },
 });
 
-export const { setMovieTitle, setMovieYear, setMovieType } = filterSlice.actions;
+export const {
+  setMovieTitle, setMovieYear, setMovieType, deleteMoviesParameters, wipeOutMovies,
+} = filterSlice.actions;
 
 export default filterSlice.reducer;

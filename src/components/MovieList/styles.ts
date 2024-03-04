@@ -3,7 +3,7 @@ import { Media } from 'ui';
 
 export const StyledMovieList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   place-items: center;
   gap: 30px;
 

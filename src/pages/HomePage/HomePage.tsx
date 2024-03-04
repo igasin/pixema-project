@@ -1,4 +1,4 @@
-import { MovieList } from 'components';
+import { Loader, LoaderMoreFilms, MovieList } from 'components';
 import React, { useEffect } from 'react';
 import { fetchMovies, useAppDispatch, useAppSelector } from 'store';
 import { fetchNextPageMovies, nextMoviePage } from 'store/features';
@@ -22,13 +22,16 @@ export const HomePage = () => {
 
   return (
     <StyledBox>
-      {isLoading && <div>isload....</div>}
+      {isLoading && <Loader />}
 
       {error && <span>{error}</span>}
 
       {movies?.length > 0 && <MovieList movies={movies} />}
 
-      <StyledButton onClick={handleMovies}>Button</StyledButton>
+      <StyledButton onClick={handleMovies}>
+        Show More
+        {isLoading && <LoaderMoreFilms />}
+      </StyledButton>
     </StyledBox>
   );
 };

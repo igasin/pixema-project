@@ -1,5 +1,5 @@
 export enum Media {
-  XXS = '@media(max-width: 320px)',
+  XXS = '@media(max-width: 375px)',
   XS = '@media(max-width:533px)',
   M = '@media(max-width:768px)',
   L = '@media(max-width:1024px)',

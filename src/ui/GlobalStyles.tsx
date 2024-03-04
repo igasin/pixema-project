@@ -11,15 +11,17 @@ input {
   border:none;
   }
 
-
  li {list-style:none} 
 
 body {
- background-color:${Colors.BLACK}
+ background-color:${Colors.BLACK};
+ font-family: 'Exo 2', sans-serif;
 }
 
 button {
   border:none;
-}`;
+}
+
+`;
 
 export { GlobalStyles };
