@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { Colors, Typography } from 'ui';
 
 export const FormWrap = styled.div`
-  width: 580px;
+  max-width: 580px;
+  width: 100%;
   padding: 40px 40px;
   display: flex;
   align-items: center;
@@ -15,7 +16,6 @@ export const FormWrap = styled.div`
 export const StyledForm = styled.form`
   display: grid;
   grid-gap: 15px;
-  width: 574px;
   width: 100%;
 `;
 
@@ -36,7 +36,7 @@ export const InputTitle = styled.p`
 `;
 
 export const InputEmail = styled.input`
-  width: 490px;
+  width: 100%;
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
@@ -44,16 +44,34 @@ export const InputEmail = styled.input`
     ${Typography.S2};
     color: ${Colors.SECONDARY};
   }
+  &:focus {
+    background: ${Colors.GRAPHITE};
+    outline: 2px ${Colors.PRIMARY};
+    outline-style: solid;
+  }
+  &:disabled {
+    background-color: ${Colors.SECONDARY};
+    color: ${Colors.LIGHT};
+  }
 `;
 
 export const InputPassword = styled.input`
-  width: 490px;
+  width: 100%;
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
   &-placholder {
     ${Typography.S2};
     color: ${Colors.SECONDARY};
+  }
+  &:focus {
+    background: ${Colors.GRAPHITE};
+    outline: 2px ${Colors.PRIMARY};
+    outline-style: solid;
+  }
+  &:disabled {
+    background-color: ${Colors.SECONDARY};
+    color: ${Colors.LIGHT};
   }
 `;
 
@@ -82,4 +100,9 @@ export const StyledLink = styled(Link)`
   ${Typography.S3}
   color:${Colors.PRIMARY};
   text-decoration: none;
+`;
+
+export const ErrorMessage = styled.span`
+  color: ${Colors.ERROR};
+  ${Typography.S3};
 `;

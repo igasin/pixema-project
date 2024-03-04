@@ -1,21 +1,23 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Colors, Typography } from 'ui';
+import { Colors, Media, Typography } from 'ui';
 
 export const FormWrap = styled.div`
-  width: 580px;
+  max-width: 580px;
+  width: 100%;
   padding: 40px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   background-color: ${Colors.DARK};
+  ${Media.XXS} {
+    padding-right: 10px;
+  }
 `;
 
 export const StyledForm = styled.form`
-  display: grid;
-  grid-gap: 15px;
-  width: 574px;
+  margin: 0 24px;
   width: 100%;
 `;
 
@@ -36,28 +38,45 @@ export const InputTitle = styled.p`
 `;
 
 export const InputEmail = styled.input`
-  width: 490px;
+  width: 100%;
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
   &-placholder {
     ${Typography.S2};
     color: ${Colors.SECONDARY};
+  }
+  &:focus {
+    background: ${Colors.GRAPHITE};
+    outline: 2px ${Colors.PRIMARY};
+    outline-style: solid;
+  }
+  &:disabled {
+    background-color: ${Colors.SECONDARY};
+    color: ${Colors.LIGHT};
   }
 `;
 
 export const InputPassword = styled.input`
-  width: 490px;
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
   &-placholder {
     ${Typography.S2};
     color: ${Colors.SECONDARY};
+  }
+  &:focus {
+    background: ${Colors.GRAPHITE};
+    outline: 2px ${Colors.PRIMARY};
+    outline-style: solid;
+  }
+  &:disabled {
+    background-color: ${Colors.SECONDARY};
+    color: ${Colors.LIGHT};
   }
 `;
 export const InputName = styled.input`
-  width: 490px;
+  width: 100%;
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
@@ -65,15 +84,33 @@ export const InputName = styled.input`
     ${Typography.S2};
     color: ${Colors.SECONDARY};
   }
+  &:focus {
+    background: ${Colors.GRAPHITE};
+    outline: 2px ${Colors.PRIMARY};
+    outline-style: solid;
+  }
+  &:disabled {
+    background-color: ${Colors.SECONDARY};
+    color: ${Colors.LIGHT};
+  }
 `;
 export const InputConfirmPassword = styled.input`
-  width: 490px;
+  width: 100%;
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
   &-placholder {
     ${Typography.S2};
     color: ${Colors.SECONDARY};
+  }
+  &:focus {
+    background: ${Colors.GRAPHITE};
+    outline: 2px ${Colors.PRIMARY};
+    outline-style: solid;
+  }
+  &:disabled {
+    background-color: ${Colors.SECONDARY};
+    color: ${Colors.LIGHT};
   }
 `;
 
@@ -96,4 +133,9 @@ export const StyledLink = styled(Link)`
   ${Typography.S3}
   color:${Colors.PRIMARY};
   text-decoration: none;
+`;
+
+export const ErrorMessage = styled.p`
+  color: ${Colors.ERROR};
+  ${Typography.S3};
 `;

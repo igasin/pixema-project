@@ -16,5 +16,6 @@ export const StyledMovieList = styled.ul`
   ${Media.XS} {
     grid-template-columns: 1fr;
     justify-self: start;
+    padding-left: 20px;
   }
 `;

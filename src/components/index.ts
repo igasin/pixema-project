@@ -19,6 +19,7 @@ import { FormSignUp } from './FormSignUp/FormSignUp';
 import { FormReset } from './FormReset/FormReset';
 import { Loader } from './Loader/Loader';
 import { LoaderMoreFilms } from './LoaderMoreFilms/LoaderMoreFilms';
+import { SettingForm } from './SettingsForm/SettingForm';
 
 export {
   MovieList,
@@ -42,4 +43,5 @@ export {
   FormReset,
   Loader,
   LoaderMoreFilms,
+  SettingForm,
 };

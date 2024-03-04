@@ -1,58 +1,54 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Colors, Media } from 'ui';
+import { Colors, Media, Typography } from 'ui';
 
 export const StyledInputForm = styled.form`
-  position: relative;
   grid-area: input;
+  position: relative;
+  width: 100%;
 `;
 
 export const Wrapper = styled.div`
-  max-width: 1500px;
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: minmax(auto, 250px) minmax(auto, 1180px) minmax(auto, 300px);
   place-items: center;
-  max-width: auto;
   grid-gap: 20px;
   padding: 20px 20px;
   grid-template-areas: "logo input  button";
   ${Media.XS} {
     grid-template-areas:
       "logo button"
-      "input input";
-  }
-
-  ${Media.XS} {
-    margin: auto;
+      "input input ";
+    grid-template-rows: repeat(2, minmax(30px, auto));
   }
 `;
 
 export const StyledInput = styled.input`
   padding: 18px 16px 16px 20px;
+  width: 100%;
   border-radius: 10px;
   min-height: 56px;
-  width: 1000px;
-
-  ${Media.XL} {
-    width: 700px;
+  background: ${Colors.GRAPHITE};
+  color: ${Colors.WHITE};
+  cursor: pointer;
+  &-placeholder {
+    ${Typography.S1}
   }
-  ${Media.L} {
-    width: 550px;
-  }
-  ${Media.M} {
-    width: 340px;
+  &:focus {
+    background: ${Colors.DARK};
   }
 `;
 
 export const Container = styled.div`
   grid-area: input;
+  width: 100%;
 `;
 
 export const StyledButton = styled.button`
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 16px;
+  right: 16px;
   background-color: transparent;
   cursor: pointer;
 `;

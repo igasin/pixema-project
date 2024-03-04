@@ -6,8 +6,10 @@ import { ROUTE } from 'router';
 import { useAppDispatch, useAppSelector } from 'store';
 import { fetchSignUpUser } from 'store/features/UserSlice/UserSlice';
 import { getUserInfo } from 'store/selectors';
+import { emailValidate, nameValidate, passwordValidate } from 'services';
 import {
   ButtonWrap,
+  ErrorMessage,
   FormWrap,
   InputBox,
   InputConfirmPassword,
@@ -30,7 +32,12 @@ interface UserInfo {
 }
 
 export const FormSignUp = () => {
-  const { register, handleSubmit, reset } = useForm<UserInfo>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<UserInfo>();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -48,22 +55,31 @@ export const FormSignUp = () => {
 
         <InputBox>
           <InputTitle>Name</InputTitle>
-          <InputName placeholder="Name" {...register('name')} />
+          <InputName placeholder="Name" {...register('name', nameValidate())} />
+          {errors.name?.message && <ErrorMessage>{errors.name.message}</ErrorMessage>}
         </InputBox>
 
         <InputBox>
           <InputTitle>Email</InputTitle>
-          <InputEmail placeholder="Your Email" {...register('email')} />
+          <InputEmail placeholder="Your Email" {...register('email', emailValidate())} />
+          {errors.email?.message && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </InputBox>
 
         <InputBox>
           <InputTitle>Password</InputTitle>
-          <InputPassword placeholder="Your password" {...register('password')} />
+          <InputPassword
+            placeholder="Your password"
+            {...register('password', passwordValidate())}
+          />
+          {errors.password?.message && <ErrorMessage>{errors.password.message}</ErrorMessage>}
         </InputBox>
 
         <InputBox>
           <InputTitle>Confirm Password</InputTitle>
-          <InputConfirmPassword placeholder="Confirm Password" {...register('confirmPassword')} />
+          <InputConfirmPassword
+            placeholder="Confirm Password"
+            {...register('confirmPassword', { required: true })}
+          />
         </InputBox>
         {errorMessage && <span>{errorMessage}</span>}
         <ButtonWrap>

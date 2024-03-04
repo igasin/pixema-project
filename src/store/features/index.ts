@@ -5,6 +5,8 @@ import {
 import { fetchMoviesTrends } from './TrendsSlice/TrendsSlice';
 import { fetchMoviesDetails } from './MovieDetailsSlice/MovieDetailsSlice';
 
+import { fetchSignInUser } from './UserSlice/UserSlice';
+
 export {
   fetchMovies,
   fetchMoviesByParameter,
@@ -17,4 +19,5 @@ export {
   fetchNextPageMovies,
   wipeOutMovies,
   deleteMoviesParameters,
+  fetchSignInUser,
 };

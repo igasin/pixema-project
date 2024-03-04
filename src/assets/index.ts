@@ -12,6 +12,7 @@ import ArrowDownIcon from './icons/arrow-down-icon.svg?react';
 import CloseIcon from './icons/close-cross-icon.svg?react';
 import BackgroundMovies from './image/background-movies.png';
 import MenuIcon from './icons/burger-menu-icon.svg?react';
+import ImageNotFount from './image/image-not-found-icon.png';
 
 export {
   HomeIcon,
@@ -26,4 +27,5 @@ export {
   CloseIcon,
   BackgroundMovies,
   MenuIcon,
+  ImageNotFount,
 };

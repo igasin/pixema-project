@@ -45,7 +45,6 @@ export const InputSearch = ({ toggleModal }: InputProps) => {
     dispatch(deleteMoviesParameters());
     dispatch(wipeOutMovies());
     dispatch(setMovieTitle(title.s));
-
     reset();
   };
   return (

@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { Colors, Typography } from 'ui';
 
 export const StyledButton = styled.button`
-  width: 490px;
-  padding: 15px 7px;
+  width: 100%;
+  padding: 17px 0;
   border-radius: 10px;
   background-color: ${Colors.PRIMARY};
   ${Typography.S3}

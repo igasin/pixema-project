@@ -1,24 +1,45 @@
 import styled from 'styled-components';
-import { Colors, Typography } from 'ui';
+import { Colors, Media, Typography } from 'ui';
 
 export const ContainerMovie = styled.div`
   display: grid;
   grid-template-columns: 270px 1fr;
-  place-items: center;
   grid-gap: 30px;
+
+  ${Media.M} {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+  }
+  ${Media.XS} {
+    align-items: flex-start;
+    padding-left: 20px;
+  }
 `;
 
 export const MoviePoster = styled.img`
-  width: 260px;
+  width: 100%;
   object-fit: cover;
   border-radius: 20px;
+
+  ${Media.M} {
+    width: 100%;
+    height: 100%;
+    justify-self: center;
+  }
 `;
 
 export const ButtonFavorite = styled.button``;
 
 export const PosterWrap = styled.div``;
 
-export const DetailsWrap = styled.div``;
+export const DetailsWrap = styled.div`
+  width: 70%;
+
+  ${Media.M} {
+    width: 40%;
+  }
+`;
 
 export const GenreTitle = styled.span`
   ${Typography.S3}

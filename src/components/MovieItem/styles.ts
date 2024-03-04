@@ -25,3 +25,5 @@ export const TitleMovie = styled.p`
     text-decoration: none;
   }
 `;
+
+export const PosterWrap = styled.div``;
