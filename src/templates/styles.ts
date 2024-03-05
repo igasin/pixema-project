@@ -10,6 +10,7 @@ export const StyledTemplate = styled.div`
   ${Media.XS} {
     flex-wrap: wrap;
     flex-direction: column;
+    padding: 16px 12px 24px;
   }
 
   ${Media.M} {
@@ -21,7 +22,7 @@ export const Wrap = styled.div`
   max-width: 1920px;
   padding: 40px 24px 48px;
   max-height: 100%;
-  margin-top: 100px;
+  margin-top: 80px;
   display: flex;
   ${Media.M} {
     margin-top: 150px;
@@ -32,5 +33,5 @@ export const Wrap = styled.div`
 `;
 
 export const StyledNav = styled.div`
-  width: 250px;
+  width: 240px;
 `;

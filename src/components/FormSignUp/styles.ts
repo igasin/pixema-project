@@ -42,6 +42,7 @@ export const InputEmail = styled.input`
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
+  color: ${Colors.WHITE};
   &-placholder {
     ${Typography.S2};
     color: ${Colors.SECONDARY};
@@ -61,6 +62,7 @@ export const InputPassword = styled.input`
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
+  color: ${Colors.WHITE};
   &-placholder {
     ${Typography.S2};
     color: ${Colors.SECONDARY};
@@ -80,6 +82,7 @@ export const InputName = styled.input`
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
+  color: ${Colors.WHITE};
   &-placholder {
     ${Typography.S2};
     color: ${Colors.SECONDARY};
@@ -99,9 +102,9 @@ export const InputConfirmPassword = styled.input`
   padding: 16px 20px;
   border-radius: 10px;
   background-color: ${Colors.GRAPHITE};
+  color: ${Colors.WHITE};
   &-placholder {
     ${Typography.S2};
-    color: ${Colors.SECONDARY};
   }
   &:focus {
     background: ${Colors.GRAPHITE};

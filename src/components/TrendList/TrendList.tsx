@@ -9,6 +9,6 @@ interface TrendsProps {
 
 export const TrendList = ({ movies }: TrendsProps) => (
   <StyledTrends>
-    {movies.map((movie) => <MovieItem movie={movie} key={movie.imdbID} />)}
+    {movies.map((movie) => <MovieItem movie={movie} key={movie.imdbID} isTrend />)}
   </StyledTrends>
 );

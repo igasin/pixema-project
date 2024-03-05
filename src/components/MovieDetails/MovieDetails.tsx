@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MovieDetailsInfo } from 'types';
+import { Movie, MovieDetailsInfo } from 'types';
 
 import { DeleteFavoriteIcon, FavoriteIcon } from 'assets';
 import { useAppDispatch, useAppSelector } from 'store';
@@ -37,9 +37,10 @@ import {
 
 interface DetailsProps {
   details: MovieDetailsInfo;
+  movies: Movie[];
 }
 
-export const MovieDetails = ({ details }: DetailsProps) => {
+export const MovieDetails = ({ details, movies }: DetailsProps) => {
   const dispatch = useAppDispatch();
   const { movieDetails, isLoading } = useAppSelector(getDetailsMovie);
   const [buttonColor, setButtonColor] = useState('#323537');
@@ -56,8 +57,6 @@ export const MovieDetails = ({ details }: DetailsProps) => {
   const handleDeleteFavorite = (): void => {
     dispatch(deleteFavorites(movieDetails.imdbID));
   };
-
-  const { movies } = useAppSelector(getMovies);
 
   const {
     poster,
@@ -85,11 +84,7 @@ export const MovieDetails = ({ details }: DetailsProps) => {
           </PosterWrap>
 
           <ButtonContainer>
-            <FavoriteButton
-              type="button"
-              onClick={handleFavorite}
-              style={{ backgroundColor: buttonColor }}
-            >
+            <FavoriteButton type="button" onClick={handleFavorite} style={{ backgroundColor: buttonColor }}>
               <FavoriteIcon />
             </FavoriteButton>
 

@@ -11,6 +11,7 @@ import {
 } from 'store/features';
 import Select from 'react-select';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useOutsideClick } from 'hooks';
 import {
   Container,
   StyledButtonBox,
@@ -60,6 +61,9 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
     toggleModal(false);
   };
 
+  const closeRef = useRef(null);
+  useOutsideClick(closeRef, closeModal, isOpen);
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -92,7 +96,7 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
             transition={{ type: 'spring', stiffness: 100 }}
             exit={{ opacity: 0, x: '-100vh' }}
           >
-            <StyledForm onSubmit={handleSubmit(onSubmit)}>
+            <StyledForm onSubmit={handleSubmit(onSubmit)} ref={closeRef}>
               <StyledTitle>
                 <Title>Filters</Title>
                 <StyledCloseButton>

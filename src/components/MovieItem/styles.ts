@@ -29,4 +29,18 @@ export const TitleMovie = styled.h4`
   text-decoration: none;
 `;
 
+export const TrendsLabel = styled.div`
+  position: absolute;
+  margin: 10px 0 0 10px;
+  padding: 6px 8px;
+  border-radius: 5px;
+  background-color: ${Colors.PRIMARY};
+`;
+
+export const FavoriteLabel = styled.div`
+  position: absolute;
+  margin: 10px 0 0 10px;
+  padding: 6px 8px;
+`;
+
 export const PosterWrap = styled.div``;

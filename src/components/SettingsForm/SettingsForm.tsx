@@ -57,7 +57,7 @@ export const SettingsForm = () => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const { errorMessage } = useAppSelector(getUserInfo);
+  const { errorMessage, name, email } = useAppSelector(getUserInfo);
   const [isOpen, setToggle] = useToggle(false);
   // const [savedData, setSavedData] = useState<FormValues>();
 
@@ -103,13 +103,23 @@ export const SettingsForm = () => {
           <ProfileContainer>
             <InputBox>
               <InputTitle>Name</InputTitle>
-              <StyledInput type="text" placeholder="Your name" {...register('userName', nameValidate())} />
+              <StyledInput
+                type="text"
+                defaultValue={name || 'User name'}
+                placeholder="Your name"
+                {...register('userName', nameValidate())}
+              />
               {errors.userName?.message && <ErrorMessage>{errors.userName.message}</ErrorMessage>}
             </InputBox>
 
             <InputBox>
               <InputTitle>Email</InputTitle>
-              <StyledInput type="text" placeholder="Your email" {...register('email', emailValidate())} />
+              <StyledInput
+                type="text"
+                defaultValue={email || 'User email'}
+                placeholder="Your email"
+                {...register('email', emailValidate())}
+              />
               {errors.email?.message && <ErrorMessage>{errors.email.message}</ErrorMessage>}
             </InputBox>
           </ProfileContainer>
@@ -120,7 +130,11 @@ export const SettingsForm = () => {
             <WrapInput>
               <InputBox>
                 <InputTitle>Password</InputTitle>
-                <StyledInput type="text" placeholder="Your password" {...register('password', passwordValidate())} />
+                <StyledInput
+                  type="password"
+                  placeholder="Your password"
+                  {...register('password', passwordValidate())}
+                />
                 {errors.password?.message && <ErrorMessage>{errors.password.message}</ErrorMessage>}
               </InputBox>
             </WrapInput>
@@ -128,14 +142,18 @@ export const SettingsForm = () => {
             <WrapInput>
               <InputBox>
                 <InputTitle>New Password</InputTitle>
-                <StyledInput type="text" placeholder="New Password" {...register('newPassword', passwordValidate())} />
+                <StyledInput
+                  type="password"
+                  placeholder="New Password"
+                  {...register('newPassword', passwordValidate())}
+                />
                 {errors.newPassword?.message && <ErrorMessage>{errors.newPassword.message}</ErrorMessage>}
               </InputBox>
 
               <InputBox>
                 <InputTitle>Confirm Password</InputTitle>
                 <StyledInput
-                  type="text"
+                  type="password"
                   placeholder="Confirm password"
                   {...register('confirmPassword', passwordValidate())}
                 />

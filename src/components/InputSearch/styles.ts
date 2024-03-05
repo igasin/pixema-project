@@ -15,10 +15,11 @@ export const Wrapper = styled.div`
   padding: 40px 25px 0;
   display: grid;
   align-items: center;
+  grid-row-gap: 30px;
   grid-template-areas: "logo input button";
   grid-template-columns: minmax(auto, 240px) minmax(auto, 1050px) minmax(auto, 350px);
+  background-color: ${Colors.BLACK};
   place-items: center;
-  background: ${Colors.BLACK};
   ${Media.M} {
     grid-template-areas:
       "logo button"
@@ -40,7 +41,6 @@ export const StyledInput = styled.input`
   }
 
   &:focus {
-    background: ${Colors.GRAPHITE};
     outline: 2px ${Colors.PRIMARY};
     outline-style: solid;
   }
@@ -58,9 +58,6 @@ export const StyledButton = styled.button`
   width: 30px;
   background-color: transparent;
   cursor: pointer;
-  svg {
-    color: ${Colors.PRIMARY};
-  }
 `;
 
 export const StyledLogo = styled(Link)`

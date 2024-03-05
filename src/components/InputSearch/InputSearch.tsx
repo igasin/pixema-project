@@ -52,7 +52,9 @@ export const InputSearch = ({ toggleModal }: InputProps) => {
 
   return (
     <Wrapper>
-      <StyledLogo to={ROUTE.Home}>{theme === 'dark' ? <MainLogo width={160} /> : <DarkLogo width={160} />}</StyledLogo>
+      <StyledLogo to={ROUTE.Home}>
+        {theme === 'dark' ? <MainLogo width={160} height={50} /> : <DarkLogo width={160} height={50} />}
+      </StyledLogo>
 
       <Container>
         <StyledInputForm onSubmit={handleSubmit(onSubmit)}>

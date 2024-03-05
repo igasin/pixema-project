@@ -49,7 +49,7 @@ export const StyledInput = styled.input`
   padding: 16px 20px;
   border-radius: 10px;
   background: ${Colors.GRAPHITE};
-
+  color: ${Colors.WHITE};
   &:focus {
     background: ${Colors.GRAPHITE};
     outline: 2px ${Colors.PRIMARY};

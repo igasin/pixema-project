@@ -61,10 +61,7 @@ export const FormSignIn = () => {
 
         <InputBox>
           <InputTitle>Password</InputTitle>
-          <InputPassword
-            placeholder="Your password"
-            {...register('password', passwordValidate())}
-          />
+          <InputPassword type="password" placeholder="Your password" {...register('password', passwordValidate())} />
 
           {errors.password?.message && <ErrorMessage>{errors.password.message}</ErrorMessage>}
 

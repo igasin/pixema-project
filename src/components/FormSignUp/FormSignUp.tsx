@@ -30,6 +30,7 @@ interface UserInfo {
   password: string;
   userName: string;
   confirmPassword: string;
+  isAuth: boolean;
 }
 
 export const FormSignUp = () => {
@@ -46,7 +47,6 @@ export const FormSignUp = () => {
 
   const onSubmit: SubmitHandler<UserInfo> = async (user) => {
     await dispatch(fetchSignUpUser(user)).unwrap();
-    localStorage.setItem('user', JSON.stringify(user));
     await navigate(ROUTE.Home);
     await reset();
   };
@@ -70,16 +70,14 @@ export const FormSignUp = () => {
 
         <InputBox>
           <InputTitle>Password</InputTitle>
-          <InputPassword
-            placeholder="Your password"
-            {...register('password', passwordValidate())}
-          />
+          <InputPassword type="password" placeholder="Your password" {...register('password', passwordValidate())} />
           {errors.password?.message && <ErrorMessage>{errors.password.message}</ErrorMessage>}
         </InputBox>
 
         <InputBox>
           <InputTitle>Confirm Password</InputTitle>
           <InputConfirmPassword
+            type="password"
             placeholder="Confirm Password"
             {...register('confirmPassword', { required: true })}
           />
@@ -88,9 +86,7 @@ export const FormSignUp = () => {
 
         {getValues('password')
           && getValues('confirmPassword')
-          && getValues('password') !== getValues('confirmPassword') && (
-            <ErrorReport>Passwords do not match</ErrorReport>
-        )}
+          && getValues('password') !== getValues('confirmPassword') && <ErrorReport>Passwords do not match</ErrorReport>}
         <ButtonWrap>
           <Button type="submit">Sign up</Button>
         </ButtonWrap>
