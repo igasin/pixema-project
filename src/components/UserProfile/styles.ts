@@ -1,94 +1,90 @@
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Colors, Typography } from 'ui';
 
 export const StyledUser = styled.div`
   max-width: 300px;
-  display: flex;
-  grid-gap: 10px;
-  margin-right: 30px;
-`;
-
-export const StyledButton = styled.button`
-  background-color: transparent;
-`;
-
-export const UserTextContainer = styled.div`
-  width: 100px;
-  margin-left: 10px;
-`;
-
-export const UserTitle = styled.p`
-  ${Typography.S2}
-  color:${Colors.PRIMARY}
-`;
-
-export const StyledUserIcon = styled.button`
-  width: 56px;
-  height: 56px;
-  border-radius: 10px;
-  background-color: #7b61ff;
-`;
-
-export const UserNav = styled.div`
-  padding: 15px 0;
-  width: 100px;
-  margin-left: 10px;
-`;
-
-export const StyledText = styled.div`
-  width: 150px;
-  padding: 20px 30px;
-  text-align: center;
-  border-radius: 10px;
-  background: ${Colors.PRIMARY};
-`;
-
-export const StyledMenu = styled.div`
-  width: 100%;
-  position: absolute;
-  top: 100px;
-  grid-gap: 10px;
-  flex-direction: column;
-  width: 100%;
+  position: relative;
+  margin-left: 40px;
 `;
 
 export const LogOut = styled.button`
-  width: 150px;
-  padding: 20px 30px;
-  ${Typography.S2};
-  margin-left: 40px;
-  text-align: center;
+  padding: 17px 0px 15px 20px;
+  justify-self: start;
+  text-align: left;
   border-radius: 10px;
-  background: ${Colors.PRIMARY};
+  background: ${Colors.DARK};
+  ${Typography.S2};
   color: ${Colors.WHITE};
+  transition: color 0.1s, scale 0.3s;
+
+  ${Typography.S2};
   cursor: pointer;
-`;
-
-export const ArrowButton = styled.button`
-  flex-basis: 40%;
-  background-color: transparent;
-  cursor: pointer;
-`;
-
-export const StyledTitle = styled.div`
-  flex-basis: 60%;
-`;
-
-export const Wrap = styled.div`
-  display: flex;
-  grid-gap: 7px;
+  &:hover {
+    color: ${Colors.PRIMARY};
+    scale: 1.02;
+  }
+  &:active {
+    color: ${Colors.PRIMARY_BRIGHT};
+  }
 `;
 
 export const StyledLink = styled(Link)`
-  display: block;
-  width: max-content;
-  padding: 10px 40px;
-  width: 150px;
-  text-align: center;
+  padding: 17px 0px 15px 20px;
   border-radius: 10px;
-  background-color:${Colors.SECONDARY}
-  ${Typography.S2}
+  ${Typography.S2};
+  background: ${Colors.DARK};
   color: ${Colors.WHITE};
+  transition: scale 0.5s;
   cursor: pointer;
+  &:hover {
+    color: ${Colors.PRIMARY};
+    scale: 1.05;
+  }
+  &:active {
+    color: ${Colors.PRIMARY_BRIGHT};
+  }
+`;
+
+export const UserButton = styled.button`
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  width: 100%;
+  background-color: ${Colors.BLACK};
+  cursor: pointer;
+  &:hover {
+    background-color: ${Colors.LIGHT};
+  }
+`;
+
+export const UserBadge = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+`;
+
+export const UserBox = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 56px;
+  padding: 16px 0;
+  border-radius: 10px;
+  background-color: ${Colors.PRIMARY};
+`;
+
+export const Title = styled.div`
+  margin-left: 20px;
+  ${Typography.S2};
+  color: ${Colors.PRIMARY};
+`;
+
+export const Menu = styled(motion.div)`
+  position: absolute;
+  top: 80px;
+  grid-gap: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 `;

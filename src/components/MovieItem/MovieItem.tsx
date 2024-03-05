@@ -3,7 +3,7 @@ import { generatePath, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ROUTE } from 'router';
 import { Movie } from 'types';
-import { FireIcon, ImageNotFount } from 'assets';
+import { ImageNotFount } from 'assets';
 import {
   MovieBox, MovieCard, MoviePoster, PosterWrap, TitleMovie,
 } from './styles';
@@ -13,7 +13,7 @@ interface MovieItemProps {
 }
 
 export const MovieItem = ({ movie: { title, poster, imdbID } }: MovieItemProps) => (
-  <Link to={generatePath(ROUTE.Home + ROUTE.Movie_details, { imdbID })}>
+  <Link to={`/details/${imdbID}`}>
     <MovieBox>
       <MovieCard whileHover={{ scale: 1.05 }} whileInView={{ opacity: 1 }}>
         <PosterWrap>

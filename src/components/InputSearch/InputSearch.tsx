@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store';
 import { getTheme } from 'store/selectors';
 import {
-  Box,
   BurgerButton,
   BurgerWrap,
   Container,
@@ -19,7 +18,6 @@ import {
   StyledInput,
   StyledInputForm,
   StyledLogo,
-  StyledUserProfile,
   Wrapper,
 } from './styles';
 
@@ -54,9 +52,7 @@ export const InputSearch = ({ toggleModal }: InputProps) => {
 
   return (
     <Wrapper>
-      <StyledLogo to={ROUTE.Home}>
-        {theme === 'dark' ? <MainLogo width={160} /> : <DarkLogo width={160} />}
-      </StyledLogo>
+      <StyledLogo to={ROUTE.Home}>{theme === 'dark' ? <MainLogo width={160} /> : <DarkLogo width={160} />}</StyledLogo>
 
       <Container>
         <StyledInputForm onSubmit={handleSubmit(onSubmit)}>
@@ -66,19 +62,15 @@ export const InputSearch = ({ toggleModal }: InputProps) => {
           </StyledButton>
         </StyledInputForm>
       </Container>
-      <Box>
-        {width > 1200 ? (
-          <StyledUserProfile>
-            <UserProfile />
-          </StyledUserProfile>
-        ) : (
-          <BurgerWrap>
-            <BurgerButton onClick={menuToggle}>
-              <MenuIcon />
-            </BurgerButton>
-          </BurgerWrap>
-        )}
-      </Box>
+
+      {width > 1200 ? (
+        <UserProfile />
+      ) : (
+        <BurgerButton onClick={menuToggle}>
+          <MenuIcon />
+        </BurgerButton>
+      )}
+
       {isMenuOpen === true && <BurgerMenu menuToggle={menuToggle} isMenuOpen={isMenuOpen} />}
     </Wrapper>
   );

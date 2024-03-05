@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { Colors, Media, Typography } from 'ui';
+import { StylesConfig } from 'react-select';
+import { Option } from './Modal';
 
 export const Container = styled(motion.div)`
   position: fixed;
@@ -11,8 +13,11 @@ export const Container = styled(motion.div)`
   width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
 `;
+export const Wrap = styled(motion.div)`
+  max-width: 600px;
+`;
 
-export const StyledForm = styled.form`
+export const StyledForm = styled(motion.form)`
   position: fixed;
   z-index: 15;
   top: 0;
@@ -40,7 +45,12 @@ export const Title = styled.p`
 `;
 
 export const StyledCloseButton = styled.button`
+  padding: 16px 0;
   background-color: transparent;
+  cursor: pointer;
+  svg {
+    fill: ${Colors.PRIMARY};
+  }
 `;
 
 export const StyledMovieName = styled.div``;
@@ -96,3 +106,32 @@ export const StyledError = styled.p`
 `;
 
 export const StyledSelect = styled.div``;
+
+export const selectStyles: StylesConfig<Option> = {
+  control: (baseStyles) => ({
+    ...baseStyles,
+    border: 'none',
+    borderRadius: '10px',
+    height: '45px',
+  }),
+  singleValue: (baseStyles) => ({
+    ...baseStyles,
+    backgroundColor: '#FFFFFF',
+    textAlign: 'center',
+    fontSize: '18px',
+  }),
+  indicatorSeparator: (baseStyles) => ({
+    ...baseStyles,
+    display: 'none',
+  }),
+  option: (baseStyles, state) => ({
+    ...baseStyles,
+    display: 'grid',
+    placeItems: 'center',
+    backgroundColor: state.isSelected
+      ? 'rgba( 123 , 97, 255, 1 )'
+      : state.isFocused
+        ? 'rgba ( 205 , 209, 228, 1 )'
+        : 'transparent',
+  }),
+};

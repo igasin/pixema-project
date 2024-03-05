@@ -8,12 +8,13 @@ interface SortedMovies {
   y: string;
   s: string;
   type: Option | string;
+  page: number;
 }
 
 interface FilterState {
   movies: Movie[];
   isLoading: boolean;
-  error: string | null;
+  error: string | null | undefined;
   parameters: SortedMovies;
 }
 
@@ -21,26 +22,27 @@ const initialState: FilterState = {
   movies: [],
   isLoading: false,
   error: null,
-  parameters: { s: '', y: '', type: '' },
+  parameters: {
+    s: '', y: '', type: '', page: 1,
+  },
 };
 
-export const fetchMoviesByParameter = createAsyncThunk<
-Movie[],
-SortedMovies,
-{ rejectValue: string }
->('filterMovies/fetchByParameter', async (parameters, { rejectWithValue }) => {
-  try {
-    const { data } = await axios.get(
-      `https://www.omdbapi.com/?apikey=d50b311e&s=${parameters.s}&y=${parameters.y}&`,
-    );
+export const fetchMoviesByParameter = createAsyncThunk<Movie[], SortedMovies, { rejectValue: string }>(
+  'filterMovies/fetchByParameter',
+  async (parameters, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(
+        `https://www.omdbapi.com/?apikey=d50b311e&s=${parameters.s}&y=${parameters.y}&type=${parameters.type}`,
+      );
 
-    const transformedMovies = transformMoviesApi(data);
-    return transformedMovies;
-  } catch (error) {
-    const { message } = error as AxiosError;
-    return rejectWithValue(message);
-  }
-});
+      const transformedMovies = transformMoviesApi(data);
+      return transformedMovies;
+    } catch (error) {
+      const { message } = error as AxiosError;
+      return rejectWithValue(message);
+    }
+  },
+);
 
 const filterSlice = createSlice({
   name: 'filterMovies',
@@ -66,7 +68,11 @@ const filterSlice = createSlice({
         s: '',
         type: '',
         y: '',
+        page: 1,
       };
+    },
+    showNextPage(state, { payload }: PayloadAction<boolean>) {
+      payload ? (state.parameters.page = state.parameters.page + 1) : (state.parameters.page = 1);
     },
   },
 
@@ -81,13 +87,13 @@ const filterSlice = createSlice({
     });
     builder.addCase(fetchMoviesByParameter.rejected, (state, { payload }) => {
       if (payload) state.isLoading = false;
-      // state.error = payload;
+      state.error = payload;
     });
   },
 });
 
 export const {
-  setMovieTitle, setMovieYear, setMovieType, deleteMoviesParameters, wipeOutMovies,
+  setMovieTitle, setMovieYear, setMovieType, deleteMoviesParameters, wipeOutMovies, showNextPage,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

@@ -2,6 +2,7 @@ export enum Media {
   XXS = '@media(min-width:375px)',
   Small = '@media(min-width:450px)',
   XS = '@media(max-width:534px)',
+  S = '@media(max-width:605px)',
   Medium = '@media(max-width:695px)',
   M = '@media(max-width:768px)',
   L = '@media(max-width:1024px)',

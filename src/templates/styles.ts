@@ -3,9 +3,8 @@ import { Colors, Media } from 'ui';
 
 export const StyledTemplate = styled.div`
   min-height: 100vh;
-
   min-width: 100%;
-  padding: 40px 62px 64px;
+  padding: 32px 24px 48px;
   background-color: ${Colors.BLACK};
   color: ${Colors.WHITE};
   ${Media.XS} {
@@ -18,36 +17,20 @@ export const StyledTemplate = styled.div`
   }
 `;
 
-export const StyledHeaderGroup = styled.div`
-  position: fixed;
-  place-items: center;
-  ${Media.XS} {
-    margin: 0 auto;
-    margin-bottom: 100px;
+export const Wrap = styled.div`
+  max-width: 1920px;
+  padding: 40px 24px 48px;
+  max-height: 100%;
+  margin-top: 100px;
+  display: flex;
+  ${Media.M} {
+    margin-top: 150px;
   }
-`;
-
-export const StyledLogo = styled.div`
-  width: 150px;
-  height: 40px;
-  margin-bottom: 20px;
+  ${Media.XL} {
+    display: block;
+  }
 `;
 
 export const StyledNav = styled.div`
-  padding-left: 10px;
+  width: 250px;
 `;
-
-export const StyledOutlet = styled.div``;
-export const Box = styled.div`
-  padding-top: 120px;
-  display: flex;
-  grid-gap: 140px;
-  ${Media.XS} {
-    padding-top: 200px;
-  }
-  ${Media.L} {
-    display: grid;
-  }
-`;
-
-export const ButtonTheme = styled.button``;

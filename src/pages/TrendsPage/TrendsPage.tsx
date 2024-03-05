@@ -7,17 +7,18 @@ import { StyledButton, StyledTrends } from './styles';
 
 export const TrendsPage = () => {
   const dispatch = useAppDispatch();
+  const {
+    trends, isLoading, error, theme, page,
+  } = useAppSelector(getMoviesTrends);
 
   const handleTrends = () => {
     dispatch(nextTrendsPage(true));
-    dispatch(fetchNextPageTrends({ page: 2 }));
+    dispatch(fetchNextPageTrends({ page, theme }));
   };
 
-  const { trends, isLoading, error } = useAppSelector(getMoviesTrends);
-
   useEffect(() => {
-    dispatch(fetchMoviesTrends({ page: 1 }));
-  }, [dispatch]);
+    dispatch(fetchMoviesTrends({ theme }));
+  }, [dispatch, theme]);
 
   return (
     <StyledTrends>
@@ -27,10 +28,12 @@ export const TrendsPage = () => {
 
       {trends?.length > 0 && <TrendList movies={trends} />}
 
-      <StyledButton onClick={handleTrends}>
-        Show More
-        {isLoading && <LoaderMoreFilms />}
-      </StyledButton>
+      {!isLoading && !error && (
+        <StyledButton onClick={handleTrends}>
+          Show More
+          {isLoading && <LoaderMoreFilms />}
+        </StyledButton>
+      )}
     </StyledTrends>
   );
 };

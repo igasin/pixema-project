@@ -9,9 +9,8 @@ import { CustomLink } from './CustomLink/CustomLink';
 import { Portal } from './Portal/Portal';
 import { Modal } from './Modal/Modal';
 import { FilterInput } from './FilterInput/FilterInput';
-import { CustomSelect } from './CustomSelect/CustomSelect';
 import { MovieDetails } from './MovieDetails/MovieDetails';
-import { Slider } from './Slider/Slider';
+import { SimpleSlider } from './SimpleSlider/SimpleSlider';
 import { Slide } from './Slide/Slide';
 import { FormSignIn } from './FormSignIn/FormSignIn';
 import { Button } from './Button/Button';
@@ -25,6 +24,8 @@ import { SettingFormModal } from './SettingFormModal/SettingFormModal.';
 import { TrendList } from './TrendList/TrendList';
 import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { FavoriteList } from './FavoriteList/FavoriteList';
+import { FavoriteModal } from './FavoriteModal/FavoriteModal';
+import { NotFoundMessage } from './NotFoundMessage/NotFoundMessage';
 
 export {
   MovieList,
@@ -38,9 +39,8 @@ export {
   Portal,
   Modal,
   FilterInput,
-  CustomSelect,
   MovieDetails,
-  Slider,
+  SimpleSlider,
   Slide,
   FormSignIn,
   Button,
@@ -54,4 +54,6 @@ export {
   TrendList,
   BurgerMenu,
   FavoriteList,
+  FavoriteModal,
+  NotFoundMessage,
 };

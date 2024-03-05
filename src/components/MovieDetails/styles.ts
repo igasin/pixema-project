@@ -11,10 +11,6 @@ export const ContainerMovie = styled.div`
     flex-direction: column;
     place-items: center;
   }
-  ${Media.XS} {
-    align-items: flex-start;
-    padding-left: 20px;
-  }
 `;
 
 export const MoviePoster = styled.img`
@@ -84,6 +80,7 @@ export const RunTime = styled.div`
 `;
 
 export const MoviePlot = styled.div`
+  max-width: 800px;
   ${Typography.B1};
   margin-bottom: 50px;
   color: ${Colors.WHITE};
@@ -93,12 +90,18 @@ export const MovieDescription = styled.div`
   display: flex;
   flex-direction: column;
   grid-gap: 10px;
+  ${Media.M} {
+    justify-content: center;
+  }
 `;
 
 export const InfoMovie = styled.div`
   display: inline-grid;
-  grid-template-columns: repeat(2, auto);
-  grid-gap: 50px;
+  grid-template-columns: repeat(2, 200px);
+  grid-row-gap: 16px;
+  ${Media.M} {
+    grid-template-columns: repeat(2, 100px);
+  }
 `;
 
 export const Title = styled.p`
@@ -129,36 +132,45 @@ export const PosterContainer = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
-  max-width: 270px;
+  max-width: 295px;
   display: flex;
   grid-gap: 10px;
 `;
 
 export const FavoriteButton = styled.button`
-  width: 50%;
-  padding: 24px 19px;
+  width: 100%;
+  padding: 16px 0;
   background-color: ${Colors.GRAPHITE};
   border-radius: 10px 0 0 10px;
   border: none;
   cursor: pointer;
+  transition: all 0.3s;
   svg {
     fill: ${Colors.SECONDARY};
     &:hover {
-      fill: ${Colors.PRIMARY};
+      fill: ${Colors.LIGHT};
     }
   }
   &:hover {
     transform: scale(1.1);
+    background-color: ${Colors.LIGHT};
+  }
+  &:active {
+    color: ${Colors.PRIMARY};
+    fill: ${Colors.PRIMARY};
+    stroke: ${Colors.PRIMARY};
   }
 `;
 
 export const DeleteButton = styled.button`
-  width: 50%;
+  width: 100%;
   padding: 24px 19px;
+  padding: 16px 0;
   background-color: ${Colors.GRAPHITE};
   border-radius: 0 10px 10px 0;
   border: none;
   cursor: pointer;
+  transition: all 0.3s;
   svg {
     fill: ${Colors.SECONDARY};
     &:hover {
@@ -167,5 +179,22 @@ export const DeleteButton = styled.button`
   }
   &:hover {
     transform: scale(1.1);
+    background-color: ${Colors.LIGHT};
   }
+`;
+
+export const SliderContainer = styled.div`
+  margin-top: 20px;
+`;
+
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  grid-gap: 30px;
+`;
+
+export const Reccomends = styled.h3`
+  margin-bottom: 40px;
+  ${Typography.S1};
+  color: ${Colors.WHITE};
 `;

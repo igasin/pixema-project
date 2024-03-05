@@ -8,8 +8,11 @@ export const StyledTrends = styled.div`
 `;
 
 export const StyledButton = styled.button`
+  display: flex;
   justify-content: center;
+  grid-gap: 10px;
   padding: 8px 24px;
+  margin-top: 15px;
   border-radius: 40px;
   margin: auto;
   background: ${Colors.GRAPHITE};
@@ -17,5 +20,6 @@ export const StyledButton = styled.button`
   ${Typography.S1}
   :hover {
     transform: scale(1.1);
+    background-color: ${Colors.PRIMARY};
   }
 `;

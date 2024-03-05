@@ -9,17 +9,21 @@ export const StyledInputForm = styled.form`
 `;
 
 export const Wrapper = styled.div`
-  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  padding: 40px 25px 0;
   display: grid;
-  grid-template-columns: minmax(auto, 240px) minmax(auto, 1050px) minmax(auto, 480px);
-  place-items: center;
-  padding: 20px 20px;
+  align-items: center;
   grid-template-areas: "logo input button";
-  ${Media.XS} {
+  grid-template-columns: minmax(auto, 240px) minmax(auto, 1050px) minmax(auto, 350px);
+  place-items: center;
+  background: ${Colors.BLACK};
+  ${Media.M} {
     grid-template-areas:
       "logo button"
       "input input";
-    grid-template-rows: repeat(2, minmax(30px, auto));
+    grid-template-columns: minmax(auto, 240px) minmax(auto, 1050px);
   }
 `;
 
@@ -34,8 +38,11 @@ export const StyledInput = styled.input`
   &-placeholder {
     ${Typography.S1}
   }
+
   &:focus {
-    background: ${Colors.DARK};
+    background: ${Colors.GRAPHITE};
+    outline: 2px ${Colors.PRIMARY};
+    outline-style: solid;
   }
 `;
 
@@ -48,8 +55,12 @@ export const StyledButton = styled.button`
   position: absolute;
   top: 16px;
   right: 16px;
+  width: 30px;
   background-color: transparent;
   cursor: pointer;
+  svg {
+    color: ${Colors.PRIMARY};
+  }
 `;
 
 export const StyledLogo = styled(Link)`
@@ -63,6 +74,9 @@ export const BurgerButton = styled.button`
   border-radius: 10px;
   background-color: ${Colors.PRIMARY};
   cursor: pointer;
+  ${Media.M} {
+    justify-self: end;
+  }
 `;
 
 export const StyledUserProfile = styled.div`
@@ -74,8 +88,4 @@ export const BurgerWrap = styled.div`
   ${Media.XS} {
     margin-left: 80px;
   }
-`;
-
-export const Box = styled.div`
-  grid-area: button;
 `;

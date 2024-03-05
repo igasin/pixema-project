@@ -1,23 +1,26 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { Colors, Typography } from 'ui';
+import { Colors, Media, Typography } from 'ui';
 
 export const MovieBox = styled.div`
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   width: 100%;
 `;
 
 export const MovieCard = styled(motion.li)`
-  max-width: 300px;
   width: 100%;
+  width: 260px;
 `;
 
 export const MoviePoster = styled.img`
-  height: 90%;
+  height: 356px;
   width: 100%;
   border-radius: 20px;
   object-fit: cover;
   margin-bottom: 24px;
+  ${Media.S} {
+    height: 370px;
+    width: 260px;
+  }
 `;
 
 export const TitleMovie = styled.h4`

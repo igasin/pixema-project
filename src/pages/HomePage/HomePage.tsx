@@ -8,16 +8,16 @@ import { StyledBox, StyledButton } from './styles';
 export const HomePage = () => {
   const dispatch = useAppDispatch();
   const {
-    isLoading, movies, error, page,
+    isLoading, movies, error, page, theme,
   } = useAppSelector(getMovies);
 
   useEffect(() => {
-    dispatch(fetchMovies({ page: 1 }));
-  }, [dispatch]);
+    dispatch(fetchMovies({ theme }));
+  }, [dispatch, theme]);
 
   const handleMovies = () => {
     dispatch(nextMoviePage(true));
-    dispatch(fetchNextPageMovies({ page }));
+    dispatch(fetchNextPageMovies({ page, theme }));
   };
 
   return (
@@ -28,10 +28,12 @@ export const HomePage = () => {
 
       {movies?.length > 0 && <MovieList movies={movies} />}
 
-      <StyledButton onClick={handleMovies}>
-        Show More
-        {isLoading && <LoaderMoreFilms />}
-      </StyledButton>
+      {!isLoading && !error && (
+        <StyledButton onClick={handleMovies}>
+          Show More
+          {isLoading && <LoaderMoreFilms />}
+        </StyledButton>
+      )}
     </StyledBox>
   );
 };

@@ -1,22 +1,21 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, PathMatch } from 'react-router-dom';
 import styled from 'styled-components';
-import { Colors } from 'ui';
+import { Colors, Typography } from 'ui';
 
-export const StyledCustomLink = styled(NavLink)<{ $isActive: boolean }>`
-  font-weight: 600;
-  font-size: 18px;
+type isActive = { $isActive: PathMatch<string> | null };
+
+export const StyledCustomLink = styled(Link)<isActive>`
+  display: grid;
+  grid-template-columns: repeat(2, 50px);
+  grid-gap: 15px;
+  ${Typography.S1}
   line-height: 24px;
   text-decoration: none;
-  color: ${({ $isActive }) => ($isActive ? '#80858B' : '#7B61FF')};
-  display: flex;
-  grid-gap: 20px;
+  color: ${({ $isActive }) => ($isActive ? Colors.PRIMARY : Colors.SECONDARY)};
+  fill: ${({ $isActive }) => ($isActive ? Colors.PRIMARY : Colors.SECONDARY)};
 
   &:hover {
     color: ${Colors.PRIMARY};
-  }
-
-  svg {
-    fill: ${({ $isActive }) => ($isActive ? '#80858B' : '#7B61FF')};
-    width: 24px;
+    fill: ${Colors.PRIMARY};
   }
 `;

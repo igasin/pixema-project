@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 import { transformMoviesApi } from 'mappers';
+import { getRandomMovieTrend } from 'services';
 import { Movie } from 'types';
 
 interface TrendsState {
@@ -8,6 +9,7 @@ interface TrendsState {
   isLoading: boolean;
   error: string | null;
   page: number;
+  theme: ReturnType<typeof getRandomMovieTrend>;
 }
 
 const initialState: TrendsState = {
@@ -15,41 +17,40 @@ const initialState: TrendsState = {
   isLoading: false,
   error: null,
   page: 1,
+  theme: getRandomMovieTrend(),
 };
 
-export const fetchMoviesTrends = createAsyncThunk<
-Movie[],
-{ page: number },
-{ rejectValue: string }
->('trends/fetchMoviesTrends', async ({ page }, { rejectWithValue }) => {
-  try {
-    const { data } = await axios.get('https://www.omdbapi.com/?s=stars&apikey=d50b311e&page=1');
+export const fetchMoviesTrends = createAsyncThunk<Movie[], { theme: string }, { rejectValue: string }>(
+  'trends/fetchMoviesTrends',
+  async ({ theme }, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(`https://www.omdbapi.com/?s=${theme}&apikey=d50b311e&page=1`);
 
-    const transformedMovies = transformMoviesApi(data);
-    return transformedMovies;
-  } catch (error) {
-    const { message } = error as AxiosError;
-    return rejectWithValue(message);
-  }
-});
+      const transformedMovies = transformMoviesApi(data);
+      return transformedMovies;
+    } catch (error) {
+      const { message } = error as AxiosError;
+      return rejectWithValue(message);
+    }
+  },
+);
 
-export const fetchNextPageTrends = createAsyncThunk<
-Movie[],
-{ page: number },
-{ rejectValue: string }
->('trends/fetchNextPageTrends', async (params, { rejectWithValue }) => {
-  try {
-    const { data } = await axios.get(
-      `https://www.omdbapi.com/?s=stars&apikey=d50b311e&page=${params.page + 1}`,
-    );
+export const fetchNextPageTrends = createAsyncThunk<Movie[], { page: number; theme: string }, { rejectValue: string }>(
+  'trends/fetchNextPageTrends',
+  async (params, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(
+        `https://www.omdbapi.com/?s=${params.theme}&apikey=d50b311e&page=${params.page + 1}`,
+      );
 
-    const transformedMovies = transformMoviesApi(data);
-    return transformedMovies;
-  } catch (error) {
-    const { message } = error as AxiosError;
-    return rejectWithValue(message);
-  }
-});
+      const transformedMovies = transformMoviesApi(data);
+      return transformedMovies;
+    } catch (error) {
+      const { message } = error as AxiosError;
+      return rejectWithValue(message);
+    }
+  },
+);
 
 const trendsSlice = createSlice({
   name: 'trends',

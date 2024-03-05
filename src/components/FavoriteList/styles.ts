@@ -10,21 +10,19 @@ export const StyledList = styled.ul`
     text-decoration: none;
   }
 
-  ${Media.L} {
+  ${Media.XL} {
     grid-template-columns: repeat(3, minmax(200px, 300px));
-    grid-gap: 10px;
-    justify-self: start;
+    grid-gap: 30px;
+    justify-self: center;
   }
 
-  ${Media.Medium} {
+  ${Media.L} {
     grid-template-columns: repeat(2, minmax(200px, 300px));
-    grid-gap: 10px;
-    justify-self: start;
+    grid-gap: 30px;
   }
 
-  ${Media.XS} {
+  ${Media.S} {
     grid-template-columns: 1fr;
-    justify-self: start;
-    padding-left: 20px;
+    justify-self: center;
   }
 `;

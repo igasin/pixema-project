@@ -1,19 +1,6 @@
-const randomMovies = [
-  'Batman',
-  'Love',
-  'Wars',
-  'Marvel',
-  'Oscar',
-  'Man',
-  'Mother',
-  'City',
-  'Adventure',
-  'Life',
-];
+const randomMovies = ['Batman', 'Wars', 'Dream', 'Marvel', 'Man', 'Adventure', 'Life', 'Potter', 'Hobbit', 'World'];
 
-const getRandomMovie = (randomMovies: string[]) => {
+export const getRandomMovie = () => {
   const randomMovie = randomMovies[(Math.random() * randomMovies.length) | 0];
   return randomMovie;
 };
-
-export const randomMovieTrends = getRandomMovie(randomMovies);

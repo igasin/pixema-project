@@ -3,20 +3,18 @@ import React from 'react';
 import { ROUTE } from 'router';
 import { useAppDispatch, useAppSelector } from 'store';
 import { getUserInfo } from 'store/selectors';
+import { AnimatePresence } from 'framer-motion';
 import { useToggle } from 'hooks';
 import { fetchSignOut } from 'store/features';
 import {
-  ArrowButton,
   LogOut,
+  Menu,
   StyledLink,
-  StyledMenu,
-  StyledText,
-  StyledTitle,
   StyledUser,
-  StyledUserIcon,
-  UserNav,
-  UserTitle,
-  Wrap,
+  Title,
+  UserBadge,
+  UserBox,
+  UserButton,
 } from './styles';
 
 export const UserProfile = () => {
@@ -30,52 +28,38 @@ export const UserProfile = () => {
 
   return (
     <StyledUser>
-      <StyledUserIcon>
-        <UserIcon />
-      </StyledUserIcon>
-
-      <UserNav>
-        {isAuth ? (
-          <Wrap>
-            <StyledTitle>
-              <UserTitle>{email}</UserTitle>
-            </StyledTitle>
-
-            <ArrowButton onClick={setToggle}>
-              <ArrowRightIcon />
-            </ArrowButton>
-          </Wrap>
-        ) : (
-          <Wrap>
-            <StyledTitle>
-              <StyledLink to={ROUTE.Sign_in}>Sign in</StyledLink>
-            </StyledTitle>
-
-            <ArrowButton onClick={setToggle}>
-              <ArrowRightIcon />
-            </ArrowButton>
-          </Wrap>
-        )}
-        {toggle && (
-          <StyledMenu>
+      <UserButton type="button" onClick={setToggle}>
+        <UserBadge>
+          <UserBox>
+            <UserIcon />
+          </UserBox>
+          {isAuth ? <Title>{email}</Title> : <Title>Sign in</Title>}
+        </UserBadge>
+        <ArrowRightIcon />
+      </UserButton>
+      {toggle && (
+        <AnimatePresence>
+          <Menu
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+          >
             {isAuth ? (
               <>
-                <StyledLink to={ROUTE.Settings}>
-                  <StyledText>Edit</StyledText>
-                </StyledLink>
-
+                <StyledLink to={ROUTE.Settings}>Edit</StyledLink>
                 <LogOut type="button" onClick={handleOut}>
                   Log out
                 </LogOut>
-              </> // add log out in user slice
+              </>
             ) : (
-              <StyledLink to={ROUTE.Sign_up}>
-                <StyledText> Sign up</StyledText>
-              </StyledLink>
+              <>
+                <StyledLink to={ROUTE.Sign_in}>Sign in</StyledLink>
+                <StyledLink to={ROUTE.Sign_up}>Sign up</StyledLink>
+              </>
             )}
-          </StyledMenu>
-        )}
-      </UserNav>
+          </Menu>
+        </AnimatePresence>
+      )}
     </StyledUser>
   );
 };

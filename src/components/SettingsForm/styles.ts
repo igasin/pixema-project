@@ -35,14 +35,13 @@ export const ProfileContainer = styled.div`
 export const Title = styled.p`
   ${Typography.H3}
   color:${Colors.WHITE};
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 `;
 
 export const IputBox = styled.div``;
 
 export const InputTitle = styled.p`
   color: ${Colors.WHITE};
-  margin-bottom: 8px;
 `;
 
 export const StyledInput = styled.input`
@@ -76,16 +75,52 @@ export const PasswordContainer = styled.div`
   }
 `;
 
+export const ColorMode = styled.div`
+  max-width: 1180px;
+  width: 100%;
+`;
+
+export const StyledText = styled.p`
+  ${Typography.H2};
+  color: ${Colors.WHITE};
+  margin-bottom: 15px;
+`;
+
+export const ColorBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  grid-gap: 30px;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background: ${Colors.DARK};
+`;
+
+export const TitleColor = styled.span`
+  ${Typography.S1};
+  color: ${Colors.WHITE};
+`;
+
+export const Description = styled.p`
+  ${Typography.S3};
+  color: ${Colors.WHITE};
+`;
+
+export const TextWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  grid-gap: 10px;
+`;
+
 export const WrapInput = styled.div`
   grid-gap: 10px;
 `;
 
 export const ButtonBox = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, auto);
+  display: flex;
+  grid-gap: 40px;
+  width: 100%;
+  justify-content: end;
   margin-top: 48px;
-  place-items: center;
-  grid-gap: 10px;
   margin-bottom: 10px;
 `;
 
@@ -99,6 +134,9 @@ export const ButtonCancel = styled.button`
   ${Typography.S3}
   background: ${Colors.GRAPHITE};
   color: ${Colors.WHITE};
+  &:hover {
+    background-color: ${Colors.ERROR};
+  }
 `;
 
 export const ButtonSave = styled.button`
@@ -111,6 +149,9 @@ export const ButtonSave = styled.button`
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  &:hover {
+    background-color: ${Colors.GREEN};
+  }
 `;
 
 export const ErrorMessage = styled.p`

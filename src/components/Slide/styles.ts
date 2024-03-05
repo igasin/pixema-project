@@ -9,8 +9,8 @@ export const SlideMovie = styled(Link)`
 `;
 
 export const SlidePoster = styled.img`
-  height: 100%;
-  width: 70%;
+  height: 400px;
+  width: 90%;
   object-fit: cover;
   border-radius: 20px;
   margin-bottom: 15px;
@@ -18,6 +18,6 @@ export const SlidePoster = styled.img`
 
 export const Title = styled.h4`
   margin-top: 20px;
-  ${Typography.H3}
+  ${Typography.S3}
   color:${Colors.WHITE}
 `;

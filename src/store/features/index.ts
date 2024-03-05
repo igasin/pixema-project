@@ -1,6 +1,6 @@
 import { fetchMovies, nextMoviePage, fetchNextPageMovies } from './MovieSlice/MovieSlice';
 import {
-  fetchMoviesByParameter, setMovieTitle, setMovieType, setMovieYear, wipeOutMovies, deleteMoviesParameters,
+  fetchMoviesByParameter, setMovieTitle, setMovieType, setMovieYear, wipeOutMovies, deleteMoviesParameters, showNextPage,
 } from './FilterSlice/FilterSlice';
 import { fetchMoviesTrends, fetchNextPageTrends, nextTrendsPage } from './TrendsSlice/TrendsSlice';
 import { fetchMoviesDetails } from './MovieDetailsSlice/MovieDetailsSlice';
@@ -33,4 +33,5 @@ export {
   updateUserName,
   fetchSignOut,
   deleteFavorites,
+  showNextPage,
 };

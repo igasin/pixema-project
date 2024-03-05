@@ -108,12 +108,5 @@ interface User {
 }
 
 export type {
-  MovieApi,
-  Movie,
-  MovieResponse,
-  ResponseData,
-  MovieDetailsApi,
-  MovieDetailsInfo,
-  UserInfo,
-  User,
+  MovieApi, Movie, MovieResponse, ResponseData, MovieDetailsApi, MovieDetailsInfo, UserInfo, User,
 };

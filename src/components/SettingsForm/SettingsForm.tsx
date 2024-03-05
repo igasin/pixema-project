@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { InputBox } from 'components/FormSignIn/styles';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { emailValidate, nameValidate, passwordValidate } from 'services';
 import { useAppDispatch, useAppSelector } from 'store';
-import { fetchUpdateEmail, fetchUpdatePassword, updateUserName } from 'store/features';
+import {
+  fetchUpdateEmail, fetchUpdatePassword, toggleMode, updateUserName,
+} from 'store/features';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from 'router';
 import { useToggle } from 'hooks';
-import { SettingFormModal } from 'components';
-import { getUserInfo } from 'store/selectors';
+import { BasicSwitch, SettingFormModal } from 'components';
+import { getTheme, getUserInfo } from 'store/selectors';
 import {
   ButtonBox,
   ButtonCancel,
   ButtonSave,
+  ColorBox,
+  ColorMode,
   Container,
+  Description,
   ErrorMessage,
   ErrorReport,
   InputTitle,
@@ -24,7 +29,10 @@ import {
   StyledError,
   StyledForm,
   StyledInput,
+  StyledText,
+  TextWrap,
   Title,
+  TitleColor,
   WrapInput,
 } from './styles';
 
@@ -37,6 +45,16 @@ interface FormValues {
 }
 
 export const SettingsForm = () => {
+  const { theme } = useAppSelector(getTheme);
+
+  const toggleTheme = () => {
+    dispatch(toggleMode());
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute('theme', theme);
+  }, [theme]);
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { errorMessage } = useAppSelector(getUserInfo);
@@ -85,21 +103,13 @@ export const SettingsForm = () => {
           <ProfileContainer>
             <InputBox>
               <InputTitle>Name</InputTitle>
-              <StyledInput
-                type="text"
-                placeholder="Your name"
-                {...register('userName', nameValidate())}
-              />
+              <StyledInput type="text" placeholder="Your name" {...register('userName', nameValidate())} />
               {errors.userName?.message && <ErrorMessage>{errors.userName.message}</ErrorMessage>}
             </InputBox>
 
             <InputBox>
               <InputTitle>Email</InputTitle>
-              <StyledInput
-                type="text"
-                placeholder="Your email"
-                {...register('email', emailValidate())}
-              />
+              <StyledInput type="text" placeholder="Your email" {...register('email', emailValidate())} />
               {errors.email?.message && <ErrorMessage>{errors.email.message}</ErrorMessage>}
             </InputBox>
           </ProfileContainer>
@@ -110,11 +120,7 @@ export const SettingsForm = () => {
             <WrapInput>
               <InputBox>
                 <InputTitle>Password</InputTitle>
-                <StyledInput
-                  type="text"
-                  placeholder="Your password"
-                  {...register('password', passwordValidate())}
-                />
+                <StyledInput type="text" placeholder="Your password" {...register('password', passwordValidate())} />
                 {errors.password?.message && <ErrorMessage>{errors.password.message}</ErrorMessage>}
               </InputBox>
             </WrapInput>
@@ -122,14 +128,8 @@ export const SettingsForm = () => {
             <WrapInput>
               <InputBox>
                 <InputTitle>New Password</InputTitle>
-                <StyledInput
-                  type="text"
-                  placeholder="New Password"
-                  {...register('newPassword', passwordValidate())}
-                />
-                {errors.newPassword?.message && (
-                  <ErrorMessage>{errors.newPassword.message}</ErrorMessage>
-                )}
+                <StyledInput type="text" placeholder="New Password" {...register('newPassword', passwordValidate())} />
+                {errors.newPassword?.message && <ErrorMessage>{errors.newPassword.message}</ErrorMessage>}
               </InputBox>
 
               <InputBox>
@@ -139,9 +139,7 @@ export const SettingsForm = () => {
                   placeholder="Confirm password"
                   {...register('confirmPassword', passwordValidate())}
                 />
-                {errors.confirmPassword?.message && (
-                  <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>
-                )}
+                {errors.confirmPassword?.message && <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>}
 
                 {getValues('newPassword')
                   && getValues('confirmPassword')
@@ -153,6 +151,17 @@ export const SettingsForm = () => {
             </WrapInput>
           </PasswordContainer>
         </PasswordBox>
+
+        <ColorMode>
+          <StyledText> Color Mode</StyledText>
+          <ColorBox>
+            <TextWrap>
+              <TitleColor>{theme === 'light' ? 'Light' : 'Dark'}</TitleColor>
+              <Description>Use another thema</Description>
+            </TextWrap>
+            <BasicSwitch onClick={toggleTheme} />
+          </ColorBox>
+        </ColorMode>
 
         <ButtonBox>
           <ButtonCancel type="button" onClick={handleCancel}>

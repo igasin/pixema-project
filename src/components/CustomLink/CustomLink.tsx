@@ -11,7 +11,7 @@ interface CustomLinkProps {
 export const CustomLink = ({ children, to }: CustomLinkProps) => {
   const isActive = useMatch(to);
   return (
-    <StyledCustomLink to={to} $isActive={!isActive}>
+    <StyledCustomLink to={to} $isActive={isActive}>
       {children}
     </StyledCustomLink>
   );
