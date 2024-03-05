@@ -11,15 +11,14 @@ export const StyledInputForm = styled.form`
 export const Wrapper = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(auto, 250px) minmax(auto, 1180px) minmax(auto, 300px);
+  grid-template-columns: minmax(auto, 240px) minmax(auto, 1050px) minmax(auto, 480px);
   place-items: center;
-  grid-gap: 20px;
   padding: 20px 20px;
-  grid-template-areas: "logo input  button";
+  grid-template-areas: "logo input button";
   ${Media.XS} {
     grid-template-areas:
       "logo button"
-      "input input ";
+      "input input";
     grid-template-rows: repeat(2, minmax(30px, auto));
   }
 `;
@@ -72,7 +71,9 @@ export const StyledUserProfile = styled.div`
 `;
 
 export const BurgerWrap = styled.div`
-  justify-self: end;
+  ${Media.XS} {
+    margin-left: 80px;
+  }
 `;
 
 export const Box = styled.div`

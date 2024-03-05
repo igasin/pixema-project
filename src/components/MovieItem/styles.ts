@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { Colors, Typography } from 'ui';
 
@@ -6,7 +7,7 @@ export const MovieBox = styled.div`
   width: 100%;
 `;
 
-export const MovieCard = styled.li`
+export const MovieCard = styled(motion.li)`
   max-width: 300px;
   width: 100%;
 `;

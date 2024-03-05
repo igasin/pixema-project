@@ -2,7 +2,7 @@ import {
   BasicSwitch, InputSearch, Modal, Nav,
 } from 'components';
 import { useToggle, useWindowSize } from 'hooks';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { getTheme } from 'store/selectors';
 import { useAppDispatch, useAppSelector } from 'store';

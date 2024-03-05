@@ -14,6 +14,7 @@ import {
   wipeOutMovies,
 } from 'store/features';
 
+import { AnimatePresence } from 'framer-motion';
 import {
   Container,
   StyledButtonBox,
@@ -85,78 +86,85 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
   } = useForm<FormValues>();
   return (
     <Portal target={PortalTarget.MODAL}>
-      {isOpen && (
-        <Container>
-          <StyledForm onSubmit={handleSubmit(onSubmit)}>
-            <StyledTitle>
-              <Title>Filters</Title>
-              <StyledCloseButton>
-                <CloseIcon onClick={closeModal} />
-              </StyledCloseButton>
-            </StyledTitle>
-            <StyledMovieName>
-              <StyledMovieTitle>Full or short movie name</StyledMovieTitle>
-              <Controller
-                defaultValue=""
-                control={control}
-                name="s"
-                rules={{
-                  required: 'title is required',
-                  pattern: {
-                    value: /[A-Za-z]/,
-                    message: 'the field contain only letters',
-                  },
-                  maxLength: {
-                    value: 15,
-                    message: 'the field should contain no more than 15 letters',
-                  },
-                }}
-                render={({ field: { ref, ...rest } }) => (
-                  <FilterInput {...rest} placeholder="Enter title" type="text" />
-                )}
-              />
-              {errors.s?.message && <StyledError>{errors.s.message}</StyledError>}
-            </StyledMovieName>
+      <AnimatePresence>
+        {isOpen && (
+          <Container
+            initial={{ opacity: 0, x: '-100vh' }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ type: 'spring', stiffness: 100 }}
+            exit={{ opacity: 0, x: '-100vh' }}
+          >
+            <StyledForm onSubmit={handleSubmit(onSubmit)}>
+              <StyledTitle>
+                <Title>Filters</Title>
+                <StyledCloseButton>
+                  <CloseIcon onClick={closeModal} />
+                </StyledCloseButton>
+              </StyledTitle>
+              <StyledMovieName>
+                <StyledMovieTitle>Full or short movie name</StyledMovieTitle>
+                <Controller
+                  defaultValue=""
+                  control={control}
+                  name="s"
+                  rules={{
+                    required: 'title is required',
+                    pattern: {
+                      value: /[A-Za-z]/,
+                      message: 'the field contain only letters',
+                    },
+                    maxLength: {
+                      value: 15,
+                      message: 'the field should contain no more than 15 letters',
+                    },
+                  }}
+                  render={({ field: { ref, ...rest } }) => (
+                    <FilterInput {...rest} placeholder="Enter title" type="text" />
+                  )}
+                />
+                {errors.s?.message && <StyledError>{errors.s.message}</StyledError>}
+              </StyledMovieName>
 
-            <StyledMovieYear>
-              <StyledMovieTitleYear>Years</StyledMovieTitleYear>
-              <Controller
-                defaultValue=""
-                control={control}
-                name="y"
-                rules={{
-                  required: 'year is required',
-                  maxLength: { value: 5, message: 'max 5 numbers' },
-                  pattern: {
-                    value: /[0-9]/,
-                    message: 'Please enter a valid year',
-                  },
-                }}
-                render={({ field: { ref, ...rest } }) => (
-                  <FilterInput {...rest} placeholder="Year" type="text" />
-                )}
-              />
-              {errors.y?.message && <StyledError>{errors.y.message}</StyledError>}
-            </StyledMovieYear>
+              <StyledMovieYear>
+                <StyledMovieTitleYear>Years</StyledMovieTitleYear>
+                <Controller
+                  defaultValue=""
+                  control={control}
+                  name="y"
+                  rules={{
+                    required: 'year is required',
+                    maxLength: { value: 5, message: 'max 5 numbers' },
+                    pattern: {
+                      value: /[0-9]/,
+                      message: 'Please enter a valid year',
+                    },
+                  }}
+                  render={({ field: { ref, ...rest } }) => (
+                    <FilterInput {...rest} placeholder="Year" type="text" />
+                  )}
+                />
+                {errors.y?.message && <StyledError>{errors.y.message}</StyledError>}
+              </StyledMovieYear>
 
-            <StyledSelect>
-              <StyledTittleSelect>Movie Types</StyledTittleSelect>
-              <Controller
-                control={control}
-                name="type"
-                render={({ field: { value, onChange } }) => (
-                  <CustomSelect value={value} onChange={onChange} options={options} />
-                )}
-              />
-            </StyledSelect>
+              <StyledSelect>
+                <StyledTittleSelect>Movie Types</StyledTittleSelect>
+                <Controller
+                  control={control}
+                  name="type"
+                  render={({ field: { value, onChange } }) => (
+                    <CustomSelect value={value} onChange={onChange} options={options} />
+                  )}
+                />
+              </StyledSelect>
 
-            <StyledButtonBox>
-              <StyledButtonClear onClick={handleResetFilter}>Clear Filter</StyledButtonClear>
-              <StyledButtonShow type="submit">Show results</StyledButtonShow>
-            </StyledButtonBox>
-          </StyledForm>
-        </Container>
-      )}
+              <StyledButtonBox>
+                <StyledButtonClear onClick={handleResetFilter}>Clear Filter</StyledButtonClear>
+                <StyledButtonShow type="submit">Show results</StyledButtonShow>
+              </StyledButtonBox>
+            </StyledForm>
+          </Container>
+        )}
+      </AnimatePresence>
     </Portal>
   );
 };

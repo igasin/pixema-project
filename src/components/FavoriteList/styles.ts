@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Media } from 'ui';
 
-export const StyledMovieList = styled.ul`
+export const StyledList = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   place-items: center;

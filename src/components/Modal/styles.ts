@@ -1,7 +1,8 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { Colors, Media, Typography } from 'ui';
 
-export const Container = styled.div`
+export const Container = styled(motion.div)`
   position: fixed;
   top: 0;
   z-index: 12;
@@ -17,7 +18,7 @@ export const StyledForm = styled.form`
   top: 0;
   right: 0;
   padding: 25px 20px;
-  width: 30%;
+  width: 600px;
   display: grid;
   grid-gap: 40px;
   border-radius: 5px;
@@ -90,7 +91,7 @@ export const StyledButtonShow = styled.button`
 
 export const StyledError = styled.p`
   margin-top: 10px;
-  ${Typography.S2}
+  ${Typography.S3}
   color:${Colors.ERROR}
 `;
 

@@ -5,14 +5,14 @@ import { Colors, Media, Typography } from 'ui';
 export const FormWrap = styled.div`
   max-width: 580px;
   width: 100%;
-  padding: 40px 40px;
+  padding: 40px 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
   background-color: ${Colors.DARK};
   ${Media.XXS} {
-    padding-right: 10px;
+    width: 80%;
   }
 `;
 
@@ -116,6 +116,7 @@ export const InputConfirmPassword = styled.input`
 
 export const ButtonWrap = styled.div`
   margin-top: 30px;
+  margin-bottom: 10px;
 `;
 
 export const SignUpLink = styled.div`
@@ -125,7 +126,7 @@ export const SignUpLink = styled.div`
 
 export const SignUpTitle = styled.p`
   ${Typography.S3}
-  color:${Colors.SECONDARY};
+  color:${Colors.LIGHT};
   margin-right: 10px;
 `;
 
@@ -136,6 +137,16 @@ export const StyledLink = styled(Link)`
 `;
 
 export const ErrorMessage = styled.p`
+  color: ${Colors.ERROR};
+  ${Typography.S3};
+`;
+
+export const StyledError = styled.p`
+  color: ${Colors.ERROR};
+  ${Typography.S3};
+`;
+
+export const ErrorReport = styled.span`
   color: ${Colors.ERROR};
   ${Typography.S3};
 `;

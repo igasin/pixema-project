@@ -8,7 +8,7 @@ import { MovieDetailsWrap } from './styles';
 
 export const MovieDetailsPage = () => {
   const dispatch = useAppDispatch();
-  const { details, isLoading, error } = useAppSelector(getDetailsMovie);
+  const { movieDetails, isLoading, error } = useAppSelector(getDetailsMovie);
   const { imdbID = '' } = useParams();
 
   useEffect(() => {
@@ -20,7 +20,7 @@ export const MovieDetailsPage = () => {
       {isLoading && <div>isload....</div>}
       {error && <span>{error}</span>}
 
-      {details && <MovieDetails details={details} />}
+      {movieDetails && <MovieDetails details={movieDetails} />}
     </MovieDetailsWrap>
   );
 };

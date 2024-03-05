@@ -16,6 +16,8 @@ import ImageNotFount from './image/image-not-found-icon.png';
 import DarkLogo from './icons/pixema-dark-logo.svg?react';
 import FavoriteIcon from './icons/favorite-icon.svg?react';
 import ShareIcon from './icons/share-icon.svg?react';
+import DeleteFavoriteIcon from './icons/delete-favorites-icon.svg?react';
+import NotFoundMovie from './image/not-found-favorite-image.png';
 
 export {
   HomeIcon,
@@ -34,4 +36,6 @@ export {
   DarkLogo,
   FavoriteIcon,
   ShareIcon,
+  DeleteFavoriteIcon,
+  NotFoundMovie,
 };

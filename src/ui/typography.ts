@@ -57,11 +57,15 @@ const S3 = css`
 
 const B1 = css`
   font-size: 16px;
-  font-weight: 600px;
   font-weight: 400px;
   color: ${Colors.GRAPHITE};
 `;
 
+export const B2 = css`
+  font-size: 12px;
+  font-weight: 400px;
+`;
+
 export const Typography = {
-  H1, H2, H3, S1, S2, S3, B1,
+  H1, H2, H3, S1, S2, S3, B1, B2,
 };

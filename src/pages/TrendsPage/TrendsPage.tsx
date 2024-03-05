@@ -1,4 +1,4 @@
-import { LoaderMoreFilms, MovieList } from 'components';
+import { LoaderMoreFilms, TrendList } from 'components';
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { fetchMoviesTrends, fetchNextPageTrends, nextTrendsPage } from 'store/features';
@@ -25,7 +25,7 @@ export const TrendsPage = () => {
 
       {error && <span>{error}</span>}
 
-      {trends?.length > 0 && <MovieList movies={trends} />}
+      {trends?.length > 0 && <TrendList movies={trends} />}
 
       <StyledButton onClick={handleTrends}>
         Show More

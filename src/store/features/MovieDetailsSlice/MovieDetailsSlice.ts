@@ -4,14 +4,14 @@ import { transformDetailsMovies, transformMoviesApi } from 'mappers';
 import { Movie, MovieDetailsInfo } from 'types/types';
 
 interface DetailsState {
-  details: MovieDetailsInfo;
+  movieDetails: MovieDetailsInfo;
   isLoading: boolean;
   error: string | null;
   recommendations: Movie[];
 }
 
 const initialState: DetailsState = {
-  details: {} as MovieDetailsInfo,
+  movieDetails: {} as MovieDetailsInfo,
   isLoading: false,
   error: null,
   recommendations: [],
@@ -23,7 +23,7 @@ string,
 { rejectValue: string }
 >('details/fetchMoviesDetails', async (imdbID, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(`https://www.omdbapi.com/?i=${imdbID}&apikey=d50b311e&`);
+    const { data } = await axios.get(`https://www.omdbapi.com/?i=${imdbID}&apikey=85b6fcde&`);
 
     const transformedMovies = transformDetailsMovies(data);
     return transformedMovies;
@@ -40,7 +40,7 @@ string,
 { rejectValue: string }
 >('movies/fetchMoviesRecommends', async (title, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get('https://www.omdbapi.com/?s=man&apikey=d50b311e&');
+    const { data } = await axios.get('https://www.omdbapi.com/?s=man&apikey=85b6fcde&');
 
     const transformedMovies = transformMoviesApi(data);
     return transformedMovies;
@@ -61,7 +61,7 @@ const movieDetailsSlice = createSlice({
     });
     builder.addCase(fetchMoviesDetails.fulfilled, (state, { payload }) => {
       state.isLoading = false;
-      state.details = payload;
+      state.movieDetails = payload;
     });
 
     builder.addCase(fetchMoviesDetails.rejected, (state, { payload }) => {

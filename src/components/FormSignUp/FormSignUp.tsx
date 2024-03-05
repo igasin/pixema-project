@@ -1,5 +1,4 @@
 import { Button } from 'components';
-import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from 'router';
@@ -10,6 +9,7 @@ import { emailValidate, nameValidate, passwordValidate } from 'services';
 import {
   ButtonWrap,
   ErrorMessage,
+  ErrorReport,
   FormWrap,
   InputBox,
   InputConfirmPassword,
@@ -19,6 +19,7 @@ import {
   InputTitle,
   SignUpLink,
   SignUpTitle,
+  StyledError,
   StyledForm,
   StyledLink,
   TitleForm,
@@ -27,7 +28,7 @@ import {
 interface UserInfo {
   email: string;
   password: string;
-  name: string;
+  userName: string;
   confirmPassword: string;
 }
 
@@ -36,14 +37,16 @@ export const FormSignUp = () => {
     register,
     handleSubmit,
     reset,
+    getValues,
     formState: { errors },
   } = useForm<UserInfo>();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-
   const { errorMessage } = useAppSelector(getUserInfo);
+
   const onSubmit: SubmitHandler<UserInfo> = async (user) => {
     await dispatch(fetchSignUpUser(user)).unwrap();
+    localStorage.setItem('user', JSON.stringify(user));
     await navigate(ROUTE.Home);
     await reset();
   };
@@ -55,8 +58,8 @@ export const FormSignUp = () => {
 
         <InputBox>
           <InputTitle>Name</InputTitle>
-          <InputName placeholder="Name" {...register('name', nameValidate())} />
-          {errors.name?.message && <ErrorMessage>{errors.name.message}</ErrorMessage>}
+          <InputName placeholder="Name" {...register('userName', nameValidate())} />
+          {errors.userName?.message && <ErrorMessage>{errors.userName.message}</ErrorMessage>}
         </InputBox>
 
         <InputBox>
@@ -81,13 +84,20 @@ export const FormSignUp = () => {
             {...register('confirmPassword', { required: true })}
           />
         </InputBox>
-        {errorMessage && <span>{errorMessage}</span>}
+        {errorMessage && <StyledError>{errorMessage}</StyledError>}
+
+        {getValues('password')
+          && getValues('confirmPassword')
+          && getValues('password') !== getValues('confirmPassword') && (
+            <ErrorReport>Passwords do not match</ErrorReport>
+        )}
         <ButtonWrap>
           <Button type="submit">Sign up</Button>
         </ButtonWrap>
+
+        {errors.confirmPassword && <p>Passwords do not match</p>}
         <SignUpLink>
           <SignUpTitle>Already have an account?</SignUpTitle>
-
           <StyledLink to={ROUTE.Sign_in}>Sign In</StyledLink>
         </SignUpLink>
       </StyledForm>

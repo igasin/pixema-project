@@ -1,15 +1,14 @@
-import { Slider } from 'components';
 import React from 'react';
 import { MovieDetailsInfo } from 'types';
 
-import { FavoriteIcon, ShareIcon } from 'assets';
-import { Colors } from 'ui';
+import { DeleteFavoriteIcon, FavoriteIcon } from 'assets';
 import { useAppDispatch, useAppSelector } from 'store';
-import { getFavorites } from 'store/selectors';
-import { addFavorites } from 'store/features';
+import { getDetailsMovie } from 'store/selectors';
+import { addFavorites, deleteFavorites } from 'store/features';
 import {
   ButtonContainer,
   ContainerMovie,
+  DeleteButton,
   Description,
   DetailsWrap,
   FavoriteButton,
@@ -24,10 +23,6 @@ import {
   RatingBox,
   RatingImdb,
   RunTime,
-  ShareButton,
-  SliderTitleWrapper,
-  SliderTittle,
-  SliderWrapper,
   Title,
   TitleMovie,
 } from './styles';
@@ -37,11 +32,15 @@ interface DetailsProps {
 }
 
 export const MovieDetails = ({ details }: DetailsProps) => {
-  const { favorites } = useAppSelector(getFavorites);
-  const dispatch = useAppDispatch;
+  const dispatch = useAppDispatch();
+  const { movieDetails } = useAppSelector(getDetailsMovie);
 
-  const handleFavorite = () => {
-    dispatch();
+  const handleFavorite = (): void => {
+    dispatch(addFavorites(movieDetails));
+  };
+
+  const handleDeleteFavorite = (): void => {
+    dispatch(deleteFavorites(movieDetails.imdbID));
   };
 
   const {
@@ -71,9 +70,9 @@ export const MovieDetails = ({ details }: DetailsProps) => {
             <FavoriteIcon />
           </FavoriteButton>
 
-          <ShareButton>
-            <ShareIcon />
-          </ShareButton>
+          <DeleteButton type="button" onClick={handleDeleteFavorite}>
+            <DeleteFavoriteIcon width={30} />
+          </DeleteButton>
         </ButtonContainer>
       </PosterContainer>
       <DetailsWrap>
@@ -125,7 +124,7 @@ export const MovieDetails = ({ details }: DetailsProps) => {
           </InfoMovie>
         </MovieDescription>
       </DetailsWrap>
-      //add slider
     </ContainerMovie>
+    //  add slider
   );
 };

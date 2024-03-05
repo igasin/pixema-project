@@ -17,6 +17,7 @@ import {
   InputTitle,
   SignUpLink,
   SignUpTitle,
+  StyledError,
   StyledForm,
   StyledLink,
   TitleForm,
@@ -29,13 +30,13 @@ interface FormValues {
 }
 
 export const FormSignIn = () => {
-  const { isPendingAuth, errorMessage } = useAppSelector(getUserInfo);
+  const { errorMessage } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm<FormValues>();
 
@@ -72,6 +73,7 @@ export const FormSignIn = () => {
         <ButtonWrap>
           <Button type="submit">Sign in</Button>
         </ButtonWrap>
+        {errorMessage && <StyledError>{errorMessage}</StyledError>}
         <SignUpLink>
           <SignUpTitle>Don’t have an account? </SignUpTitle>
           <StyledLink to={ROUTE.Sign_up}>Sign Up</StyledLink>

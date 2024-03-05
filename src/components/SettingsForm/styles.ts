@@ -1,27 +1,35 @@
 import styled from 'styled-components';
-import { Colors, Typography } from 'ui';
+import { Colors, Media, Typography } from 'ui';
 
 export const Container = styled.div`
   max-width: 1186px;
+  width: 100%;
 `;
 
 export const StyledForm = styled.form`
-  height: 100%;
   display: grid;
   grid-gap: 40px;
+  ${Media.M} {
+    margin-left: 20px;
+  }
 `;
 
 export const ProfileBox = styled.div`
-  width: 1180px;
+  max-width: 1180px;
+  width: 100%;
 `;
 
 export const ProfileContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, auto);
-  grid-gap: 40px;
+  grid-gap: 30px;
   padding: 20px 20px;
   border-radius: 10px;
   background: ${Colors.DARK};
+  ${Media.M} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const Title = styled.p`
@@ -48,6 +56,9 @@ export const StyledInput = styled.input`
     outline: 2px ${Colors.PRIMARY};
     outline-style: solid;
   }
+  &-placeholder {
+    ${Typography.S3}
+  }
 `;
 
 export const PasswordBox = styled.div``;
@@ -55,47 +66,31 @@ export const PasswordBox = styled.div``;
 export const PasswordContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, auto);
-  grid-gap: 40px;
+  gap: 30px;
   padding: 20px 20px;
   border-radius: 10px;
   background: ${Colors.DARK};
+  ${Media.M} {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const WrapInput = styled.div`
   grid-gap: 10px;
 `;
 
-export const ModeBox = styled.div``;
-
-export const ModeContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  grid-gap: 40px;
-  padding: 20px 20px;
-  border-radius: 10px;
-  background: ${Colors.DARK};
-`;
-
-export const ThemaTitle = styled.p`
-  ${Typography.S3};
-  color: ${Colors.WHITE};
-`;
-
-export const ThemaBox = styled.div``;
-
-export const StyledSwitch = styled.button``;
-export const SwitchBox = styled.div``;
-
 export const ButtonBox = styled.div`
   display: grid;
   grid-template-columns: repeat(2, auto);
   margin-top: 48px;
   place-items: center;
+  grid-gap: 10px;
+  margin-bottom: 10px;
 `;
 
 export const ButtonCancel = styled.button`
-  max-width: 270px;
+  max-width: 200px;
   width: 100%;
   padding: 16px 0;
   border: none;
@@ -107,7 +102,7 @@ export const ButtonCancel = styled.button`
 `;
 
 export const ButtonSave = styled.button`
-  max-width: 270px;
+  max-width: 200px;
   padding: 16px 0;
   width: 100%;
   color: ${Colors.WHITE};
@@ -116,4 +111,19 @@ export const ButtonSave = styled.button`
   border: none;
   border-radius: 10px;
   cursor: pointer;
+`;
+
+export const ErrorMessage = styled.p`
+  color: ${Colors.ERROR};
+  ${Typography.S3};
+`;
+
+export const ErrorReport = styled.p`
+  color: ${Colors.ERROR};
+  ${Typography.S3};
+`;
+
+export const StyledError = styled.p`
+  color: ${Colors.ERROR};
+  ${Typography.S3};
 `;

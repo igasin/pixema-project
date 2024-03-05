@@ -4,9 +4,11 @@ import {
 } from './FilterSlice/FilterSlice';
 import { fetchMoviesTrends, fetchNextPageTrends, nextTrendsPage } from './TrendsSlice/TrendsSlice';
 import { fetchMoviesDetails } from './MovieDetailsSlice/MovieDetailsSlice';
-import { fetchSignInUser } from './UserSlice/UserSlice';
+import {
+  fetchSignInUser, fetchResetPassword, fetchUpdateEmail, fetchUpdatePassword, updateUserName, fetchSignOut,
+} from './UserSlice/UserSlice';
 import { toggleMode } from './ThemeSlice/ThemeSlice';
-import { addFavorites } from './FavoriteSlice/FavoriteSlice';
+import { addFavorites, deleteFavorites } from './FavoriteSlice/FavoriteSlice';
 
 export {
   fetchMovies,
@@ -25,4 +27,10 @@ export {
   fetchNextPageTrends,
   nextTrendsPage,
   addFavorites,
+  fetchResetPassword,
+  fetchUpdateEmail,
+  fetchUpdatePassword,
+  updateUserName,
+  fetchSignOut,
+  deleteFavorites,
 };

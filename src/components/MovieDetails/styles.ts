@@ -147,9 +147,12 @@ export const FavoriteButton = styled.button`
       fill: ${Colors.PRIMARY};
     }
   }
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
-export const ShareButton = styled.button`
+export const DeleteButton = styled.button`
   width: 50%;
   padding: 24px 19px;
   background-color: ${Colors.GRAPHITE};
@@ -161,5 +164,8 @@ export const ShareButton = styled.button`
     &:hover {
       fill: ${Colors.PRIMARY};
     }
+  }
+  &:hover {
+    transform: scale(1.1);
   }
 `;

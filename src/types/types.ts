@@ -99,6 +99,14 @@ interface UserInfo {
   confirmPassword: string;
 }
 
+interface User {
+  email: string;
+  password: string;
+  name: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
 export type {
   MovieApi,
   Movie,
@@ -107,4 +115,5 @@ export type {
   MovieDetailsApi,
   MovieDetailsInfo,
   UserInfo,
+  User,
 };
