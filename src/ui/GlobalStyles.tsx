@@ -1,20 +1,28 @@
 import { createGlobalStyle } from 'styled-components';
 import { Colors } from './colors';
+import { themeColor } from './theme';
 
 const GlobalStyles = createGlobalStyle`
+
+${themeColor}
+
 *{
  padding: 0;
  margin: 0;
- box-sizing:border-box;}
+ box-sizing:border-box;
+ list-style: none;
+  text-decoration:none;
+}
 
 input {
   border:none;
   }
 
- li {list-style:none} 
+ li {list-style:none;
+    text-decoration:none;
+} 
 
 body {
- background-color:${Colors.BLACK};
  font-family: 'Exo 2', sans-serif;
 }
 

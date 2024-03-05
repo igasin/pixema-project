@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import { Media } from 'ui';
+import { Colors, Media } from 'ui';
 
 export const StyledTemplate = styled.div`
-  padding: 32px 25px 30px;
-  grid-gap: 50px;
-  height: 100vh;
-  max-width: 1920px;
-
+  min-height: 100vh;
+  min-width: 100vh;
+  padding: 40px 62px 64px;
+  background-color: ${Colors.BLACK};
+  color: ${Colors.WHITE};
   ${Media.XS} {
     flex-wrap: wrap;
     flex-direction: column;
@@ -17,18 +17,13 @@ export const StyledTemplate = styled.div`
   }
 `;
 
-export const StyledBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  grid-gap: 50px;
-`;
-
 export const StyledHeaderGroup = styled.div`
   position: fixed;
   width: 100%;
   place-items: center;
   ${Media.XS} {
     margin: 0 auto;
+    margin-bottom: 100px;
   }
 `;
 
@@ -42,12 +37,16 @@ export const StyledNav = styled.div`
   padding-left: 10px;
 `;
 
-export const StyledOutlet = styled.div`
-  padding-top: 150px;
-`;
+export const StyledOutlet = styled.div``;
 export const Box = styled.div`
-  padding-top: 150px;
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  grid-gap: 30px;
+  padding-top: 120px;
+  display: flex;
+
+  grid-gap: 170px;
+
+  ${Media.XS} {
+    padding-top: 200px;
+  }
 `;
+
+export const ButtonTheme = styled.button``;

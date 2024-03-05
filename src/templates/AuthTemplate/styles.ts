@@ -10,6 +10,9 @@ export const StyledAuth = styled.div`
   min-height: 100vh;
   padding: 35px 50px;
   background: url(${BackgroundMovies});
+  background-color: ${Colors.BLACK};
+  color: ${Colors.WHITE};
+
   background-size: cover;
   background-repeat: no-repeat;
 `;

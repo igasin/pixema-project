@@ -6,6 +6,9 @@ export const StyledMovieList = styled.ul`
   grid-template-columns: repeat(4, 1fr);
   place-items: center;
   gap: 30px;
+  ul li {
+    text-decoration: none;
+  }
 
   ${Media.L} {
     grid-template-columns: repeat(3, minmax(200px, 300px));

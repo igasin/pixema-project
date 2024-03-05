@@ -1,12 +1,17 @@
-import { MovieList } from 'components';
+import { LoaderMoreFilms, MovieList } from 'components';
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
-import { fetchMoviesTrends } from 'store/features';
+import { fetchMoviesTrends, fetchNextPageTrends, nextTrendsPage } from 'store/features';
 import { getMoviesTrends } from 'store/selectors';
-import { StyledTrends } from './styles';
+import { StyledButton, StyledTrends } from './styles';
 
 export const TrendsPage = () => {
   const dispatch = useAppDispatch();
+
+  const handleTrends = () => {
+    dispatch(nextTrendsPage(true));
+    dispatch(fetchNextPageTrends({ page: 2 }));
+  };
 
   const { trends, isLoading, error } = useAppSelector(getMoviesTrends);
 
@@ -21,6 +26,11 @@ export const TrendsPage = () => {
       {error && <span>{error}</span>}
 
       {trends?.length > 0 && <MovieList movies={trends} />}
+
+      <StyledButton onClick={handleTrends}>
+        Show More
+        {isLoading && <LoaderMoreFilms />}
+      </StyledButton>
     </StyledTrends>
   );
 };

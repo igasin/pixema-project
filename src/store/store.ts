@@ -5,6 +5,7 @@ import trendsReducer from './features/TrendsSlice/TrendsSlice';
 import detailsReducer from './features/MovieDetailsSlice/MovieDetailsSlice';
 import userReducer from './features/UserSlice/UserSlice';
 import themeReducer from './features/ThemeSlice/ThemeSlice';
+import favoritesReducer from './features/FavoriteSlice/FavoriteSlice';
 
 export const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ export const store = configureStore({
     details: detailsReducer,
     user: userReducer,
     theme: themeReducer,
+    favorites: favoritesReducer,
   },
 });
 

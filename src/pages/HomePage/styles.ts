@@ -4,7 +4,7 @@ import { Colors, Typography } from 'ui';
 export const StyledBox = styled.div`
   display: grid;
   place-items: center;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
 `;
 
 export const StyledButton = styled.button`

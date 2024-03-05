@@ -1,12 +1,15 @@
-import { InputIcon, MainLogo, MenuIcon } from 'assets';
+import {
+  DarkLogo, InputIcon, MainLogo, MenuIcon,
+} from 'assets';
 import { UserProfile } from 'components';
 import { useWindowSize } from 'hooks';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ROUTE } from 'router';
 import { deleteMoviesParameters, setMovieTitle, wipeOutMovies } from 'store/features';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'store';
+import { useAppDispatch, useAppSelector } from 'store';
+import { getTheme } from 'store/selectors';
 import {
   Box,
   BurgerButton,
@@ -31,7 +34,7 @@ interface FormValues {
 export const InputSearch = ({ toggleModal }: InputProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-
+  const { theme } = useAppSelector(getTheme);
   const { register, handleSubmit, reset } = useForm<FormValues>();
 
   const openModal = () => {
@@ -47,10 +50,11 @@ export const InputSearch = ({ toggleModal }: InputProps) => {
     dispatch(setMovieTitle(title.s));
     reset();
   };
+
   return (
     <Wrapper>
       <StyledLogo to={ROUTE.Home}>
-        <MainLogo width={160} />
+        {theme === 'dark' ? <MainLogo width={160} /> : <DarkLogo width={160} />}
       </StyledLogo>
 
       <Container>

@@ -20,6 +20,7 @@ import { FormReset } from './FormReset/FormReset';
 import { Loader } from './Loader/Loader';
 import { LoaderMoreFilms } from './LoaderMoreFilms/LoaderMoreFilms';
 import { SettingForm } from './SettingsForm/SettingForm';
+import { BasicSwitch } from './BasicSwitch/BasicSwitch';
 
 export {
   MovieList,
@@ -44,4 +45,5 @@ export {
   Loader,
   LoaderMoreFilms,
   SettingForm,
+  BasicSwitch,
 };

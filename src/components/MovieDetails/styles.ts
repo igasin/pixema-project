@@ -3,7 +3,7 @@ import { Colors, Media, Typography } from 'ui';
 
 export const ContainerMovie = styled.div`
   display: grid;
-  grid-template-columns: 270px 1fr;
+  grid-template-columns: auto 1fr;
   grid-gap: 30px;
 
   ${Media.M} {
@@ -23,22 +23,16 @@ export const MoviePoster = styled.img`
   border-radius: 20px;
 
   ${Media.M} {
-    width: 100%;
-    height: 100%;
     justify-self: center;
   }
 `;
 
-export const ButtonFavorite = styled.button``;
-
-export const PosterWrap = styled.div``;
+export const PosterWrap = styled.div`
+  margin-bottom: 10px;
+`;
 
 export const DetailsWrap = styled.div`
-  width: 70%;
-
-  ${Media.M} {
-    width: 40%;
-  }
+  max-width: 900px;
 `;
 
 export const GenreTitle = styled.span`
@@ -127,4 +121,45 @@ export const SliderTittle = styled.p`
   ${Typography.H2}
   color:${Colors.WHITE};
   margin-bottom: 10px;
+`;
+
+export const PosterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ButtonContainer = styled.div`
+  max-width: 270px;
+  display: flex;
+  grid-gap: 10px;
+`;
+
+export const FavoriteButton = styled.button`
+  width: 50%;
+  padding: 24px 19px;
+  background-color: ${Colors.GRAPHITE};
+  border-radius: 10px 0 0 10px;
+  border: none;
+  cursor: pointer;
+  svg {
+    fill: ${Colors.SECONDARY};
+    &:hover {
+      fill: ${Colors.PRIMARY};
+    }
+  }
+`;
+
+export const ShareButton = styled.button`
+  width: 50%;
+  padding: 24px 19px;
+  background-color: ${Colors.GRAPHITE};
+  border-radius: 0 10px 10px 0;
+  border: none;
+  cursor: pointer;
+  svg {
+    fill: ${Colors.SECONDARY};
+    &:hover {
+      fill: ${Colors.PRIMARY};
+    }
+  }
 `;

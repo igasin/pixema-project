@@ -14,7 +14,7 @@ export const fetchMovies = createAsyncThunk<Movie[], { page: number }, { rejectV
   'movies/fetchMovies',
   async ({ page }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get('http://www.omdbapi.com/?s=life&apikey=85b6fcde&');
+      const { data } = await axios.get('http://www.omdbapi.com/?s=life&apikey=d50b311e&');
 
       const transformedMovies = transformMoviesApi(data);
       return transformedMovies;
@@ -29,9 +29,11 @@ export const fetchNextPageMovies = createAsyncThunk<
 Movie[],
 { page: number },
 { rejectValue: string }
->('movies/fetchNextPageMovies', async ({ page }, { rejectWithValue }) => {
+>('movies/fetchNextPageMovies', async (params, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(`http://www.omdbapi.com/?s=life&apikey=d50b311e&page=${page}`);
+    const { data } = await axios.get(
+      `http://www.omdbapi.com/?s=mars&apikey=d50b311e&page=${params.page + 1}`,
+    );
 
     const transformedMovies = transformMoviesApi(data);
     return transformedMovies;

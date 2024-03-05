@@ -2,10 +2,11 @@ import { fetchMovies, nextMoviePage, fetchNextPageMovies } from './MovieSlice/Mo
 import {
   fetchMoviesByParameter, setMovieTitle, setMovieType, setMovieYear, wipeOutMovies, deleteMoviesParameters,
 } from './FilterSlice/FilterSlice';
-import { fetchMoviesTrends } from './TrendsSlice/TrendsSlice';
+import { fetchMoviesTrends, fetchNextPageTrends, nextTrendsPage } from './TrendsSlice/TrendsSlice';
 import { fetchMoviesDetails } from './MovieDetailsSlice/MovieDetailsSlice';
-
 import { fetchSignInUser } from './UserSlice/UserSlice';
+import { toggleMode } from './ThemeSlice/ThemeSlice';
+import { addFavorites } from './FavoriteSlice/FavoriteSlice';
 
 export {
   fetchMovies,
@@ -20,4 +21,8 @@ export {
   wipeOutMovies,
   deleteMoviesParameters,
   fetchSignInUser,
+  toggleMode,
+  fetchNextPageTrends,
+  nextTrendsPage,
+  addFavorites,
 };

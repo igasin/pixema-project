@@ -13,6 +13,9 @@ import CloseIcon from './icons/close-cross-icon.svg?react';
 import BackgroundMovies from './image/background-movies.png';
 import MenuIcon from './icons/burger-menu-icon.svg?react';
 import ImageNotFount from './image/image-not-found-icon.png';
+import DarkLogo from './icons/pixema-dark-logo.svg?react';
+import FavoriteIcon from './icons/favorite-icon.svg?react';
+import ShareIcon from './icons/share-icon.svg?react';
 
 export {
   HomeIcon,
@@ -28,4 +31,7 @@ export {
   BackgroundMovies,
   MenuIcon,
   ImageNotFount,
+  DarkLogo,
+  FavoriteIcon,
+  ShareIcon,
 };

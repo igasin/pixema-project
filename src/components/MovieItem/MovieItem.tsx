@@ -11,23 +11,14 @@ interface MovieItemProps {
   movie: Movie;
 }
 
-export const MovieItem = ({ movie }: MovieItemProps) => (
-  <Link to={generatePath(ROUTE.Movie_details, { imdbID: movie.imdbID })}>
+export const MovieItem = ({ movie: { title, poster, imdbID } }: MovieItemProps) => (
+  <Link to={generatePath(ROUTE.Movie_details, { imdbID })}>
     <MovieBox>
       <MovieCard>
         <PosterWrap>
-          {movie.poster === 'N/A' ? (
-            <MoviePoster src={ImageNotFount} />
-          ) : (
-            <MoviePoster src={movie.poster} />
-          )}
+          {poster === 'N/A' ? <MoviePoster src={ImageNotFount} /> : <MoviePoster src={poster} />}
         </PosterWrap>
-
-        <TitleMovie>
-          {movie.title}
-          {' '}
-          {movie.year}
-        </TitleMovie>
+        <TitleMovie>{title}</TitleMovie>
       </MovieCard>
     </MovieBox>
   </Link>
