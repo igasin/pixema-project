@@ -120,6 +120,10 @@ export const InputConfirmPassword = styled.input`
 export const ButtonWrap = styled.div`
   margin-top: 30px;
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 10px;
 `;
 
 export const SignUpLink = styled.div`

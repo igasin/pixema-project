@@ -3,11 +3,10 @@ import { useToggle, useWindowSize } from 'hooks';
 import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useAppDispatch } from 'store';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { setAuth, unsetAuth } from 'store/features/UserSlice/UserSlice';
 import { onAuthStateChanged } from 'firebase/auth';
-import { StyledNav, StyledTemplate, Wrap } from './styles';
+import { setAuth, unsetAuth } from 'store/features';
 import { auth } from '../firebase';
+import { StyledNav, StyledTemplate, Wrap } from './styles';
 
 export const MainTemplate = () => {
   const [isOpen, toggleModal] = useToggle();

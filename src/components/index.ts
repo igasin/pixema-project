@@ -27,6 +27,7 @@ import { FavoriteList } from './FavoriteList/FavoriteList';
 import { FavoriteModal } from './FavoriteModal/FavoriteModal';
 import { NotFoundMessage } from './NotFoundMessage/NotFoundMessage';
 import { DeleteFavoriteModal } from './DeleteFavoriteModal/DeleteFavoriteModal';
+import { SmallSpinner } from './SmallSpinner/Spinner';
 
 export {
   MovieList,
@@ -58,4 +59,5 @@ export {
   FavoriteModal,
   NotFoundMessage,
   DeleteFavoriteModal,
+  SmallSpinner,
 };

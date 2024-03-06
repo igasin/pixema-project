@@ -12,7 +12,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { FirebaseErrorMessage, getFirebaseErrorMessage } from 'utils/firebaseAuthError';
-import { auth } from 'firebase';
+import { auth } from '../../../firebase';
 
 interface UserState {
   email: string | null;
@@ -47,7 +47,6 @@ Pick<UserState, 'email' | 'creationTime' | 'name'>,
     const { user } = await createUserWithEmailAndPassword(auth, email, password);
     const name = userName as string;
     await updateProfile(auth.currentUser as User, { displayName: name });
-    console.log(user.displayName);
 
     return {
       email: user.email,

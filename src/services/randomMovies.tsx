@@ -10,6 +10,7 @@ const randomMovies = [
   'Hobbit',
   'World',
   'Dark',
+  'Sherlock',
 ];
 
 export const getRandomMovie = () => {

@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { getUserInfo } from 'store/selectors';
 import { AnimatePresence } from 'framer-motion';
 import { useToggle } from 'hooks';
-import { fetchSignOut } from 'store/features';
+import { fetchSignOut, unsetAuth } from 'store/features';
 import {
   LogOut, Menu, StyledLink, StyledUser, Title, UserBadge, UserBox, UserButton,
 } from './styles';
@@ -17,6 +17,7 @@ export const UserProfile = () => {
 
   const handleOut = () => {
     dispatch(fetchSignOut());
+    dispatch(unsetAuth());
   };
 
   return (

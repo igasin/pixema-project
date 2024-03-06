@@ -1,9 +1,9 @@
-import { Button } from 'components';
+import { Button, SmallSpinner } from 'components';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from 'router';
 import { useAppDispatch, useAppSelector } from 'store';
-import { fetchSignUpUser } from 'store/features/UserSlice/UserSlice';
+import { fetchSignUpUser, setAuth } from 'store/features/UserSlice/UserSlice';
 import { getUserInfo } from 'store/selectors';
 import { emailValidate, nameValidate, passwordValidate } from 'services';
 import {
@@ -43,10 +43,14 @@ export const FormSignUp = () => {
   } = useForm<UserInfo>();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { errorMessage } = useAppSelector(getUserInfo);
+  const { isLoading, errorMessage } = useAppSelector(getUserInfo);
 
   const onSubmit: SubmitHandler<UserInfo> = async (user) => {
-    await dispatch(fetchSignUpUser(user)).unwrap();
+    await dispatch(fetchSignUpUser(user))
+      .unwrap()
+      .then((user) => {
+        dispatch(setAuth(user));
+      });
     await navigate(ROUTE.Home);
     await reset();
   };
@@ -88,7 +92,11 @@ export const FormSignUp = () => {
           && getValues('confirmPassword')
           && getValues('password') !== getValues('confirmPassword') && <ErrorReport>Passwords do not match</ErrorReport>}
         <ButtonWrap>
-          <Button type="submit">Sign up</Button>
+          <Button type="submit">
+            {' '}
+            Sugn Up
+            {isLoading && <SmallSpinner />}
+          </Button>
         </ButtonWrap>
 
         {errors.confirmPassword && <p>Passwords do not match</p>}
