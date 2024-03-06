@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Movie } from 'types';
 import { MovieItem } from 'components';
 
@@ -8,8 +8,8 @@ interface MovieListProps {
   movies: Movie[];
 }
 
-export const MovieList = ({ movies }: MovieListProps) => (
+export const MovieList = memo(({ movies }: MovieListProps) => (
   <StyledMovieList>
     {movies.map((movie) => <MovieItem movie={movie} key={movie.imdbID} />)}
   </StyledMovieList>
-);
+));

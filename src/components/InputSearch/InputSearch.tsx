@@ -11,14 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store';
 import { getTheme } from 'store/selectors';
 import {
-  BurgerButton,
-  BurgerWrap,
-  Container,
-  StyledButton,
-  StyledInput,
-  StyledInputForm,
-  StyledLogo,
-  Wrapper,
+  BurgerButton, Container, StyledButton, StyledInput, StyledInputForm, StyledLogo, Wrapper,
 } from './styles';
 
 interface InputProps {

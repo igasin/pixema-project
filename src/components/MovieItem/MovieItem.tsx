@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { generatePath, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ROUTE } from 'router';
@@ -15,7 +15,7 @@ interface MovieItemProps {
   isFavorite?: boolean;
 }
 
-export const MovieItem = ({ isFavorite, isTrend, movie: { title, poster, imdbID } }: MovieItemProps) => (
+export const MovieItem = memo(({ isFavorite, isTrend, movie: { title, poster, imdbID } }: MovieItemProps) => (
   <Link to={`/details/${imdbID}`}>
     <MovieBox>
       <MovieCard whileHover={{ scale: 1.05 }} whileInView={{ opacity: 1 }}>
@@ -37,4 +37,4 @@ export const MovieItem = ({ isFavorite, isTrend, movie: { title, poster, imdbID 
       </MovieCard>
     </MovieBox>
   </Link>
-);
+));

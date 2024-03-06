@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import { Movie, MovieDetailsInfo } from 'types';
 
 import { DeleteFavoriteIcon, FavoriteIcon } from 'assets';
 import { useAppDispatch, useAppSelector } from 'store';
-import { getDetailsMovie, getMovies, getUserInfo } from 'store/selectors';
+import { getDetailsMovie, getFavorites, getUserInfo } from 'store/selectors';
 import { addFavorites, deleteFavorites } from 'store/features';
 import { SimpleSlider } from 'components/SimpleSlider/SimpleSlider';
 import { useToggle } from 'hooks';
-import { FavoriteModal, Loader } from 'components';
+import { DeleteFavoriteModal, FavoriteModal, Loader } from 'components';
 import { ROUTE } from 'router';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -40,13 +40,24 @@ interface DetailsProps {
   movies: Movie[];
 }
 
-export const MovieDetails = ({ details, movies }: DetailsProps) => {
+export const MovieDetails = memo(({ details, movies }: DetailsProps) => {
   const dispatch = useAppDispatch();
   const { movieDetails, isLoading } = useAppSelector(getDetailsMovie);
+  const { favorites } = useAppSelector(getFavorites);
   const [buttonColor, setButtonColor] = useState('#323537');
   const [isOpen, setToggle] = useToggle(false);
+  const [openModal, setOpen] = useToggle(false);
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
   const { isAuth } = useAppSelector(getUserInfo);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (favorites.some((movie) => movie.imdbID === movieDetails.imdbID)) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [favorites, movieDetails.imdbID]);
 
   const handleFavorite = (): void => {
     isAuth ? dispatch(addFavorites(movieDetails)) : navigate(ROUTE.Sign_in);
@@ -56,6 +67,9 @@ export const MovieDetails = ({ details, movies }: DetailsProps) => {
 
   const handleDeleteFavorite = (): void => {
     dispatch(deleteFavorites(movieDetails.imdbID));
+    if (isFavorite) {
+      setOpen();
+    }
   };
 
   const {
@@ -171,6 +185,7 @@ export const MovieDetails = ({ details, movies }: DetailsProps) => {
         <SimpleSlider movies={movies} />
       </SliderContainer>
       <FavoriteModal toggleModal={setToggle} isOpen={isOpen} />
+      <DeleteFavoriteModal toggleModal={setOpen} isOpen={openModal} />
     </Wrap>
   );
-};
+});

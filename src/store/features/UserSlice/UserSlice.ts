@@ -12,7 +12,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { FirebaseErrorMessage, getFirebaseErrorMessage } from 'utils/firebaseAuthError';
-import { auth } from '../../../firebase';
+import { auth } from 'firebase';
 
 interface UserState {
   email: string | null;

@@ -1,4 +1,4 @@
-import { LoaderMoreFilms, TrendList } from 'components';
+import { Loader, LoaderMoreFilms, TrendList } from 'components';
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { fetchMoviesTrends, fetchNextPageTrends, nextTrendsPage } from 'store/features';
@@ -22,7 +22,7 @@ export const TrendsPage = () => {
 
   return (
     <StyledTrends>
-      {isLoading && <div>isload....</div>}
+      {isLoading && <Loader />}
 
       {error && <span>{error}</span>}
 

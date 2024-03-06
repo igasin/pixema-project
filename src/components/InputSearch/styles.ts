@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
   position: fixed;
   z-index: 1;
   top: 0;
-  padding: 40px 25px 0;
+  padding: 40px 25px 20px;
   display: grid;
   align-items: center;
   grid-row-gap: 30px;

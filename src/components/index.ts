@@ -26,6 +26,7 @@ import { BurgerMenu } from './BurgerMenu/BurgerMenu';
 import { FavoriteList } from './FavoriteList/FavoriteList';
 import { FavoriteModal } from './FavoriteModal/FavoriteModal';
 import { NotFoundMessage } from './NotFoundMessage/NotFoundMessage';
+import { DeleteFavoriteModal } from './DeleteFavoriteModal/DeleteFavoriteModal';
 
 export {
   MovieList,
@@ -56,4 +57,5 @@ export {
   FavoriteList,
   FavoriteModal,
   NotFoundMessage,
+  DeleteFavoriteModal,
 };
