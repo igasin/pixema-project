@@ -15,6 +15,7 @@ export const StyledNav = styled(motion.div)`
   right: 0;
   z-index: 5;
   width: 300px;
+  height: 900px;
   padding: 20px;
   border-radius: 10px;
   background-color: ${Colors.DARK};
@@ -22,10 +23,11 @@ export const StyledNav = styled(motion.div)`
 
 export const StyledBox = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, auto);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-rows: repeat(5, 1fr);
   place-items: center;
   grid-gap: 50px;
+  margin-top: 30px;
 `;
 
 export const StyledLink = styled(Link)`
@@ -38,7 +40,10 @@ export const StyledIcon = styled.div``;
 export const StyledTitle = styled.h5``;
 
 export const CloseBurger = styled.button`
-  background: transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: ${Colors.PRIMARY};
   float: right;
   cursor: pointer;
 `;

@@ -1,4 +1,4 @@
-import { Button } from 'components';
+import { Button, SmallSpinner } from 'components';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ROUTE } from 'router';
@@ -6,7 +6,7 @@ import { emailValidate, passwordValidate } from 'services';
 import { getUserInfo } from 'store/selectors';
 import { useAppDispatch, useAppSelector } from 'store';
 import { useNavigate } from 'react-router-dom';
-import { fetchSignInUser } from 'store/features';
+import { fetchSignInUser, setAuth } from 'store/features';
 import {
   ButtonWrap,
   ErrorMessage,
@@ -30,7 +30,7 @@ interface FormValues {
 }
 
 export const FormSignIn = () => {
-  const { errorMessage } = useAppSelector(getUserInfo);
+  const { isLoading, errorMessage } = useAppSelector(getUserInfo);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -43,7 +43,8 @@ export const FormSignIn = () => {
   const onSubmit: SubmitHandler<FormValues> = (user) => {
     dispatch(fetchSignInUser(user))
       .unwrap()
-      .then(() => {
+      .then((user) => {
+        dispatch(setAuth(user));
         navigate(ROUTE.Home);
       });
   };
@@ -68,7 +69,10 @@ export const FormSignIn = () => {
           <TitleResetPassword to={ROUTE.Reset_password}>Forgot password?</TitleResetPassword>
         </InputBox>
         <ButtonWrap>
-          <Button type="submit">Sign in</Button>
+          <Button type="submit">
+            Sign in
+            {isLoading && <SmallSpinner />}
+          </Button>
         </ButtonWrap>
         {errorMessage && <StyledError>{errorMessage}</StyledError>}
         <SignUpLink>

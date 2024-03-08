@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { Colors, Media, Typography } from 'ui';
 
-export const MovieBox = styled.div`
-  width: 100%;
-`;
+export const MovieBox = styled.div``;
 
 export const MovieCard = styled(motion.li)`
   width: 100%;
   width: 260px;
 `;
+
+export const PosterWrap = styled.div``;
 
 export const MoviePoster = styled.img`
   height: 356px;
@@ -42,5 +42,3 @@ export const FavoriteLabel = styled.div`
   margin: 10px 0 0 10px;
   padding: 6px 8px;
 `;
-
-export const PosterWrap = styled.div``;

@@ -4,8 +4,9 @@ import { Media } from 'ui';
 export const StyledMovieList = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 30px;
+  grid-column-gap: 30px;
   place-items: center;
-  gap: 30px;
   ul li {
     text-decoration: none;
   }
@@ -13,7 +14,6 @@ export const StyledMovieList = styled.ul`
   ${Media.XL} {
     grid-template-columns: repeat(3, minmax(200px, 300px));
     grid-gap: 30px;
-    justify-self: center;
   }
 
   ${Media.L} {

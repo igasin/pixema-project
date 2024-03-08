@@ -6,6 +6,7 @@ import { getUserInfo } from 'store/selectors';
 import { AnimatePresence } from 'framer-motion';
 import { useToggle } from 'hooks';
 import { fetchSignOut, unsetAuth } from 'store/features';
+import { Colors } from 'ui';
 import {
   LogOut, Menu, StyledLink, StyledUser, Title, UserBadge, UserBox, UserButton,
 } from './styles';
@@ -25,7 +26,7 @@ export const UserProfile = () => {
       <UserButton type="button" onClick={setToggle}>
         <UserBadge>
           <UserBox>
-            <UserIcon />
+            <UserIcon fill={Colors.WHITE} />
           </UserBox>
           {isAuth ? <Title>{name}</Title> : <Title>Sign in</Title>}
         </UserBadge>

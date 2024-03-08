@@ -19,7 +19,7 @@ interface FilterState {
 }
 
 const initialState: FilterState = {
-  movies: [],
+  movies: JSON.parse(localStorage.getItem('movies') || '[]'),
   isLoading: false,
   error: null,
   parameters: {
@@ -84,6 +84,7 @@ const filterSlice = createSlice({
     builder.addCase(fetchMoviesByParameter.fulfilled, (state, { payload }) => {
       state.isLoading = false;
       state.movies.push(...payload);
+      localStorage.setItem('movies', JSON.stringify(state.movies));
     });
     builder.addCase(fetchMoviesByParameter.rejected, (state, { payload }) => {
       if (payload) state.isLoading = false;
