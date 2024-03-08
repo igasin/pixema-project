@@ -75,9 +75,9 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
     dispatch(setMovieType(filter.type));
   };
 
-  const handleResetFilter = () => {
-    reset();
-  };
+  // const handleResetFilter = () => {
+  //   reset();
+  // };
 
   const {
     control,
@@ -85,6 +85,11 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
     reset,
     formState: { errors },
   } = useForm<FormValues>();
+
+  const handleResetFilter = () => {
+    reset();
+  };
+
   return (
     <Portal target={PortalTarget.MODAL}>
       <AnimatePresence>
