@@ -23,7 +23,7 @@ string,
 { rejectValue: string }
 >('details/fetchMoviesDetails', async (imdbID, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(`https://www.omdbapi.com/?i=${imdbID}&apikey=85b6fcde&`);
+    const { data } = await axios.get(`https://www.omdbapi.com/?i=${imdbID}&apikey=d50b311e&`);
 
     const transformedMovies = transformDetailsMovies(data);
     return transformedMovies;
@@ -40,7 +40,7 @@ string,
 { rejectValue: string }
 >('movies/fetchMoviesRecommends', async (title, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get('https://www.omdbapi.com/?s=man&apikey=85b6fcde&');
+    const { data } = await axios.get('https://www.omdbapi.com/?s=man&apikey=d50b311e&');
 
     const transformedMovies = transformMoviesApi(data);
     return transformedMovies;

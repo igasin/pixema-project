@@ -1,5 +1,4 @@
 import { FavoriteList } from 'components';
-import React from 'react';
 import { useAppSelector } from 'store';
 import { getFavorites } from 'store/selectors';
 import { NotFoundMovie } from 'assets';
@@ -7,7 +6,7 @@ import { ROUTE } from 'router';
 import { Navigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import {
-  EmptyText, NotFoundBox, StyledFavorites, StyledImg,
+  EmptyText, NotFoundBox, StyledFavorites, StyledImg, VerificationMessage,
 } from './styles';
 import { auth } from '../../firebase';
 
@@ -19,6 +18,9 @@ export const FavoritesPage = () => {
     return <p>Loading...</p>;
   }
 
+  if (user && !user.emailVerified) {
+    return <VerificationMessage>Please, verify your email and reload this page</VerificationMessage>;
+  }
   return user ? (
     <StyledFavorites>
       {favorites?.length > 0 ? (

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { Colors, Typography } from 'ui';
+import { Colors, Media, Typography } from 'ui';
 
 export const Message = styled(motion.div)`
   display: grid;
@@ -13,6 +13,10 @@ export const Message = styled(motion.div)`
   background-color: ${Colors.PRIMARY};
   border-radius: 10px;
   z-index: 11;
+  ${Media.S} {
+    top: 40%;
+    left: 15%;
+  }
 `;
 
 export const Title = styled.p`

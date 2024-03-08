@@ -17,16 +17,16 @@ export const store = configureStore({
     theme: themeReducer,
     favorites: favoritesReducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-    serializableCheck: {
-      // Ignore these action types
-      ignoredActions: ['user/setAuth', 'user/unsetAuth'],
-      // Ignore these field paths in all actions
-      ignoredActionPaths: ['meta.arg', 'payload.timestamp'],
-      // Ignore these paths in the state
-      ignoredPaths: ['items.dates'],
-    },
-  }),
+  // middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+  //   serializableCheck: {
+  //     // Ignore these action types
+  //     ignoredActions: ['user/setAuth', 'user/unsetAuth'],
+  //     // Ignore these field paths in all actions
+  //     ignoredActionPaths: ['meta.arg', 'payload.timestamp'],
+  //     // Ignore these paths in the state
+  //     ignoredPaths: ['items.dates'],
+  //   },
+  // }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Movie } from 'types';
 import { SlideMovie, SlidePoster, Title } from './styles';
 

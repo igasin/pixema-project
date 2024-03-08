@@ -3,7 +3,6 @@ import {
 } from 'assets';
 import { BurgerMenu, UserProfile } from 'components';
 import { useToggle, useWindowSize } from 'hooks';
-import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ROUTE } from 'router';
 import { deleteMoviesParameters, setMovieTitle, wipeOutMovies } from 'store/features';

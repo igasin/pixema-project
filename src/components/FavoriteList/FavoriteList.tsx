@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAppSelector } from 'store';
 import { getFavorites } from 'store/selectors';
 import { MovieItem } from 'components';

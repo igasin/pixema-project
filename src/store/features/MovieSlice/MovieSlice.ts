@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
 import { transformMoviesApi } from 'mappers';
 import { getRandomMovie } from 'services';
-
 import { Movie } from 'types';
 
 interface MoviesState {
@@ -17,7 +16,7 @@ export const fetchMovies = createAsyncThunk<Movie[], { theme: string }, { reject
   'movies/fetchMovies',
   async ({ theme }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`http://www.omdbapi.com/?s=${theme}&apikey=d50b311e&`);
+      const { data } = await axios.get(`https://www.omdbapi.com/?s=${theme}&apikey=d50b311e&`);
 
       const transformedMovies = transformMoviesApi(data);
       return transformedMovies;
@@ -28,23 +27,22 @@ export const fetchMovies = createAsyncThunk<Movie[], { theme: string }, { reject
   },
 );
 
-export const fetchNextPageMovies = createAsyncThunk<
-Movie[],
-{ theme: string; page: number },
-{ rejectValue: string }
->('movies/fetchNextPageMovies', async (params, { rejectWithValue }) => {
-  try {
-    const { data } = await axios.get(
-      `http://www.omdbapi.com/?s=${params.theme}&apikey=d50b311e&page=${params.page + 1}`,
-    );
+export const fetchNextPageMovies = createAsyncThunk<Movie[], { theme: string; page: number }, { rejectValue: string }>(
+  'movies/fetchNextPageMovies',
+  async (params, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.get(
+        `https://www.omdbapi.com/?s=${params.theme}&apikey=d50b311e&page=${params.page + 1}`,
+      );
 
-    const transformedMovies = transformMoviesApi(data);
-    return transformedMovies;
-  } catch (error) {
-    const { message } = error as AxiosError;
-    return rejectWithValue(message);
-  }
-});
+      const transformedMovies = transformMoviesApi(data);
+      return transformedMovies;
+    } catch (error) {
+      const { message } = error as AxiosError;
+      return rejectWithValue(message);
+    }
+  },
+);
 
 const initialState: MoviesState = {
   movies: [],

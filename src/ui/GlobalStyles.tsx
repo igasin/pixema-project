@@ -3,7 +3,7 @@ import { themeColor } from './theme';
 
 const GlobalStyles = createGlobalStyle`
 
-${themeColor}
+
 
 *{
  padding: 0;
@@ -12,6 +12,7 @@ ${themeColor}
  list-style: none;
   text-decoration:none;
 }
+${themeColor}
 
 input {
   border:none;

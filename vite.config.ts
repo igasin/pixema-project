@@ -29,6 +29,7 @@ export default defineConfig(({ mode }) => {
     define: {
       "process.env": processEnv,
     },
+    base: "https://igasin.github.io/pixema-project/",
     plugins: [react(), svgr(), tsconfigPaths()],
   };
 });

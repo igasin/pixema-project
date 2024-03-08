@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { ROUTE } from 'router';
-
 import { BasicSwitch, CustomLink } from 'components';
 import {
   BookMarkIcon, FireIcon, HomeIcon, SettingIcon,
@@ -8,7 +7,9 @@ import {
 import { useAppDispatch, useAppSelector } from 'store';
 import { toggleMode } from 'store/features';
 import { getTheme } from 'store/selectors';
-import { StyledMenu, StyledNavBox, StyledTitle } from './styles';
+import {
+  StyledLink, StyledMenu, StyledNavBox, StyledSwitch, StyledTitle,
+} from './styles';
 
 export const Nav = () => {
   const dispatch = useAppDispatch();
@@ -26,24 +27,35 @@ export const Nav = () => {
     <StyledMenu>
       <StyledNavBox>
         <CustomLink to={ROUTE.Home}>
-          <HomeIcon />
-          {' '}
-          <StyledTitle>Home</StyledTitle>
+          <StyledLink>
+            {' '}
+            <HomeIcon />
+            <StyledTitle>Home</StyledTitle>
+          </StyledLink>
         </CustomLink>
         <CustomLink to={ROUTE.Trends}>
-          <BookMarkIcon />
-          <StyledTitle>Trends</StyledTitle>
+          <StyledLink>
+            <FireIcon />
+            <StyledTitle>Trends</StyledTitle>
+          </StyledLink>
         </CustomLink>
         <CustomLink to={ROUTE.Favorites}>
-          <FireIcon />
-          <StyledTitle>Favorites</StyledTitle>
+          <StyledLink>
+            <BookMarkIcon />
+            <StyledTitle>Favorites</StyledTitle>
+          </StyledLink>
         </CustomLink>
         <CustomLink to={ROUTE.Settings}>
-          <SettingIcon />
-          <StyledTitle>Settings</StyledTitle>
+          <StyledLink>
+            <SettingIcon />
+            <StyledTitle>Settings</StyledTitle>
+          </StyledLink>
         </CustomLink>
+        <StyledSwitch>
+          <BasicSwitch onClick={toggleTheme} />
+          {theme === 'dark' ? 'Dark' : 'Light'}
+        </StyledSwitch>
       </StyledNavBox>
-      <BasicSwitch onClick={toggleTheme} />
     </StyledMenu>
   );
 };

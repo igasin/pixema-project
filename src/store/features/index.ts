@@ -5,7 +5,7 @@ import {
 import { fetchMoviesTrends, fetchNextPageTrends, nextTrendsPage } from './TrendsSlice/TrendsSlice';
 import { fetchMoviesDetails } from './MovieDetailsSlice/MovieDetailsSlice';
 import {
-  fetchSignInUser, fetchResetPassword, fetchUpdateEmail, fetchUpdatePassword, updateUserName, fetchSignOut, setAuth, unsetAuth,
+  fetchSignInUser, fetchResetPassword, fetchUpdateEmail, fetchUpdatePassword, fetchSignOut, setAuth, unsetAuth, fetchUpdateUserName,
 } from './UserSlice/UserSlice';
 import { toggleMode } from './ThemeSlice/ThemeSlice';
 import { addFavorites, deleteFavorites } from './FavoriteSlice/FavoriteSlice';
@@ -30,10 +30,10 @@ export {
   fetchResetPassword,
   fetchUpdateEmail,
   fetchUpdatePassword,
-  updateUserName,
   fetchSignOut,
   deleteFavorites,
   showNextPage,
   setAuth,
   unsetAuth,
+  fetchUpdateUserName,
 };

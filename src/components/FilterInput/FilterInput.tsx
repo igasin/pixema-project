@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from 'react';
 import { StyledFilterInput } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}

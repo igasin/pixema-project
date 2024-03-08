@@ -1,7 +1,7 @@
 import { CloseIcon } from 'assets';
 import { FilterInput } from 'components';
 import { Portal, PortalTarget } from 'components/Portal/Portal';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from 'router';

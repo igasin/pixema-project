@@ -22,3 +22,8 @@ export const EmptyText = styled.p`
   ${Typography.H2}
   color:${Colors.PRIMARY}
 `;
+
+export const VerificationMessage = styled.h3`
+  ${Typography.H3};
+  color: ${Colors.SECONDARY};
+`;

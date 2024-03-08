@@ -4,7 +4,7 @@ import { Colors, Typography } from 'ui';
 export const StyledBox = styled.div`
   display: grid;
   place-items: center;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 `;
 
 export const StyledButton = styled.button`
@@ -14,8 +14,7 @@ export const StyledButton = styled.button`
   grid-gap: 10px;
   padding: 8px 24px;
   border-radius: 40px;
-  margin-top: 15px;
-  margin: auto;
+  margin-top: 50px;
   background: ${Colors.GRAPHITE};
   color: ${Colors.WHITE};
   cursor: pointer;

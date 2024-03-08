@@ -1,5 +1,5 @@
 import { MovieDetails } from 'components';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchMovies, useAppDispatch, useAppSelector } from 'store';
 import { fetchMoviesDetails } from 'store/features';
@@ -23,7 +23,7 @@ export const MovieDetailsPage = () => {
 
   return (
     <MovieDetailsWrap>
-      {isLoading && <div>isload....</div>}
+      {isLoading && <p>Loading...</p>}
       {error && <span>{error}</span>}
 
       {movieDetails && <MovieDetails details={movieDetails} movies={movies} />}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { DarkLogo, MainLogo } from 'assets';
 import { ROUTE } from 'router';
 import { Outlet } from 'react-router-dom';

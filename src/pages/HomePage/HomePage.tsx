@@ -1,5 +1,5 @@
 import { Loader, LoaderMoreFilms, MovieList } from 'components';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { fetchMovies, useAppDispatch, useAppSelector } from 'store';
 import { fetchNextPageMovies, nextMoviePage } from 'store/features';
 import { getMovies } from 'store/selectors';

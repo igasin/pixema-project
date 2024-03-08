@@ -18,7 +18,7 @@ export const StyledNav = styled(motion.div)`
   height: 1700px;
   padding: 20px;
   border-radius: 10px;
-  background-color: ${Colors.DARK};
+  background-color: ${Colors.BLACK};
 `;
 
 export const StyledBox = styled.div`

@@ -1,5 +1,4 @@
 import { Button } from 'components';
-import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from 'store';
 import { emailValidate } from 'services';

@@ -34,4 +34,5 @@ export const router = createBrowserRouter(
       </Route>
     </>,
   ),
+  { basename: '/pixema-project' },
 );

@@ -24,7 +24,6 @@ export const Slider = styled.div`
   border-radius: 20px;
   overflow: hidden;
   display: flex;
-  align-items: center;
   border: 4px solid transparent;
   transition: 0.3s;
   box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.25) inset;

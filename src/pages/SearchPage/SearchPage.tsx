@@ -1,7 +1,7 @@
 import {
   Loader, LoaderMoreFilms, MovieList, NotFoundMessage,
 } from 'components';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'store';
 import { fetchMoviesByParameter, showNextPage } from 'store/features';
 import { getMoviesByFilters } from 'store/selectors';

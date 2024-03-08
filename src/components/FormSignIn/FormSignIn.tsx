@@ -1,5 +1,4 @@
 import { Button, SmallSpinner } from 'components';
-import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ROUTE } from 'router';
 import { emailValidate, passwordValidate } from 'services';

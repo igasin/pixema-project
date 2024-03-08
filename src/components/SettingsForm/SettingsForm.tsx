@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { InputBox } from 'components/FormSignIn/styles';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { emailValidate, nameValidate, passwordValidate } from 'services';
 import { useAppDispatch, useAppSelector } from 'store';
 import {
-  fetchUpdateEmail, fetchUpdatePassword, toggleMode, updateUserName,
+  fetchUpdateEmail, fetchUpdatePassword, fetchUpdateUserName, toggleMode,
 } from 'store/features';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from 'router';
@@ -37,7 +37,7 @@ import {
 } from './styles';
 
 interface FormValues {
-  userName: string;
+  name: string;
   email: string;
   password: string;
   newPassword: string;
@@ -62,16 +62,15 @@ export const SettingsForm = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (user) => {
     try {
-      await dispatch(updateUserName(user.userName));
       await dispatch(fetchUpdateEmail(user)).unwrap();
       await dispatch(fetchUpdatePassword(user)).unwrap();
-
+      await dispatch(fetchUpdateUserName(user));
       setTimeout(() => {
         setToggle();
-      }, 1000);
+      }, 500);
       setTimeout(() => {
         navigate(ROUTE.Home);
-      }, 3500);
+      }, 4000);
     } catch (error) {}
   };
 
@@ -99,9 +98,9 @@ export const SettingsForm = () => {
                 type="text"
                 defaultValue={name || 'User name'}
                 placeholder="Your name"
-                {...register('userName', nameValidate())}
+                {...register('name', nameValidate())}
               />
-              {errors.userName?.message && <ErrorMessage>{errors.userName.message}</ErrorMessage>}
+              {errors.name?.message && <ErrorMessage>{errors.name.message}</ErrorMessage>}
             </InputBox>
 
             <InputBox>

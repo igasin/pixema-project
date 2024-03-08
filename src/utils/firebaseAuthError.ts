@@ -4,6 +4,7 @@ export enum FirebaseErrorMessage {
   WRONG_PASSWORD = 'wrong password',
   EMAIL_EXISTS = 'email already exist',
   INVALID_EMAIL = 'enter the correct email',
+  USER_NOT_FOUND = 'user not found, perhaps you need to sign up',
 }
 
 export const getFirebaseErrorMessage = (code: string): FirebaseErrorMessage => {
@@ -19,6 +20,9 @@ export const getFirebaseErrorMessage = (code: string): FirebaseErrorMessage => {
 
     case 'auth/invalid-email':
       return FirebaseErrorMessage.INVALID_EMAIL;
+
+    case 'auth/user-not-found':
+      return FirebaseErrorMessage.USER_NOT_FOUND;
 
     default:
       return FirebaseErrorMessage.UNKNOWN_ERROR;

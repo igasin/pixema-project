@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo } from 'react';
+import { useEffect, useState, memo } from 'react';
 import { Movie, MovieDetailsInfo } from 'types';
 
 import { DeleteFavoriteIcon, FavoriteIcon } from 'assets';

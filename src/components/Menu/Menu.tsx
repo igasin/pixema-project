@@ -1,4 +1,3 @@
-import React from 'react';
 import { HomeIcon } from '../../assets';
 import { ROUTE } from '../../router/routes';
 import { CustomLink } from '../CustomLink/CustomLink';

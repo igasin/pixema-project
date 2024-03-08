@@ -1,5 +1,4 @@
 import { ArrowRightIcon, UserIcon } from 'assets';
-import React from 'react';
 import { ROUTE } from 'router';
 import { useAppDispatch, useAppSelector } from 'store';
 import { getUserInfo } from 'store/selectors';
