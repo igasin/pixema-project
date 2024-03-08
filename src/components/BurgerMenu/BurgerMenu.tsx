@@ -7,7 +7,7 @@ import {
 import { Colors } from 'ui';
 import { CustomLink } from 'components';
 import {
-  Box, CloseBurger, StyledBox, StyledLink, StyledMenu, StyledNav, StyledTitle,
+  CloseBurger, StyledBox, StyledMenu, StyledNav, StyledTitle,
 } from './styles';
 
 interface BurgerProps {

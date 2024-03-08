@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   align-items: center;
   grid-row-gap: 30px;
   grid-template-areas: "logo input button";
-  grid-template-columns: minmax(auto, 240px) minmax(auto, 1050px) minmax(auto, 350px);
+  grid-template-columns: minmax(auto, 240px) minmax(auto, 950px) minmax(auto, 300px);
   background-color: ${Colors.BLACK};
   place-items: center;
   ${Media.M} {
@@ -66,8 +66,8 @@ export const StyledLogo = styled(Link)`
 `;
 
 export const BurgerButton = styled.button`
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   border-radius: 10px;
   background-color: ${Colors.PRIMARY};
   cursor: pointer;

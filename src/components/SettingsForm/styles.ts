@@ -112,7 +112,7 @@ export const TextWrap = styled.div`
 `;
 
 export const WrapInput = styled.div`
-  grid-gap: 10px;
+  grid-gap: 20px;
 `;
 
 export const ButtonBox = styled.div`

@@ -1,4 +1,4 @@
-import { Link, NavLink, PathMatch } from 'react-router-dom';
+import { Link, PathMatch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Colors, Typography } from 'ui';
 

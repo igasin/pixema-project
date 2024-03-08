@@ -1,4 +1,4 @@
-const randomMovies = ['Batman', 'Wars', 'Marvel', 'Man', 'Adventure', 'Life', 'World', 'Dark', 'Sherlock'];
+const randomMovies = ['Wars', 'Man', 'Adventure', 'Life', 'World', 'Dark', 'Potter', 'Water', 'Woman'];
 
 export const getRandomMovie = () => {
   const randomMovie = randomMovies[(Math.random() * randomMovies.length) | 0];

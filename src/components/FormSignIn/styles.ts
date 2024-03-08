@@ -79,7 +79,7 @@ export const InputPassword = styled.input`
 
 export const TitleResetPassword = styled(Link)`
   ${Typography.S2}
-  color:${Colors.SECONDARY};
+  color:${Colors.PRIMARY};
   text-decoration: none;
 `;
 

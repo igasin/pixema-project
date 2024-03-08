@@ -1,7 +1,7 @@
 import { FavoriteList } from 'components';
 import React from 'react';
 import { useAppSelector } from 'store';
-import { getFavorites, getUserInfo } from 'store/selectors';
+import { getFavorites } from 'store/selectors';
 import { NotFoundMovie } from 'assets';
 import { ROUTE } from 'router';
 import { Navigate } from 'react-router-dom';

@@ -15,7 +15,7 @@ export const StyledNav = styled(motion.div)`
   right: 0;
   z-index: 5;
   width: 300px;
-  height: 900px;
+  height: 1700px;
   padding: 20px;
   border-radius: 10px;
   background-color: ${Colors.DARK};

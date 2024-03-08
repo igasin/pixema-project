@@ -1,6 +1,4 @@
 import React from 'react';
-import { generatePath } from 'react-router-dom';
-import { ROUTE } from 'router';
 import { Movie } from 'types';
 import { SlideMovie, SlidePoster, Title } from './styles';
 

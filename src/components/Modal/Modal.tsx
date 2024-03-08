@@ -1,7 +1,7 @@
 import { CloseIcon } from 'assets';
 import { FilterInput } from 'components';
 import { Portal, PortalTarget } from 'components/Portal/Portal';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { ROUTE } from 'router';
@@ -10,7 +10,7 @@ import {
   deleteMoviesParameters, setMovieTitle, setMovieType, setMovieYear, wipeOutMovies,
 } from 'store/features';
 import Select from 'react-select';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useOutsideClick } from 'hooks';
 import {
   Container,
@@ -28,7 +28,6 @@ import {
   StyledTitle,
   StyledTittleSelect,
   Title,
-  Wrap,
   selectStyles,
 } from './styles';
 

@@ -1,7 +1,5 @@
 import React, { memo } from 'react';
-import { generatePath, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ROUTE } from 'router';
+import { Link } from 'react-router-dom';
 import { Movie } from 'types';
 import { BookMarkIcon, FireIcon, ImageNotFount } from 'assets';
 import { Colors } from 'ui';

@@ -22,14 +22,15 @@ export const StyledForm = styled.form`
 `;
 
 export const TitleForm = styled.h3`
-  ${Typography.H2}
-  color:${Colors.WHITE}
+  ${Typography.H2};
+  margin-bottom: 10px;
+  color: ${Colors.WHITE};
 `;
 
 export const InputBox = styled.div`
   display: grid;
   grid-template-rows: repeat(3, auto);
-  grid-gap: 7px;
+  grid-gap: 15px;
 `;
 
 export const InputTitle = styled.p`
@@ -41,6 +42,7 @@ export const InputEmail = styled.input`
   width: 100%;
   padding: 16px 20px;
   border-radius: 10px;
+
   background-color: ${Colors.GRAPHITE};
   color: ${Colors.WHITE};
   &-placholder {
@@ -49,7 +51,7 @@ export const InputEmail = styled.input`
   }
   &:focus {
     background: ${Colors.GRAPHITE};
-    outline: 2px ${Colors.PRIMARY};
+    outline: 2px solid ${Colors.PRIMARY};
     outline-style: solid;
   }
   &:disabled {
@@ -96,6 +98,9 @@ export const InputName = styled.input`
     background-color: ${Colors.SECONDARY};
     color: ${Colors.LIGHT};
   }
+  input:invalid {
+    border: 3px solid red;
+  }
 `;
 export const InputConfirmPassword = styled.input`
   width: 100%;
@@ -120,10 +125,6 @@ export const InputConfirmPassword = styled.input`
 export const ButtonWrap = styled.div`
   margin-top: 30px;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  grid-gap: 10px;
 `;
 
 export const SignUpLink = styled.div`

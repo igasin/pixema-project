@@ -59,28 +59,20 @@ export const SettingsForm = () => {
   const navigate = useNavigate();
   const { errorMessage, name, email } = useAppSelector(getUserInfo);
   const [isOpen, setToggle] = useToggle(false);
-  // const [savedData, setSavedData] = useState<FormValues>();
-
-  // useEffect(() => {
-  // const savedData = localStorage.getItem("user");
-  // if (savedData) {
-  // setSavedData(JSON.parse(savedData));}}, []);
 
   const onSubmit: SubmitHandler<FormValues> = async (user) => {
     try {
       await dispatch(updateUserName(user.userName));
       await dispatch(fetchUpdateEmail(user)).unwrap();
       await dispatch(fetchUpdatePassword(user)).unwrap();
-      // localStorage.setItem("user", JSON.stringify(user));
+
       setTimeout(() => {
         setToggle();
       }, 1000);
       setTimeout(() => {
         navigate(ROUTE.Home);
       }, 3500);
-    } catch (error) {
-      console.error(error);
-    } // localstorage ??
+    } catch (error) {}
   };
 
   const handleCancel = () => {

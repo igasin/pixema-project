@@ -91,6 +91,7 @@ export const FormSignUp = () => {
         {getValues('password')
           && getValues('confirmPassword')
           && getValues('password') !== getValues('confirmPassword') && <ErrorReport>Passwords do not match</ErrorReport>}
+        {errors.confirmPassword && <ErrorMessage>Passwords do not match</ErrorMessage>}
         <ButtonWrap>
           <Button type="submit">
             {' '}
@@ -99,7 +100,6 @@ export const FormSignUp = () => {
           </Button>
         </ButtonWrap>
 
-        {errors.confirmPassword && <p>Passwords do not match</p>}
         <SignUpLink>
           <SignUpTitle>Already have an account?</SignUpTitle>
           <StyledLink to={ROUTE.Sign_in}>Sign In</StyledLink>

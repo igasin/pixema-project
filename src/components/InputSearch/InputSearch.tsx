@@ -58,7 +58,7 @@ export const InputSearch = ({ toggleModal }: InputProps) => {
         </StyledInputForm>
       </Container>
 
-      {width > 1200 ? (
+      {width > 1375 ? (
         <UserProfile />
       ) : (
         <BurgerButton onClick={menuToggle}>

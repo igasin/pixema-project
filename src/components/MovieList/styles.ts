@@ -14,6 +14,7 @@ export const StyledMovieList = styled.ul`
   ${Media.XL} {
     grid-template-columns: repeat(3, minmax(200px, 300px));
     grid-gap: 30px;
+    justify-self: center;
   }
 
   ${Media.L} {

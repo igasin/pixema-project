@@ -27,7 +27,7 @@ export const Wrap = styled.div`
   ${Media.M} {
     margin-top: 150px;
   }
-  ${Media.XL} {
+  ${Media.Large} {
     display: block;
   }
 `;
