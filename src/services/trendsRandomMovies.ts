@@ -1,4 +1,4 @@
-const randomTrends = ['Woman', 'Man', 'Time', 'Life', 'World', 'Dark', 'Detective'];
+const randomTrends = ['X-Men', 'America', 'Home', 'Horror', 'Time', 'Moon', 'Light', 'Science', 'Space'];
 
 export const getRandomMovieTrend = () => {
   const randomTrend = randomTrends[(Math.random() * randomTrends.length) | 0];

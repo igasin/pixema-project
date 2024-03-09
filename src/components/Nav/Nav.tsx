@@ -56,6 +56,7 @@ export const Nav = () => {
           {theme === 'dark' ? 'Dark' : 'Light'}
         </StyledSwitch>
       </StyledNavBox>
+      © All Rights Reserved
     </StyledMenu>
   );
 };
