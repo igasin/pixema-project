@@ -16,7 +16,9 @@ import {
   Container,
   StyledButtonBox,
   StyledButtonClear,
+  StyledButtonRating,
   StyledButtonShow,
+  StyledButtonYear,
   StyledCloseButton,
   StyledError,
   StyledForm,
@@ -43,16 +45,28 @@ export interface Option {
 
 type OptionType = 'movie' | 'series' | 'episode';
 
+type CountryOption = {
+  value: string;
+  label: string;
+};
+
 interface FormValues {
   s: string;
   y: string;
   type: Option;
+  country: CountryOption;
 }
 
 const options: Option[] = [
   { value: 'series', label: 'series' },
   { value: 'movie', label: 'movie' },
   { value: 'episode', label: 'episode' },
+];
+
+const countries: CountryOption[] = [
+  { value: 'usa', label: 'USA' },
+  { value: 'uk', label: 'UK' },
+  { value: 'france', label: 'France' },
 ];
 
 export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
@@ -74,10 +88,6 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
     dispatch(setMovieYear(filter.y));
     dispatch(setMovieType(filter.type));
   };
-
-  // const handleResetFilter = () => {
-  //   reset();
-  // };
 
   const {
     control,
@@ -107,6 +117,12 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
                   <CloseIcon onClick={closeModal} />
                 </StyledCloseButton>
               </StyledTitle>
+
+              <StyledButtonBox>
+                <StyledButtonRating>Rating</StyledButtonRating>
+                <StyledButtonYear>Year</StyledButtonYear>
+              </StyledButtonBox>
+
               <StyledMovieName>
                 <StyledMovieTitle>Full or short movie name</StyledMovieTitle>
                 <Controller
@@ -155,12 +171,30 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
                 <Controller
                   control={control}
                   name="type"
-                  render={({ field: { value, onChange } }) => (
+                  render={({ field: { onChange } }) => (
                     <Select
                       isMulti={false}
                       defaultValue={options[0]}
                       options={options}
                       onChange={(options) => options && onChange(options.value)}
+                      styles={selectStyles}
+                      isSearchable={false}
+                    />
+                  )}
+                />
+              </StyledSelect>
+
+              <StyledSelect>
+                <StyledTittleSelect>Country</StyledTittleSelect>
+                <Controller
+                  control={control}
+                  name="country"
+                  render={({ field: { onChange } }) => (
+                    <Select
+                      isMulti={false}
+                      defaultValue={countries[0]}
+                      options={countries}
+                      onChange={(selectedOption) => onChange(selectedOption)}
                       styles={selectStyles}
                       isSearchable={false}
                     />

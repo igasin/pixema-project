@@ -25,7 +25,7 @@ export const StyledForm = styled(motion.form)`
   padding: 25px 20px;
   width: 600px;
   display: grid;
-  grid-gap: 40px;
+  grid-gap: 35px;
   border-radius: 5px;
   background-color: ${Colors.DARK};
   ${Media.XS} {
@@ -51,6 +51,24 @@ export const StyledCloseButton = styled.button`
   svg {
     fill: ${Colors.PRIMARY};
   }
+`;
+
+export const StyledButtonRating = styled.button`
+  padding: 17px 20px;
+  border-radius: 10px 0 0 10px;
+  ${Typography.S3}
+  cursor: pointer;
+  color: ${Colors.WHITE};
+  background-color: ${Colors.GRAPHITE};
+`;
+
+export const StyledButtonYear = styled.button`
+  padding: 17px 20px;
+  border-radius: 0 10px 10px 0;
+  ${Typography.S3}
+  cursor: pointer;
+  color: ${Colors.WHITE};
+  background-color: ${Colors.GRAPHITE};
 `;
 
 export const StyledMovieName = styled.div``;
@@ -124,14 +142,31 @@ export const selectStyles: StylesConfig<Option> = {
     ...baseStyles,
     display: 'none',
   }),
-  option: (baseStyles, state) => ({
-    ...baseStyles,
-    display: 'grid',
-    placeItems: 'center',
-    backgroundColor: state.isSelected
-      ? 'rgba( 123 , 97, 255, 1 )'
-      : state.isFocused
-        ? 'rgba ( 205 , 209, 228, 1 )'
-        : 'transparent',
-  }),
+  // option: (baseStyles, state) => ({
+  //   ...baseStyles,
+  //   display: 'grid',
+  //   placeItems: 'center',
+  //   backgroundColor: state.isSelected
+  //     ? 'rgba( 123 , 97, 255, 1 )'
+  //     : state.isFocused
+  //       ? 'rgba ( 205 , 209, 228, 1 )'
+  //       : 'transparent',
+  // }),
+
+  option: (baseStyles, state) => {
+    const updatedStyles = {
+      ...baseStyles,
+      display: 'grid',
+      placeItems: 'center',
+    };
+    if (state.isSelected) {
+      updatedStyles.backgroundColor = 'rgba(123, 97, 255, 1)';
+    } else if (state.isFocused) {
+      updatedStyles.backgroundColor = 'rgba(205, 209, 228, 1)';
+    } else {
+      updatedStyles.backgroundColor = 'transparent';
+    }
+
+    return updatedStyles;
+  },
 };

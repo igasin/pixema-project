@@ -14,12 +14,17 @@ const favoritesSlice = createSlice({
   initialState,
   reducers: {
     addFavorites(state, { payload }: PayloadAction<MovieDetailsInfo>) {
-      const isAdded = state.favorites.find((movie) => movie.imdbID === payload.imdbID);
+      const isAdded = state.favorites.find(
+        (movie) => movie.imdbID === payload.imdbID,
+      );
       if (!isAdded) state.favorites.push(payload);
       localStorage.setItem('favorites', JSON.stringify(state.favorites));
     },
     deleteFavorites(state, { payload }: PayloadAction<string>) {
-      state.favorites = state.favorites.filter((movie) => movie.imdbID !== payload, localStorage.setItem('favorites', JSON.stringify(state.favorites)));
+      state.favorites = state.favorites.filter(
+        (movie) => movie.imdbID !== payload,
+        localStorage.setItem('favorites', JSON.stringify(state.favorites)),
+      );
     },
   },
 });
