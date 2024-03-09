@@ -1,1 +1,3 @@
-export const ResetPasswordPage = () => <div>ResetPasswordPage</div>;
+import { FormReset } from 'components';
+
+export const ResetPasswordPage = () => <FormReset />;
