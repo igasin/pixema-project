@@ -2,7 +2,11 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { Colors, Media, Typography } from 'ui';
 import { StylesConfig } from 'react-select';
-import { Option } from './Modal';
+
+interface Option {
+  value: string;
+  label: string;
+}
 
 export const Container = styled(motion.div)`
   position: fixed;
@@ -142,16 +146,6 @@ export const selectStyles: StylesConfig<Option> = {
     ...baseStyles,
     display: 'none',
   }),
-  // option: (baseStyles, state) => ({
-  //   ...baseStyles,
-  //   display: 'grid',
-  //   placeItems: 'center',
-  //   backgroundColor: state.isSelected
-  //     ? 'rgba( 123 , 97, 255, 1 )'
-  //     : state.isFocused
-  //       ? 'rgba ( 205 , 209, 228, 1 )'
-  //       : 'transparent',
-  // }),
 
   option: (baseStyles, state) => {
     const updatedStyles = {
