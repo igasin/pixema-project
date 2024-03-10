@@ -7,6 +7,7 @@ import {
 import { useAppDispatch, useAppSelector } from 'store';
 import { toggleMode } from 'store/features';
 import { getTheme } from 'store/selectors';
+import { copyRight } from 'constants/constants';
 import {
   StyledLink, StyledMenu, StyledNavBox, StyledSwitch, StyledTitle,
 } from './styles';
@@ -56,7 +57,7 @@ export const Nav = () => {
           {theme === 'dark' ? 'Dark' : 'Light'}
         </StyledSwitch>
       </StyledNavBox>
-      © All Rights Reserved
+      {copyRight}
     </StyledMenu>
   );
 };

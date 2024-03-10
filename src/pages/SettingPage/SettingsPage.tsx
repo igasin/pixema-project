@@ -5,7 +5,6 @@ import { ROUTE } from 'router';
 import { auth } from '../../firebase';
 
 export const SettingsPage = () => {
-  // const { isAuth } = useAppSelector(getUserInfo);
   const [user, loading] = useAuthState(auth);
   if (loading) {
     return <p>Loading...</p>;

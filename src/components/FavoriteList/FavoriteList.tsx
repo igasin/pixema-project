@@ -7,7 +7,9 @@ export const FavoriteList = () => {
   const { favorites } = useAppSelector(getFavorites);
   return (
     <StyledList>
-      {favorites.map((movie) => <MovieItem movie={movie} key={movie.imdbID} isFavorite />)}
+      {favorites.map((movie) => (
+        <MovieItem movie={movie} key={movie.imdbID} isFavorite />
+      ))}
     </StyledList>
   );
 };

@@ -11,7 +11,6 @@ import {
 import { auth } from '../../firebase';
 
 export const FavoritesPage = () => {
-  // const { isAuth } = useAppSelector(getUserInfo);
   const { favorites } = useAppSelector(getFavorites);
   const [user, loading] = useAuthState(auth);
   if (loading) {

@@ -39,8 +39,8 @@ export const FormSignIn = () => {
     formState: { errors },
   } = useForm<FormValues>();
 
-  const onSubmit: SubmitHandler<FormValues> = (user) => {
-    dispatch(fetchSignInUser(user))
+  const onSubmit: SubmitHandler<FormValues> = (formData) => {
+    dispatch(fetchSignInUser(formData))
       .unwrap()
       .then((user) => {
         dispatch(setAuth(user));

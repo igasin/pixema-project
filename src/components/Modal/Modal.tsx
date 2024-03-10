@@ -31,6 +31,7 @@ import {
   StyledTittleSelect,
   Title,
   selectStyles,
+  selectStylesCountry,
 } from './styles';
 
 interface ModalProps {
@@ -44,6 +45,8 @@ export interface Option {
 }
 
 type OptionType = 'movie' | 'series' | 'episode';
+
+type OptionTypeCountry = 'usa' | 'uk' | 'france';
 
 type CountryOption = {
   value: string;
@@ -98,6 +101,7 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
 
   const handleResetFilter = () => {
     reset();
+    closeModal();
   };
 
   return (
@@ -195,7 +199,7 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
                       defaultValue={countries[0]}
                       options={countries}
                       onChange={(selectedOption) => onChange(selectedOption)}
-                      styles={selectStyles}
+                      styles={selectStylesCountry}
                       isSearchable={false}
                     />
                   )}

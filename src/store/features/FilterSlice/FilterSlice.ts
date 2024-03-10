@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
+import { BASE_URL, OMDB_API_KEY } from 'constants/constants';
 import { transformMoviesApi } from 'mappers';
 import { Movie } from 'types';
 import { Option } from 'types/types';
@@ -32,7 +33,8 @@ export const fetchMoviesByParameter = createAsyncThunk<Movie[], SortedMovies, { 
   async (parameters, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        `https://www.omdbapi.com/?apikey=d50b311e&s=${parameters.s}&y=${parameters.y}&type=${parameters.type}`,
+        `${BASE_URL}?apikey=${OMDB_API_KEY}&page=${parameters.page}`
+        + `&s=${parameters.s}&y=${parameters.y}&type=${parameters.type}`,
       );
 
       const transformedMovies = transformMoviesApi(data);
@@ -72,7 +74,11 @@ const filterSlice = createSlice({
       };
     },
     showNextPage(state, { payload }: PayloadAction<boolean>) {
-      payload ? (state.parameters.page = state.parameters.page + 1) : (state.parameters.page = 1);
+      if (payload) {
+        state.parameters.page += 1;
+      } else {
+        state.parameters.page = 1;
+      }
     },
   },
 
@@ -94,7 +100,8 @@ const filterSlice = createSlice({
 });
 
 export const {
-  setMovieTitle, setMovieYear, setMovieType, deleteMoviesParameters, wipeOutMovies, showNextPage,
+  setMovieTitle, setMovieYear, setMovieType,
+  deleteMoviesParameters, wipeOutMovies, showNextPage,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

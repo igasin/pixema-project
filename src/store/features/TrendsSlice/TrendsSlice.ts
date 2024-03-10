@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
+import { BASE_URL, OMDB_API_KEY } from 'constants/constants';
 import { transformMoviesApi } from 'mappers';
 import { getRandomMovieTrend } from 'services';
 import { Movie } from 'types';
@@ -24,7 +25,7 @@ export const fetchMoviesTrends = createAsyncThunk<Movie[], { theme: string }, { 
   'trends/fetchMoviesTrends',
   async ({ theme }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`https://www.omdbapi.com/?s=${theme}&apikey=d50b311e&page=1`);
+      const { data } = await axios.get(`${BASE_URL}?s=${theme}&apikey=${OMDB_API_KEY}&page=1`);
 
       const transformedMovies = transformMoviesApi(data);
       return transformedMovies;
@@ -40,7 +41,7 @@ export const fetchNextPageTrends = createAsyncThunk<Movie[], { page: number; the
   async (params, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        `https://www.omdbapi.com/?s=${params.theme}&apikey=d50b311e&page=${params.page + 1}`,
+        `${BASE_URL}?s=${params.theme}&apikey=${OMDB_API_KEY}&page=${params.page + 1}`,
       );
 
       const transformedMovies = transformMoviesApi(data);
@@ -57,7 +58,12 @@ const trendsSlice = createSlice({
   initialState,
   reducers: {
     nextTrendsPage(state, { payload }) {
-      payload ? (state.page += 1) : (state.page = 1);
+      // payload ? (state.page += 1) : (state.page = 1);
+      if (payload) {
+        state.page += 1;
+      } else {
+        state.page = 1;
+      }
     },
   },
   extraReducers(builder) {

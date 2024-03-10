@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios, { AxiosError } from 'axios';
+import { BASE_URL, OMDB_API_KEY } from 'constants/constants';
 import { transformDetailsMovies, transformMoviesApi } from 'mappers';
 import { Movie, MovieDetailsInfo } from 'types/types';
 
@@ -23,7 +24,7 @@ string,
 { rejectValue: string }
 >('details/fetchMoviesDetails', async (imdbID, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get(`https://www.omdbapi.com/?i=${imdbID}&apikey=d50b311e&`);
+    const { data } = await axios.get(`${BASE_URL}?i=${imdbID}&apikey=${OMDB_API_KEY}&`);
 
     const transformedMovies = transformDetailsMovies(data);
     return transformedMovies;
@@ -33,14 +34,13 @@ string,
   }
 });
 
-// Movie recommendations
 export const fetchMoviesRecommendations = createAsyncThunk<
 Movie[],
 string,
 { rejectValue: string }
->('movies/fetchMoviesRecommends', async (title, { rejectWithValue }) => {
+>('movies/fetchMoviesRecommends', async (_, { rejectWithValue }) => {
   try {
-    const { data } = await axios.get('https://www.omdbapi.com/?s=man&apikey=d50b311e&');
+    const { data } = await axios.get(`${BASE_URL}?s=space&apikey=${OMDB_API_KEY}&`);
 
     const transformedMovies = transformMoviesApi(data);
     return transformedMovies;

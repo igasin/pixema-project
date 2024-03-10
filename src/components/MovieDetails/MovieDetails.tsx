@@ -60,7 +60,11 @@ export const MovieDetails = memo(({ details, movies }: DetailsProps) => {
   }, [favorites, movieDetails.imdbID]);
 
   const handleFavorite = (): void => {
-    isAuth ? dispatch(addFavorites(movieDetails)) : navigate(ROUTE.Sign_in);
+    if (isAuth) {
+      dispatch(addFavorites(movieDetails));
+    } else {
+      navigate(ROUTE.Sign_in);
+    }
     setButtonColor('#7b61ff');
     setToggle();
   };
@@ -181,7 +185,7 @@ export const MovieDetails = memo(({ details, movies }: DetailsProps) => {
         </DetailsWrap>
       </ContainerMovie>
       <SliderContainer>
-        <Reccomends>Recommendations</Reccomends>
+        <Reccomends>Recommendations for you</Reccomends>
         <SimpleSlider movies={movies} />
       </SliderContainer>
       <FavoriteModal toggleModal={setToggle} isOpen={isOpen} />

@@ -3,6 +3,7 @@ import axios, { AxiosError } from 'axios';
 import { transformMoviesApi } from 'mappers';
 import { getRandomMovie } from 'services';
 import { Movie } from 'types';
+import { OMDB_API_KEY, BASE_URL } from 'constants/constants';
 
 interface MoviesState {
   movies: Movie[];
@@ -16,7 +17,7 @@ export const fetchMovies = createAsyncThunk<Movie[], { theme: string }, { reject
   'movies/fetchMovies',
   async ({ theme }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`https://www.omdbapi.com/?s=${theme}&apikey=d50b311e&`);
+      const { data } = await axios.get(`${BASE_URL}?s=${theme}&apikey=${OMDB_API_KEY}&`);
 
       const transformedMovies = transformMoviesApi(data);
       return transformedMovies;
@@ -32,7 +33,7 @@ export const fetchNextPageMovies = createAsyncThunk<Movie[], { theme: string; pa
   async (params, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(
-        `https://www.omdbapi.com/?s=${params.theme}&apikey=d50b311e&page=${params.page + 1}`,
+        `${BASE_URL}?s=${params.theme}&apikey=${OMDB_API_KEY}&page=${params.page + 1}`,
       );
 
       const transformedMovies = transformMoviesApi(data);
@@ -57,7 +58,8 @@ const moviesSlice = createSlice({
   initialState,
   reducers: {
     nextMoviePage(state, { payload }) {
-      payload ? (state.page += 1) : (state.page = 1);
+      // payload ? (state.page += 1) : (state.page = 1);
+      state.page = (payload && state.page + 1) || 1;
     },
   },
   extraReducers(builder) {
@@ -96,6 +98,3 @@ const moviesSlice = createSlice({
 export const { nextMoviePage } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
-
-// // http://www.omdbapi.com/?apikey=[yourkey]&
-// // apikey=d50b311e

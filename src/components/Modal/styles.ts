@@ -170,3 +170,38 @@ export const selectStyles: StylesConfig<Option> = {
     return updatedStyles;
   },
 };
+
+export const selectStylesCountry: StylesConfig<Option> = {
+  control: (baseStyles) => ({
+    ...baseStyles,
+    border: 'none',
+    borderRadius: '10px',
+    height: '45px',
+  }),
+  singleValue: (baseStyles) => ({
+    ...baseStyles,
+    backgroundColor: '#FFFFFF',
+    textAlign: 'center',
+    fontSize: '18px',
+  }),
+  indicatorSeparator: (baseStyles) => ({
+    ...baseStyles,
+    display: 'none',
+  }),
+  option: (baseStyles, state) => {
+    const updatedStyles = {
+      ...baseStyles,
+      display: 'grid',
+      placeItems: 'center',
+    };
+    if (state.isSelected) {
+      updatedStyles.backgroundColor = 'rgba(123, 97, 255, 1)';
+    } else if (state.isFocused) {
+      updatedStyles.backgroundColor = 'rgba(205, 209, 228, 1)';
+    } else {
+      updatedStyles.backgroundColor = 'transparent';
+    }
+
+    return updatedStyles;
+  },
+};

@@ -5,12 +5,22 @@ import { BurgerMenu, UserProfile } from 'components';
 import { useToggle, useWindowSize } from 'hooks';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ROUTE } from 'router';
-import { deleteMoviesParameters, setMovieTitle, wipeOutMovies } from 'store/features';
+import {
+  deleteMoviesParameters,
+  setMovieTitle,
+  wipeOutMovies,
+} from 'store/features';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store';
 import { getTheme } from 'store/selectors';
 import {
-  BurgerButton, Container, StyledButton, StyledInput, StyledInputForm, StyledLogo, Wrapper,
+  BurgerButton,
+  Container,
+  StyledButton,
+  StyledInput,
+  StyledInputForm,
+  StyledLogo,
+  Wrapper,
 } from './styles';
 
 interface InputProps {
@@ -45,7 +55,11 @@ export const InputSearch = ({ toggleModal }: InputProps) => {
   return (
     <Wrapper>
       <StyledLogo to={ROUTE.Home}>
-        {theme === 'dark' ? <MainLogo width={160} height={50} /> : <DarkLogo width={160} height={50} />}
+        {theme === 'dark' ? (
+          <MainLogo width={160} height={50} />
+        ) : (
+          <DarkLogo width={160} height={50} />
+        )}
       </StyledLogo>
 
       <Container>
@@ -65,7 +79,9 @@ export const InputSearch = ({ toggleModal }: InputProps) => {
         </BurgerButton>
       )}
 
-      {isMenuOpen === true && <BurgerMenu menuToggle={menuToggle} isMenuOpen={isMenuOpen} />}
+      {isMenuOpen === true && (
+        <BurgerMenu menuToggle={menuToggle} isMenuOpen={isMenuOpen} />
+      )}
     </Wrapper>
   );
 };

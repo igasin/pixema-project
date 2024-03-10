@@ -3,6 +3,7 @@ import { Portal, PortalTarget } from 'components/Portal/Portal';
 import { AnimatePresence } from 'framer-motion';
 import { CloseIcon } from 'assets';
 import { Colors } from 'ui';
+import { messageDeleteFavoriteModal } from 'constants/constants';
 import { Close, Message, Title } from './styles';
 
 interface FavoriteProps {
@@ -23,7 +24,7 @@ export const DeleteFavoriteModal = ({ isOpen, toggleModal }: FavoriteProps) => (
         <Close onClick={toggleModal}>
           <CloseIcon stroke={Colors.DARK} />
         </Close>
-        <Title>This movie has been removed from your favorite list</Title>
+        <Title>{messageDeleteFavoriteModal}</Title>
       </Message>
       )}
     </AnimatePresence>

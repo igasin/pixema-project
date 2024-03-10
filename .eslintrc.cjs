@@ -18,7 +18,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    "max-len": ["error", { code: 150 }],
+    "max-len": ["error", { code: 120 }],
     "react/jsx-props-no-spreading": "off",
     "no-param-reassign": ["error", { "props": false }],
     "import/prefer-default-export": "off",

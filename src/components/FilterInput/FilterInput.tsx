@@ -3,4 +3,6 @@ import { StyledFilterInput } from './styles';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-export const FilterInput = ({ type, placeholder, ...rest }: InputProps) => <StyledFilterInput type={type} placeholder={placeholder} {...rest} />;
+export const FilterInput = ({ type, placeholder, ...rest }: InputProps) => (
+  <StyledFilterInput type={type} placeholder={placeholder} {...rest} />
+);

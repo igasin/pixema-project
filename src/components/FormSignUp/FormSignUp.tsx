@@ -45,8 +45,8 @@ export const FormSignUp = () => {
   const dispatch = useAppDispatch();
   const { isLoading, errorMessage } = useAppSelector(getUserInfo);
 
-  const onSubmit: SubmitHandler<UserInfo> = async (user) => {
-    await dispatch(fetchSignUpUser(user))
+  const onSubmit: SubmitHandler<UserInfo> = async (formData) => {
+    await dispatch(fetchSignUpUser(formData))
       .unwrap()
       .then((user) => {
         dispatch(setAuth(user));
@@ -62,20 +62,36 @@ export const FormSignUp = () => {
 
         <InputBox>
           <InputTitle>Name</InputTitle>
-          <InputName placeholder="Name" {...register('userName', nameValidate())} />
-          {errors.userName?.message && <ErrorMessage>{errors.userName.message}</ErrorMessage>}
+          <InputName
+            placeholder="Name"
+            {...register('userName', nameValidate())}
+          />
+          {errors.userName?.message && (
+            <ErrorMessage>{errors.userName.message}</ErrorMessage>
+          )}
         </InputBox>
 
         <InputBox>
           <InputTitle>Email</InputTitle>
-          <InputEmail placeholder="Your Email" {...register('email', emailValidate())} />
-          {errors.email?.message && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+          <InputEmail
+            placeholder="Your Email"
+            {...register('email', emailValidate())}
+          />
+          {errors.email?.message && (
+            <ErrorMessage>{errors.email.message}</ErrorMessage>
+          )}
         </InputBox>
 
         <InputBox>
           <InputTitle>Password</InputTitle>
-          <InputPassword type="password" placeholder="Your password" {...register('password', passwordValidate())} />
-          {errors.password?.message && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+          <InputPassword
+            type="password"
+            placeholder="Your password"
+            {...register('password', passwordValidate())}
+          />
+          {errors.password?.message && (
+            <ErrorMessage>{errors.password.message}</ErrorMessage>
+          )}
         </InputBox>
 
         <InputBox>
@@ -90,8 +106,12 @@ export const FormSignUp = () => {
 
         {getValues('password')
           && getValues('confirmPassword')
-          && getValues('password') !== getValues('confirmPassword') && <ErrorReport>Passwords do not match</ErrorReport>}
-        {errors.confirmPassword && <ErrorMessage>Passwords do not match</ErrorMessage>}
+          && getValues('password') !== getValues('confirmPassword') && (
+            <ErrorReport>Passwords do not match</ErrorReport>
+        )}
+        {errors.confirmPassword && (
+          <ErrorMessage>Passwords do not match</ErrorMessage>
+        )}
         <ButtonWrap>
           <Button type="submit">
             {' '}
