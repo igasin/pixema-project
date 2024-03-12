@@ -1,20 +1,19 @@
 import { AnimatePresence } from 'framer-motion';
 import { ROUTE } from 'router';
 import {
-  BookMarkIcon, CloseIcon, FireIcon, HomeIcon, SettingIcon, UserIcon,
+  BookMarkIcon, CloseIcon, FireIcon, HomeIcon, SettingIcon,
 } from 'assets';
 import { Colors } from 'ui';
-import { CustomLink } from 'components';
+import { CustomLink, UserProfile } from 'components';
 import {
   CloseBurger, StyledBox, StyledMenu, StyledNav, StyledTitle,
 } from './styles';
 
 interface BurgerProps {
   menuToggle: () => void;
-  isMenuOpen: boolean;
 }
 
-export const BurgerMenu = ({ menuToggle, isMenuOpen }: BurgerProps) => (
+export const BurgerMenu = ({ menuToggle }: BurgerProps) => (
   <AnimatePresence>
     <StyledMenu>
       <StyledNav
@@ -27,9 +26,9 @@ export const BurgerMenu = ({ menuToggle, isMenuOpen }: BurgerProps) => (
           <CloseIcon fill={Colors.WHITE} />
         </CloseBurger>
         <StyledBox>
+          <UserProfile />
           <CustomLink to={ROUTE.Home} onClick={menuToggle}>
             <HomeIcon />
-            {' '}
             <StyledTitle>Home</StyledTitle>
           </CustomLink>
           <CustomLink to={ROUTE.Trends} onClick={menuToggle}>
@@ -43,10 +42,6 @@ export const BurgerMenu = ({ menuToggle, isMenuOpen }: BurgerProps) => (
           <CustomLink to={ROUTE.Settings} onClick={menuToggle}>
             <SettingIcon />
             <StyledTitle>Settings</StyledTitle>
-          </CustomLink>
-          <CustomLink to={ROUTE.Sign_in} onClick={menuToggle}>
-            <UserIcon />
-            <StyledTitle>Sign In</StyledTitle>
           </CustomLink>
         </StyledBox>
       </StyledNav>

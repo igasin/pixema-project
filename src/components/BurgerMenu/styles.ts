@@ -26,8 +26,8 @@ export const StyledBox = styled.div`
   grid-template-columns: repeat(1, minmax(0, 1fr));
   grid-template-rows: repeat(5, 1fr);
   place-items: center;
-  grid-gap: 50px;
-  margin-top: 30px;
+  grid-gap: 30px;
+  margin-top: 80px;
 `;
 
 export const StyledLink = styled(Link)`

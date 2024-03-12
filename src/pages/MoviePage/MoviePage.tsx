@@ -1,1 +1,1 @@
-export const MoviePage = () => <div>MoviePage</div>;
+// export const MoviePage = () => <div>MoviePage</div>;
