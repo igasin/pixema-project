@@ -17,3 +17,7 @@ export const CustomLink = ({ children, to, onClick }: CustomLinkProps) => {
     </StyledCustomLink>
   );
 };
+
+CustomLink.defaultProps = {
+  onClick: () => {},
+};

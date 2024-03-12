@@ -2,7 +2,6 @@ import { MovieList } from './MovieList/MovieList';
 import { MovieItem } from './MovieItem/MovieItem';
 import { UserProfile } from './UserProfile/UserProfile';
 import { InputSearch } from './InputSearch/InputSearch';
-// import { Menu } from './Menu/Menu';
 import { Nav } from './Nav/Nav';
 import { RequareAuth } from './RequareAuth/RequareAuth';
 import { CustomLink } from './CustomLink/CustomLink';
@@ -34,7 +33,6 @@ export {
   MovieItem,
   UserProfile,
   InputSearch,
-  // Menu,
   Nav,
   RequareAuth,
   CustomLink,

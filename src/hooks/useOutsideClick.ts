@@ -11,12 +11,13 @@ export const useOutsideClick = <T extends HTMLElement>(
     }
 
     const handleClick = (e: Event) => {
-      if (!elementRef.current) return;
+      if (!elementRef.current) return undefined;
       if (!elementRef.current.contains(e.target as Node)) {
         handler();
       }
+      return undefined;
     };
-
+    /* eslint-disable consistent-return */
     document.addEventListener('mousedown', handleClick);
     return () => {
       document.removeEventListener('mousedown', handleClick);
