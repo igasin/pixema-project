@@ -24,32 +24,48 @@ const initialState: FilterState = {
   isLoading: false,
   error: null,
   parameters: {
-    s: '', y: '', type: '', page: 1,
+    s: '',
+    y: '',
+    type: '',
+    page: 1,
   },
 };
 
-export const fetchMoviesByParameter = createAsyncThunk<Movie[], SortedMovies, { rejectValue: string }>(
-  'filterMovies/fetchByParameter',
-  async (parameters, { rejectWithValue }) => {
-    try {
-      const { data } = await axios.get(
-        `${BASE_URL}?apikey=${OMDB_API_KEY}&page=${parameters.page}`
+export const fetchMoviesByParameter = createAsyncThunk<
+Movie[],
+SortedMovies,
+{ rejectValue: string }
+>('filterMovies/fetchByParameter', async (parameters, { rejectWithValue }) => {
+  try {
+    const { data } = await axios.get(
+      `${BASE_URL}?apikey=${OMDB_API_KEY}&page=${parameters.page}`
         + `&s=${parameters.s}&y=${parameters.y}&type=${parameters.type}`,
-      );
+    );
 
-      const transformedMovies = transformMoviesApi(data);
-      return transformedMovies;
-    } catch (error) {
-      const { message } = error as AxiosError;
-      return rejectWithValue(message);
-    }
-  },
-);
+    const transformedMovies = transformMoviesApi(data);
+    return transformedMovies;
+  } catch (error) {
+    const { message } = error as AxiosError;
+    return rejectWithValue(message);
+  }
+});
 
 const filterSlice = createSlice({
   name: 'filterMovies',
   initialState,
   reducers: {
+    // sortByRating: (state) => {
+    //   state.movies.sort((a, b) => {
+    //     const ratingA = a.imdbRating ? parseFloat(a.imdbRating) : 0;
+    //     const ratingB = b.imdbRating ? parseFloat(b.imdbRating) : 0;
+    //     return ratingB - ratingA;
+    //   });
+    // },
+
+    // sortByYear: (state) => {
+    //   state.movies.sort((a, b) => parseFloat(b.year) - parseFloat(a.year));
+    // },
+
     setMovieTitle: (state, { payload }: PayloadAction<string>) => {
       state.parameters.s = payload;
     },
@@ -100,8 +116,14 @@ const filterSlice = createSlice({
 });
 
 export const {
-  setMovieTitle, setMovieYear, setMovieType,
-  deleteMoviesParameters, wipeOutMovies, showNextPage,
+  // sortByRating,
+  // sortByYear,
+  setMovieTitle,
+  setMovieYear,
+  setMovieType,
+  deleteMoviesParameters,
+  wipeOutMovies,
+  showNextPage,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

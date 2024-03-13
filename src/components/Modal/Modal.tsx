@@ -7,7 +7,11 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTE } from 'router';
 import { useAppDispatch } from 'store';
 import {
-  deleteMoviesParameters, setMovieTitle, setMovieType, setMovieYear, wipeOutMovies,
+  deleteMoviesParameters,
+  setMovieTitle,
+  setMovieType,
+  setMovieYear,
+  wipeOutMovies,
 } from 'store/features';
 import Select from 'react-select';
 import { AnimatePresence } from 'framer-motion';
@@ -104,6 +108,16 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
     closeModal();
   };
 
+  // const handleSortByRating = () => {
+  //   dispatch(sortByRating());
+  //   closeModal();
+  // };
+
+  // const handleSortByYear = () => {
+  //   dispatch(sortByYear());
+  //   closeModal();
+  // };
+
   return (
     <Portal target={PortalTarget.MODAL}>
       <AnimatePresence>
@@ -123,8 +137,12 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
               </StyledTitle>
 
               <StyledButtonBox>
-                <StyledButtonRating>Rating</StyledButtonRating>
-                <StyledButtonYear>Year</StyledButtonYear>
+                <StyledButtonRating onClick={() => {}}>
+                  Rating
+                </StyledButtonRating>
+                <StyledButtonYear onClick={() => {}}>
+                  Year
+                </StyledButtonYear>
               </StyledButtonBox>
 
               <StyledMovieName>
@@ -141,14 +159,21 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
                     },
                     maxLength: {
                       value: 15,
-                      message: 'the field should contain no more than 15 letters',
+                      message:
+                        'the field should contain no more than 15 letters',
                     },
                   }}
                   render={({ field: { ref, ...rest } }) => (
-                    <FilterInput {...rest} placeholder="Enter title" type="text" />
+                    <FilterInput
+                      {...rest}
+                      placeholder="Enter title"
+                      type="text"
+                    />
                   )}
                 />
-                {errors.s?.message && <StyledError>{errors.s.message}</StyledError>}
+                {errors.s?.message && (
+                  <StyledError>{errors.s.message}</StyledError>
+                )}
               </StyledMovieName>
 
               <StyledMovieYear>
@@ -165,9 +190,13 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
                       message: 'Please enter a valid year',
                     },
                   }}
-                  render={({ field: { ref, ...rest } }) => <FilterInput {...rest} placeholder="Year" type="text" />}
+                  render={({ field: { ref, ...rest } }) => (
+                    <FilterInput {...rest} placeholder="Year" type="text" />
+                  )}
                 />
-                {errors.y?.message && <StyledError>{errors.y.message}</StyledError>}
+                {errors.y?.message && (
+                  <StyledError>{errors.y.message}</StyledError>
+                )}
               </StyledMovieYear>
 
               <StyledSelect>
@@ -207,7 +236,9 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
               </StyledSelect>
 
               <StyledButtonBox>
-                <StyledButtonClear onClick={handleResetFilter}>Clear Filter</StyledButtonClear>
+                <StyledButtonClear onClick={handleResetFilter}>
+                  Clear Filter
+                </StyledButtonClear>
                 <StyledButtonShow type="submit">Show results</StyledButtonShow>
               </StyledButtonBox>
             </StyledForm>
