@@ -80,7 +80,7 @@ export const InputSearch = ({ toggleModal }: InputProps) => {
       )}
 
       {isMenuOpen === true && (
-        <BurgerMenu menuToggle={menuToggle} isMenuOpen={isMenuOpen} />
+        <BurgerMenu menuToggle={menuToggle} />
       )}
     </Wrapper>
   );
