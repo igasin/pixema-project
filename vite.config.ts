@@ -13,7 +13,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // ];
 
 export default defineConfig({
-  base: "https://igasin.github.io/pixema-project/",
+  base: "/pixema-project/",
   plugins: [
     react(),
     svgr(),
