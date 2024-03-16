@@ -1,10 +1,5 @@
-import { ReactNode } from 'react';
 import { StyledButton } from './styles';
-
-interface ButtonProps {
-  type: 'button' | 'submit' | 'reset';
-  children: ReactNode;
-}
+import { ButtonProps } from './Button.interface';
 
 export const Button = ({ type, children }: ButtonProps) => (
   <StyledButton type={type}>{children}</StyledButton>

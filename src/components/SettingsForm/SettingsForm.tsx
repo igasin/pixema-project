@@ -35,14 +35,7 @@ import {
   TitleColor,
   WrapInput,
 } from './styles';
-
-interface FormValues {
-  name: string;
-  email: string;
-  password: string;
-  newPassword: string;
-  confirmPassword: string;
-}
+import { FormValues } from './SettingsForm.interface';
 
 export const SettingsForm = () => {
   const { theme } = useAppSelector(getTheme);

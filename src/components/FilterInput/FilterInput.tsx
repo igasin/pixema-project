@@ -1,7 +1,5 @@
-import { InputHTMLAttributes } from 'react';
+import { InputProps } from './FilterInput.interface';
 import { StyledFilterInput } from './styles';
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 export const FilterInput = ({ type, placeholder, ...rest }: InputProps) => (
   <StyledFilterInput type={type} placeholder={placeholder} {...rest} />

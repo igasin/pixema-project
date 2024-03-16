@@ -6,6 +6,7 @@ import { getUserInfo } from 'store/selectors';
 import { useAppDispatch, useAppSelector } from 'store';
 import { useNavigate } from 'react-router-dom';
 import { fetchSignInUser, setAuth } from 'store/features';
+import { FormValues } from './FormSignIn.interface';
 import {
   ButtonWrap,
   ErrorMessage,
@@ -22,11 +23,6 @@ import {
   TitleForm,
   TitleResetPassword,
 } from './styles';
-
-interface FormValues {
-  email: string;
-  password: string;
-}
 
 export const FormSignIn = () => {
   const { isLoading, errorMessage } = useAppSelector(getUserInfo);

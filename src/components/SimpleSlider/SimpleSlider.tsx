@@ -2,12 +2,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Slide } from 'components';
-import { Movie } from 'types';
+import { SliderProps } from './SimpleSlider.interface';
 import { Slick, SlideContainer } from './styles';
-
-interface SliderProps {
-  movies: Movie[];
-}
 
 export const SimpleSlider = ({ movies }: SliderProps) => {
   const settings = {

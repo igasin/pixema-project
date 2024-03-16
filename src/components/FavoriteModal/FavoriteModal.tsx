@@ -1,15 +1,10 @@
 import { Portal, PortalTarget } from 'components/Portal/Portal';
-import React from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { CloseIcon } from 'assets';
 import { Colors } from 'ui';
 import { messageFavoriteModal } from 'constants/constants';
 import { Close, Message, Title } from './styles';
-
-interface FavoriteProps {
-  toggleModal: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  isOpen: boolean;
-}
+import { FavoriteProps } from './FavoriteModal.interface';
 
 export const FavoriteModal = ({ isOpen, toggleModal }: FavoriteProps) => (
   <Portal target={PortalTarget.MODAL}>

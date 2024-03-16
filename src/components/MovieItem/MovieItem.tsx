@@ -1,17 +1,11 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import { Movie } from 'types';
 import { BookMarkIcon, FireIcon, ImageNotFount } from 'assets';
 import { Colors } from 'ui';
 import {
   FavoriteLabel, MovieBox, MovieCard, MoviePoster, PosterWrap, TitleMovie, TrendsLabel,
 } from './styles';
-
-interface MovieItemProps {
-  movie: Movie;
-  isTrend?: boolean;
-  isFavorite?: boolean;
-}
+import { MovieItemProps } from './MovieItem.interface';
 
 export const MovieItem = memo(({ isFavorite, isTrend, movie: { title, poster, imdbID } }: MovieItemProps) => (
   <Link to={`/details/${imdbID}`}>

@@ -1,5 +1,4 @@
 import { useEffect, useState, memo } from 'react';
-import { Movie, MovieDetailsInfo } from 'types';
 
 import { DeleteFavoriteIcon, FavoriteIcon } from 'assets';
 import { useAppDispatch, useAppSelector } from 'store';
@@ -34,11 +33,7 @@ import {
   TitleMovie,
   Wrap,
 } from './styles';
-
-interface DetailsProps {
-  details: MovieDetailsInfo;
-  movies: Movie[];
-}
+import { DetailsProps } from './MovieDetails.interface';
 
 export const MovieDetails = memo(({ details, movies }: DetailsProps) => {
   const dispatch = useAppDispatch();

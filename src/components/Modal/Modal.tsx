@@ -37,32 +37,9 @@ import {
   selectStyles,
   selectStylesCountry,
 } from './styles';
-
-interface ModalProps {
-  isOpen: boolean;
-  toggleModal: (value: boolean) => void;
-}
-
-export interface Option {
-  readonly value: OptionType;
-  readonly label: string;
-}
-
-type OptionType = 'movie' | 'series' | 'episode';
-
-type OptionTypeCountry = 'usa' | 'uk' | 'france';
-
-type CountryOption = {
-  value: string;
-  label: string;
-};
-
-interface FormValues {
-  s: string;
-  y: string;
-  type: Option;
-  country: CountryOption;
-}
+import {
+  ModalProps, Option, CountryOption, FormValues,
+} from './Modal.interface';
 
 const options: Option[] = [
   { value: 'series', label: 'series' },
@@ -123,10 +100,12 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
       <AnimatePresence>
         {isOpen && (
           <Container
-            initial={{ opacity: 0, x: '-100vh' }}
+            initial={{ opacity: 0, x: '100vh' }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ type: 'spring', stiffness: 100 }}
-            exit={{ opacity: 0, x: '-100vh' }}
+            transition={{
+              type: 'spring', stiffness: 110, damping: 13, delay: 0.1,
+            }}
+            exit={{ opacity: 0, x: '100vh' }}
           >
             <StyledForm onSubmit={handleSubmit(onSubmit)} ref={closeRef}>
               <StyledTitle>

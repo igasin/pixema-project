@@ -1,13 +1,6 @@
-import { ReactNode } from 'react';
 import { useMatch } from 'react-router-dom';
-import { ROUTE } from 'router';
 import { StyledCustomLink } from './styles';
-
-interface CustomLinkProps {
-  children: ReactNode;
-  to: ROUTE;
-  onClick?: () => void;
-}
+import { CustomLinkProps } from './CustomLink.interface';
 
 export const CustomLink = ({ children, to, onClick }: CustomLinkProps) => {
   const isActive = useMatch(to);
@@ -16,8 +9,4 @@ export const CustomLink = ({ children, to, onClick }: CustomLinkProps) => {
       {children}
     </StyledCustomLink>
   );
-};
-
-CustomLink.defaultProps = {
-  onClick: () => {},
 };

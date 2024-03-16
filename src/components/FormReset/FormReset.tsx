@@ -6,6 +6,7 @@ import { fetchResetPassword } from 'store/features';
 import { useToggle } from 'hooks';
 import { ROUTE } from 'router';
 import { getUserInfo } from 'store/selectors';
+import { FormValues } from './FormReset.interface';
 import {
   ButtonWrap,
   ErrorMessage,
@@ -21,10 +22,6 @@ import {
   Title,
   TitleForm,
 } from './styles';
-
-interface FormValues {
-  email: string;
-}
 
 export const FormReset = () => {
   const [isToggle, setToggle] = useToggle();

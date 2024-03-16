@@ -1,9 +1,5 @@
-import { Movie } from 'types';
 import { SlideMovie, SlidePoster, Title } from './styles';
-
-interface SlideProps {
-  movie: Movie;
-}
+import { SlideProps } from './Slide.interface';
 
 export const Slide = ({ movie }: SlideProps) => {
   const { title, poster, imdbID } = movie;

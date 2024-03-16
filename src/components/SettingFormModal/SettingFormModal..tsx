@@ -1,10 +1,6 @@
 import { Portal, PortalTarget } from 'components/Portal/Portal';
 import { Message, SettingMessage } from './styles';
-
-interface SettingProps {
-  toggleModal: (value: boolean) => void;
-  isOpen: boolean;
-}
+import { SettingProps } from './SettingFormModal.interface';
 
 export const SettingFormModal = ({ isOpen }: SettingProps) => (
   <Portal target={PortalTarget.MODAL}>

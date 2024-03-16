@@ -1,11 +1,7 @@
 import { memo } from 'react';
-import { Movie } from 'types';
 import { MovieItem } from 'components/MovieItem/MovieItem';
+import { TrendsProps } from './TrendList.interface';
 import { StyledTrends } from './styles';
-
-interface TrendsProps {
-  movies: Movie[];
-}
 
 export const TrendList = memo(({ movies }: TrendsProps) => (
   <StyledTrends>

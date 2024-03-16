@@ -1,12 +1,7 @@
 import { memo } from 'react';
-import { Movie } from 'types';
 import { MovieItem } from 'components';
-
+import { MovieListProps } from './MovieList.interface';
 import { StyledMovieList } from './styles';
-
-interface MovieListProps {
-  movies: Movie[];
-}
 
 export const MovieList = memo(({ movies }: MovieListProps) => (
   <StyledMovieList>

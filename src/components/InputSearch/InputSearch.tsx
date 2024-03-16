@@ -13,6 +13,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store';
 import { getTheme } from 'store/selectors';
+import { InputProps, FormValues } from './InputSearch.interface';
 import {
   BurgerButton,
   Container,
@@ -22,14 +23,6 @@ import {
   StyledLogo,
   Wrapper,
 } from './styles';
-
-interface InputProps {
-  toggleModal: (value: boolean) => void;
-}
-
-interface FormValues {
-  s: string;
-}
 
 export const InputSearch = ({ toggleModal }: InputProps) => {
   const dispatch = useAppDispatch();

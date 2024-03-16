@@ -8,10 +8,7 @@ import { CustomLink, UserProfile } from 'components';
 import {
   CloseBurger, StyledBox, StyledMenu, StyledNav, StyledTitle,
 } from './styles';
-
-interface BurgerProps {
-  menuToggle: () => void;
-}
+import { BurgerProps } from './BurgerMenu.interface';
 
 export const BurgerMenu = ({ menuToggle }: BurgerProps) => (
   <AnimatePresence>

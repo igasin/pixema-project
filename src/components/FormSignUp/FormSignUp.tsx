@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from 'store';
 import { fetchSignUpUser, setAuth } from 'store/features/UserSlice/UserSlice';
 import { getUserInfo } from 'store/selectors';
 import { emailValidate, nameValidate, passwordValidate } from 'services';
+import { UserInfo } from './FormSignUp.interface';
 import {
   ButtonWrap,
   ErrorMessage,
@@ -24,14 +25,6 @@ import {
   StyledLink,
   TitleForm,
 } from './styles';
-
-interface UserInfo {
-  email: string;
-  password: string;
-  userName: string;
-  confirmPassword: string;
-  isAuth: boolean;
-}
 
 export const FormSignUp = () => {
   const {

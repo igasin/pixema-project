@@ -1,10 +1,7 @@
 import Switch from '@mui/material/Switch';
+import { SwitchProps } from './BasicSwitch.interface';
 
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
-
-interface SwitchProps {
-  onClick: () => void;
-}
 
 export const BasicSwitch = ({ onClick }: SwitchProps) => (
   <div>
