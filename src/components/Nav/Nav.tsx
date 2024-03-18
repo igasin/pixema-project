@@ -9,7 +9,7 @@ import { toggleMode } from 'store/features';
 import { getTheme } from 'store/selectors';
 import { copyRight } from 'constants/constants';
 import {
-  StyledLink, StyledMenu, StyledNavBox, StyledSwitch, StyledTitle,
+  StyledLink, StyledMenu, StyledNavBox, StyledSwitch, StyledTitle, StyledContainer,
 } from './styles';
 
 export const Nav = () => {
@@ -29,7 +29,6 @@ export const Nav = () => {
       <StyledNavBox>
         <CustomLink to={ROUTE.Home}>
           <StyledLink>
-            {' '}
             <HomeIcon />
             <StyledTitle>Home</StyledTitle>
           </StyledLink>
@@ -52,12 +51,14 @@ export const Nav = () => {
             <StyledTitle>Settings</StyledTitle>
           </StyledLink>
         </CustomLink>
+      </StyledNavBox>
+      <StyledContainer>
         <StyledSwitch>
           <BasicSwitch onClick={toggleTheme} />
           {theme === 'dark' ? 'Dark' : 'Light'}
         </StyledSwitch>
-      </StyledNavBox>
-      {copyRight}
+        {copyRight}
+      </StyledContainer>
     </StyledMenu>
   );
 };
