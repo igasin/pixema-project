@@ -33,5 +33,5 @@ export const Wrap = styled.div`
 `;
 
 export const StyledNav = styled.div`
-  width: 250px;
+  width: 220px;
 `;
