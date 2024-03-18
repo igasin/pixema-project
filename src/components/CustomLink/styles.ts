@@ -2,9 +2,9 @@ import { Link, PathMatch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Colors, Typography } from 'ui';
 
-type isActive = { $isActive: PathMatch<string> | null };
+type IsActive = { $isActive: PathMatch<string> | null };
 
-export const StyledCustomLink = styled(Link)<isActive>`
+export const StyledCustomLink = styled(Link)<IsActive>`
   display: grid;
   grid-template-columns: repeat(2, 50px);
   grid-gap: 15px;

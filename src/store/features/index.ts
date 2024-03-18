@@ -5,8 +5,6 @@ import {
 } from './MovieSlice/MovieSlice';
 import {
   fetchMoviesByParameter,
-  // sortByRating,
-  // sortByYear,
   setMovieTitle,
   setMovieType,
   setMovieYear,
@@ -38,8 +36,6 @@ export {
   fetchMoviesByParameter,
   fetchMoviesDetails,
   fetchMoviesTrends,
-  // sortByRating,
-  // sortByYear,
   setMovieTitle,
   setMovieType,
   setMovieYear,

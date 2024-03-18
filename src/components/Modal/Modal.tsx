@@ -41,7 +41,7 @@ import {
   ModalProps, Option, CountryOption, FormValues,
 } from './Modal.interface';
 
-const options: Option[] = [
+const movieOptions: Option[] = [
   { value: 'series', label: 'series' },
   { value: 'movie', label: 'movie' },
   { value: 'episode', label: 'episode' },
@@ -84,16 +84,6 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
     reset();
     closeModal();
   };
-
-  // const handleSortByRating = () => {
-  //   dispatch(sortByRating());
-  //   closeModal();
-  // };
-
-  // const handleSortByYear = () => {
-  //   dispatch(sortByYear());
-  //   closeModal();
-  // };
 
   return (
     <Portal target={PortalTarget.MODAL}>
@@ -186,8 +176,8 @@ export const Modal = ({ isOpen, toggleModal }: ModalProps) => {
                   render={({ field: { onChange } }) => (
                     <Select
                       isMulti={false}
-                      defaultValue={options[0]}
-                      options={options}
+                      defaultValue={movieOptions[0]}
+                      options={movieOptions}
                       onChange={(options) => options && onChange(options.value)}
                       styles={selectStyles}
                       isSearchable={false}

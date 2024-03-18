@@ -58,7 +58,6 @@ const moviesSlice = createSlice({
   initialState,
   reducers: {
     nextMoviePage(state, { payload }) {
-      // payload ? (state.page += 1) : (state.page = 1);
       state.page = (payload && state.page + 1) || 1;
     },
   },

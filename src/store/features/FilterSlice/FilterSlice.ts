@@ -54,18 +54,6 @@ const filterSlice = createSlice({
   name: 'filterMovies',
   initialState,
   reducers: {
-    // sortByRating: (state) => {
-    //   state.movies.sort((a, b) => {
-    //     const ratingA = a.imdbRating ? parseFloat(a.imdbRating) : 0;
-    //     const ratingB = b.imdbRating ? parseFloat(b.imdbRating) : 0;
-    //     return ratingB - ratingA;
-    //   });
-    // },
-
-    // sortByYear: (state) => {
-    //   state.movies.sort((a, b) => parseFloat(b.year) - parseFloat(a.year));
-    // },
-
     setMovieTitle: (state, { payload }: PayloadAction<string>) => {
       state.parameters.s = payload;
     },
@@ -116,8 +104,6 @@ const filterSlice = createSlice({
 });
 
 export const {
-  // sortByRating,
-  // sortByYear,
   setMovieTitle,
   setMovieYear,
   setMovieType,

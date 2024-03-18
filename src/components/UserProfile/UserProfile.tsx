@@ -7,7 +7,14 @@ import { useToggle } from 'hooks';
 import { fetchSignOut, unsetAuth } from 'store/features';
 import { Colors } from 'ui';
 import {
-  LogOut, Menu, StyledLink, StyledUser, Title, UserBadge, UserBox, UserButton,
+  LogOut,
+  Menu,
+  StyledLink,
+  StyledUser,
+  Title,
+  UserBadge,
+  UserBox,
+  UserButton,
 } from './styles';
 
 export const UserProfile = () => {
@@ -33,7 +40,11 @@ export const UserProfile = () => {
       </UserButton>
       {toggle && (
         <AnimatePresence>
-          <Menu initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
+          <Menu
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+          >
             {isAuth ? (
               <>
                 <StyledLink to={ROUTE.Settings}>Edit</StyledLink>

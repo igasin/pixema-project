@@ -5,6 +5,8 @@ import { StyledMovieList } from './styles';
 
 export const MovieList = memo(({ movies }: MovieListProps) => (
   <StyledMovieList>
-    {movies.map((movie) => <MovieItem movie={movie} key={movie.imdbID} />)}
+    {movies.map((movie) => (
+      <MovieItem movie={movie} key={movie.imdbID} />
+    ))}
   </StyledMovieList>
 ));

@@ -58,7 +58,6 @@ const trendsSlice = createSlice({
   initialState,
   reducers: {
     nextTrendsPage(state, { payload }) {
-      // payload ? (state.page += 1) : (state.page = 1);
       if (payload) {
         state.page += 1;
       } else {

@@ -51,17 +51,30 @@ export const FormSignIn = () => {
 
         <InputBox>
           <InputTitle>Email</InputTitle>
-          <InputEmail placeholder="Your Email" {...register('email', emailValidate())} />
-          {errors.email?.message && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+          <InputEmail
+            placeholder="Your Email"
+            {...register('email', emailValidate())}
+          />
+          {errors.email?.message && (
+            <ErrorMessage>{errors.email.message}</ErrorMessage>
+          )}
         </InputBox>
 
         <InputBox>
           <InputTitle>Password</InputTitle>
-          <InputPassword type="password" placeholder="Your password" {...register('password', passwordValidate())} />
+          <InputPassword
+            type="password"
+            placeholder="Your password"
+            {...register('password', passwordValidate())}
+          />
 
-          {errors.password?.message && <ErrorMessage>{errors.password.message}</ErrorMessage>}
+          {errors.password?.message && (
+            <ErrorMessage>{errors.password.message}</ErrorMessage>
+          )}
 
-          <TitleResetPassword to={ROUTE.Reset_password}>Forgot password?</TitleResetPassword>
+          <TitleResetPassword to={ROUTE.Reset_password}>
+            Forgot password?
+          </TitleResetPassword>
         </InputBox>
         <ButtonWrap>
           <Button type="submit">
