@@ -20,7 +20,8 @@ export const StyledButton = styled.button`
   cursor: pointer;
   transition: 0.3s;
   ${Typography.S1}
-  :hover {
+  
+  &:hover {
     transform: scale(1.1);
     background-color: ${Colors.PRIMARY};
   }

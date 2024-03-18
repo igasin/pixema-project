@@ -3,11 +3,17 @@ import { Media } from 'ui';
 
 export const StyledList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   place-items: center;
-  gap: 30px;
+  gap: 25px;
   ul li {
     text-decoration: none;
+  }
+
+  ${Media.sXXL} {
+    grid-template-columns: repeat(4, minmax(200px, 300px));
+    grid-gap: 30px;
+    justify-self: center;
   }
 
   ${Media.XL} {

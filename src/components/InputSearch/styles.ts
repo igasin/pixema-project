@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   align-items: center;
   grid-row-gap: 30px;
   grid-template-areas: "logo input button";
-  grid-template-columns: minmax(auto, 240px) minmax(auto, 950px) minmax(auto, 300px);
+  grid-template-columns: minmax(auto, 240px) minmax(auto, 1920px) minmax(auto, 300px);
   background-color: ${Colors.BLACK};
   place-items: center;
   ${Media.M} {

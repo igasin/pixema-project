@@ -3,12 +3,17 @@ import { Media } from 'ui';
 
 export const StyledMovieList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-row-gap: 30px;
-  grid-column-gap: 30px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 25px 25px;
   place-items: center;
   ul li {
     text-decoration: none;
+  }
+
+  ${Media.sXXL} {
+    grid-template-columns: repeat(4, minmax(200px, 300px));
+    grid-gap: 30px;
+    justify-self: center;
   }
 
   ${Media.XL} {
