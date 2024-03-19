@@ -1,30 +1,42 @@
-# React + TypeScript + Vite
+# Pixema Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Pixema Project](/src/assets/image/pixema.jpg)
 
-Currently, two official plugins are available:
+## Project Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Pixema is a movie project that provides detailed information about each movie. The project includes user authentication using Firebase and supports theme switching.
 
-## Expanding the ESLint configuration
+You can visit the site at the following link: [Pixema](https://igasin.github.io/pixema-project/)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technology Stack
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- Redux Toolkit
+- TypeScript
+- Firebase
+- Axios
+- Styled Components
+- Emotion
+- React Router Dom
+- Vite
+- React Hook Form
+- Swiper
+- React Icons
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Installation and Running the Project
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository to your local computer using the `git clone` command.
+2. Install all necessary dependencies using the `npm install` command.
+3. Run the project in development mode using the `npm run dev` command.
+
+## Deployment
+
+The project is automatically deployed to GitHub Pages.
+
+## Screenshots
+
+![Login page screenshot](/src/assets/screenshots/screenshot-sign-in.jpg)
+
+![Home page screenshot](/src/assets/screenshots/screenshot-home-page.jpg)
+
+![Screenshot of filters](/src/assets/screenshots/screenshot-filters.jpg)

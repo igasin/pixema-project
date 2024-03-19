@@ -19,6 +19,9 @@ import ShareIcon from './icons/share-icon.svg?react';
 import DeleteFavoriteIcon from './icons/delete-favorites-icon.svg?react';
 import NotFoundMovie from './image/not-found-favorite-image.png';
 import NotResults from './image/no-results.png';
+import ScreenShotSignIn from './screenshots/screenshot-sign-in.jpg';
+import ScreenShotHomePage from './screenshots/screenshot-home-page.jpg';
+import ScreenShotFilters from './screenshots/screenshot-filters.jpg';
 
 export {
   HomeIcon,
@@ -40,4 +43,7 @@ export {
   DeleteFavoriteIcon,
   NotFoundMovie,
   NotResults,
+  ScreenShotSignIn,
+  ScreenShotHomePage,
+  ScreenShotFilters,
 };
